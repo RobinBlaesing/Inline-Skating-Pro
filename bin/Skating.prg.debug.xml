@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+<manifest filename="C:\Users\Robin\eclipse-workspace\Skating\manifest.xml"/>
+<pcToLineNum>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="3" lineNum="29" pc="268435456" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="3" lineNum="30" pc="268435460" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="3" lineNum="31" pc="268435481" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="3" lineNum="32" pc="268435499" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="4" lineNum="35" pc="268435512" symbol="onMenu"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="4" lineNum="36" pc="268435516" symbol="onMenu"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="4" lineNum="37" pc="268435537" symbol="onMenu"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="4" lineNum="38" pc="268435621" symbol="onMenu"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="44" pc="268435625" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="45" pc="268435629" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="46" pc="268435650" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="47" pc="268435667" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="48" pc="268435706" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="49" pc="268435730" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="50" pc="268435743" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="51" pc="268435761" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="52" pc="268435778" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="55" pc="268435802" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="57" pc="268435823" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="58" pc="268435835" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="61" pc="268435854" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="5" lineNum="67" pc="268435875" symbol="onSelect"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="6" lineNum="70" pc="268435879" symbol="createSession"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="6" lineNum="71" pc="268435883" symbol="createSession"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="6" lineNum="72" pc="268435904" symbol="createSession"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="6" lineNum="73" pc="268435915" symbol="createSession"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="6" lineNum="78" pc="268435991" symbol="createSession"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="6" lineNum="79" pc="268436012" symbol="createSession"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="6" lineNum="81" pc="268436018" symbol="createSession"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="7" lineNum="84" pc="268436021" symbol="createFields"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="7" lineNum="85" pc="268436025" symbol="createFields"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="7" lineNum="86" pc="268436061" symbol="createFields"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="7" lineNum="87" pc="268436147" symbol="createFields"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="7" lineNum="88" pc="268436168" symbol="createFields"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="7" lineNum="89" pc="268436254" symbol="createFields"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="93" pc="268436279" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="94" pc="268436283" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="95" pc="268436306" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="96" pc="268436327" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="99" pc="268436355" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="100" pc="268436380" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="103" pc="268436406" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="104" pc="268436434" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="107" pc="268436468" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="108" pc="268436481" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="109" pc="268436521" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="113" pc="268436547" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="117" pc="268436567" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="118" pc="268436607" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="119" pc="268436607" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="120" pc="268436637" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="121" pc="268436650" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="122" pc="268436705" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="125" pc="268436771" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="126" pc="268436781" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="128" pc="268436835" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="129" pc="268436887" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="8" lineNum="130" pc="268436922" symbol="recordCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="134" pc="268436965" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="135" pc="268436969" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="136" pc="268436992" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="137" pc="268437015" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="138" pc="268437060" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="141" pc="268437097" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="142" pc="268437122" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="143" pc="268437145" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="146" pc="268437171" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="147" pc="268437209" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="150" pc="268437243" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="151" pc="268437256" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="152" pc="268437296" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="156" pc="268437322" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="160" pc="268437342" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="161" pc="268437391" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="162" pc="268437391" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="163" pc="268437421" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="164" pc="268437434" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="165" pc="268437505" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="168" pc="268437587" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="169" pc="268437597" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="171" pc="268437639" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="172" pc="268437707" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="9" lineNum="173" pc="268437733" symbol="recordStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="177" pc="268437767" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="178" pc="268437771" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="179" pc="268437784" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="180" pc="268437784" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="181" pc="268437791" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="182" pc="268437798" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="183" pc="268437805" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="184" pc="268437812" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="185" pc="268437836" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="186" pc="268437843" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="187" pc="268437872" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="188" pc="268437906" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="189" pc="268437925" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="190" pc="268437944" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="193" pc="268437981" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="10" lineNum="196" pc="268438004" symbol="calcSlope"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="199" pc="268438071" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="200" pc="268438075" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="201" pc="268438078" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="202" pc="268438081" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="203" pc="268438084" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="204" pc="268438095" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="205" pc="268438109" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="211" pc="268438252" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="212" pc="268438263" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="213" pc="268438277" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="219" pc="268438420" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="220" pc="268438431" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="251" pc="268439715" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="257" pc="268439858" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="260" pc="268439886" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="11" lineNum="263" pc="268439914" symbol="userFeedbackNotification"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="12" lineNum="270" pc="268439943" symbol="setupTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="12" lineNum="271" pc="268439947" symbol="setupTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="12" lineNum="272" pc="268439981" symbol="setupTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="12" lineNum="273" pc="268440022" symbol="setupTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="13" lineNum="276" pc="268440046" symbol="updateEverySecond"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="13" lineNum="277" pc="268440050" symbol="updateEverySecond"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="13" lineNum="278" pc="268440062" symbol="updateEverySecond"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="13" lineNum="279" pc="268440074" symbol="updateEverySecond"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="13" lineNum="20" pc="268448029" symbol="&lt;init&gt;"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingDelegate.mc" id="13" lineNum="27" pc="268448084" symbol="&lt;init&gt;"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="64" pc="268440091" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="65" pc="268440095" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="66" pc="268440118" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="69" pc="268440136" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="70" pc="268440179" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="75" pc="268440222" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="78" pc="268440235" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="79" pc="268440255" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="82" pc="268440275" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="15" lineNum="83" pc="268440288" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="87" pc="268440309" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="88" pc="268440313" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="89" pc="268440336" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="91" pc="268440373" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="92" pc="268440385" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="93" pc="268440413" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="95" pc="268440425" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="96" pc="268440450" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="99" pc="268440475" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="100" pc="268440506" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="101" pc="268440546" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="102" pc="268440558" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="108" pc="268440640" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="109" pc="268440762" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="111" pc="268440782" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="112" pc="268440892" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="114" pc="268440912" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="115" pc="268441031" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="117" pc="268441051" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="118" pc="268441179" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="120" pc="268441199" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="121" pc="268441327" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="123" pc="268441347" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="124" pc="268441429" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="125" pc="268441465" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="126" pc="268441485" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="128" pc="268441505" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="129" pc="268441587" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="130" pc="268441623" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="131" pc="268441643" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="133" pc="268441663" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="134" pc="268441745" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="135" pc="268441781" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="136" pc="268441801" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="138" pc="268441821" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="139" pc="268441903" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="140" pc="268441939" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="141" pc="268441959" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="143" pc="268441979" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="144" pc="268442075" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="16" lineNum="145" pc="268442111" symbol="onLayout"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="17" lineNum="152" pc="268442132" symbol="rescaleLayerPos"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="17" lineNum="153" pc="268442136" symbol="rescaleLayerPos"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="17" lineNum="154" pc="268442170" symbol="rescaleLayerPos"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="18" lineNum="158" pc="268442205" symbol="scale"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="18" lineNum="159" pc="268442209" symbol="scale"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="18" lineNum="160" pc="268442222" symbol="scale"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="19" lineNum="164" pc="268442235" symbol="rescaleStdFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="19" lineNum="165" pc="268442239" symbol="rescaleStdFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="19" lineNum="166" pc="268442253" symbol="rescaleStdFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="19" lineNum="167" pc="268442281" symbol="rescaleStdFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="19" lineNum="168" pc="268442295" symbol="rescaleStdFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="19" lineNum="169" pc="268442305" symbol="rescaleStdFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="19" lineNum="171" pc="268442345" symbol="rescaleStdFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="19" lineNum="172" pc="268442355" symbol="rescaleStdFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="20" lineNum="178" pc="268442387" symbol="onShow"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="20" lineNum="179" pc="268442391" symbol="onShow"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="21" lineNum="185" pc="268442415" symbol="onHide"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="21" lineNum="186" pc="268442419" symbol="onHide"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="191" pc="268442443" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="192" pc="268442447" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="193" pc="268442470" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="194" pc="268442498" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="196" pc="268442510" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="197" pc="268442530" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="198" pc="268442558" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="202" pc="268442570" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="204" pc="268442599" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="206" pc="268442628" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="208" pc="268442657" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="210" pc="268442686" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="212" pc="268442715" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="214" pc="268442744" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="216" pc="268442773" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="218" pc="268442802" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="22" lineNum="220" pc="268442831" symbol="onUpdate"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="23" lineNum="225" pc="268442844" symbol="maxFontDc"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="23" lineNum="226" pc="268442848" symbol="maxFontDc"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="229" pc="268442889" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="230" pc="268442893" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="231" pc="268442907" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="232" pc="268442951" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="233" pc="268442968" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="234" pc="268442999" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="235" pc="268443009" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="237" pc="268443029" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="238" pc="268443035" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="24" lineNum="240" pc="268443061" symbol="maxFont"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="25" lineNum="246" pc="268443087" symbol="centerFontVert"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="25" lineNum="247" pc="268443091" symbol="centerFontVert"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="25" lineNum="248" pc="268443119" symbol="centerFontVert"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="26" lineNum="255" pc="268443142" symbol="updateConnections"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="26" lineNum="256" pc="268443146" symbol="updateConnections"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="26" lineNum="258" pc="268443158" symbol="updateConnections"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="26" lineNum="259" pc="268443182" symbol="updateConnections"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="26" lineNum="260" pc="268443214" symbol="updateConnections"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="27" lineNum="264" pc="268443280" symbol="updateClock"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="27" lineNum="265" pc="268443284" symbol="updateClock"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="27" lineNum="267" pc="268443296" symbol="updateClock"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="27" lineNum="268" pc="268443315" symbol="updateClock"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="27" lineNum="269" pc="268443339" symbol="updateClock"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="27" lineNum="270" pc="268443363" symbol="updateClock"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="27" lineNum="271" pc="268443413" symbol="updateClock"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="27" lineNum="273" pc="268443432" symbol="updateClock"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="27" lineNum="274" pc="268443464" symbol="updateClock"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="277" pc="268443515" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="278" pc="268443519" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="279" pc="268443531" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="281" pc="268443567" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="283" pc="268443584" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="284" pc="268443584" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="285" pc="268443584" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="286" pc="268443584" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="288" pc="268443584" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="289" pc="268443602" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="290" pc="268443620" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="291" pc="268443638" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="292" pc="268443656" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="294" pc="268443682" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="295" pc="268443700" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="296" pc="268443718" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="297" pc="268443736" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="298" pc="268443754" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="300" pc="268443780" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="301" pc="268443798" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="302" pc="268443816" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="303" pc="268443834" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="304" pc="268443852" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="306" pc="268443878" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="307" pc="268443896" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="308" pc="268443914" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="309" pc="268443932" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="28" lineNum="310" pc="268443950" symbol="updateGrid"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="29" lineNum="313" pc="268443977" symbol="updatePosition"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="29" lineNum="314" pc="268443981" symbol="updatePosition"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="30" lineNum="317" pc="268444011" symbol="updateSpeed"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="30" lineNum="318" pc="268444015" symbol="updateSpeed"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="30" lineNum="319" pc="268444038" symbol="updateSpeed"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="30" lineNum="320" pc="268444077" symbol="updateSpeed"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="30" lineNum="322" pc="268444084" symbol="updateSpeed"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="325" pc="268444103" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="326" pc="268444107" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="328" pc="268444126" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="329" pc="268444138" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="330" pc="268444151" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="332" pc="268444164" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="333" pc="268444178" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="335" pc="268444197" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="336" pc="268444214" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="339" pc="268444249" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="342" pc="268444277" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="344" pc="268444321" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="345" pc="268444328" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="347" pc="268444342" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="348" pc="268444398" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="348" pc="268444415" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="349" pc="268444450" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="350" pc="268444506" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="350" pc="268444523" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="351" pc="268444558" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="352" pc="268444614" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="352" pc="268444631" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="353" pc="268444666" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="354" pc="268444722" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="354" pc="268444739" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="31" lineNum="355" pc="268444774" symbol="updatePositionAccuracy"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="358" pc="268444813" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="359" pc="268444817" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="360" pc="268444824" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="361" pc="268444831" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="362" pc="268444854" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="363" pc="268444880" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="364" pc="268444887" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="365" pc="268444898" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="367" pc="268444919" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="368" pc="268444930" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="369" pc="268444954" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="372" pc="268444964" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="373" pc="268444988" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="32" lineNum="377" pc="268444998" symbol="updateElapsedDistance"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="33" lineNum="380" pc="268445017" symbol="updateCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="33" lineNum="381" pc="268445021" symbol="updateCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="33" lineNum="382" pc="268445028" symbol="updateCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="33" lineNum="384" pc="268445035" symbol="updateCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="33" lineNum="385" pc="268445052" symbol="updateCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="33" lineNum="388" pc="268445088" symbol="updateCadence"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="34" lineNum="391" pc="268445107" symbol="updateStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="34" lineNum="392" pc="268445111" symbol="updateStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="34" lineNum="393" pc="268445118" symbol="updateStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="34" lineNum="395" pc="268445125" symbol="updateStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="34" lineNum="396" pc="268445151" symbol="updateStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="34" lineNum="397" pc="268445184" symbol="updateStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="34" lineNum="398" pc="268445230" symbol="updateStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="34" lineNum="401" pc="268445257" symbol="updateStrideLength"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="405" pc="268445276" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="406" pc="268445280" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="407" pc="268445308" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="408" pc="268445320" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="409" pc="268445333" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="410" pc="268445346" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="413" pc="268445356" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="414" pc="268445391" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="417" pc="268445414" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="418" pc="268445421" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="419" pc="268445450" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="420" pc="268445476" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="421" pc="268445499" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="422" pc="268445509" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="425" pc="268445557" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="428" pc="268445561" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="35" lineNum="429" pc="268445584" symbol="drawValueUnit"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="432" pc="268445636" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="433" pc="268445640" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="434" pc="268445668" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="436" pc="268445680" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="437" pc="268445698" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="438" pc="268445716" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="439" pc="268445735" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="440" pc="268445745" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="441" pc="268445766" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="442" pc="268445802" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="445" pc="268445815" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="446" pc="268445826" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="447" pc="268445854" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="450" pc="268445925" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="454" pc="268445943" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="455" pc="268445971" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="456" pc="268446019" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="459" pc="268446101" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="460" pc="268446133" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="461" pc="268446159" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="463" pc="268446190" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="464" pc="268446222" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="466" pc="268446257" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="468" pc="268446325" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="470" pc="268446339" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="471" pc="268446351" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="472" pc="268446387" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="36" lineNum="473" pc="268446437" symbol="updateBattery"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="479" pc="268446512" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="480" pc="268446516" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="481" pc="268446535" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="482" pc="268446548" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="484" pc="268446561" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="485" pc="268446590" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="487" pc="268446600" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="488" pc="268446611" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="489" pc="268446639" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="490" pc="268446651" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="491" pc="268446661" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="492" pc="268446671" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="493" pc="268446681" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="494" pc="268446694" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="495" pc="268446717" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="496" pc="268446740" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="498" pc="268446791" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="499" pc="268446815" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="500" pc="268446825" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="501" pc="268446848" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="502" pc="268446871" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="37" lineNum="505" pc="268446931" symbol="updateTimer"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="38" lineNum="510" pc="268446969" symbol="toHMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="38" lineNum="511" pc="268446973" symbol="toHMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="38" lineNum="512" pc="268446983" symbol="toHMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="38" lineNum="513" pc="268447002" symbol="toHMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="38" lineNum="514" pc="268447012" symbol="toHMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="39" lineNum="517" pc="268447076" symbol="toMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="39" lineNum="518" pc="268447080" symbol="toMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="39" lineNum="519" pc="268447090" symbol="toMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="39" lineNum="520" pc="268447109" symbol="toMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingView.mc" id="39" lineNum="521" pc="268447119" symbol="toMS"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingMenuDelegate.mc" id="41" lineNum="6" pc="268447160" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingMenuDelegate.mc" id="41" lineNum="7" pc="268447164" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingMenuDelegate.mc" id="41" lineNum="8" pc="268447185" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingMenuDelegate.mc" id="42" lineNum="11" pc="268447204" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingMenuDelegate.mc" id="42" lineNum="12" pc="268447208" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingMenuDelegate.mc" id="42" lineNum="13" pc="268447219" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingMenuDelegate.mc" id="42" lineNum="14" pc="268447243" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingMenuDelegate.mc" id="42" lineNum="15" pc="268447254" symbol="onMenuItem"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="44" lineNum="12" pc="268447279" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="44" lineNum="13" pc="268447283" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="44" lineNum="14" pc="268447301" symbol="initialize"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="45" lineNum="18" pc="268447325" symbol="onStart"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="45" lineNum="19" pc="268447329" symbol="onStart"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="45" lineNum="20" pc="268447352" symbol="onStart"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="46" lineNum="24" pc="268447385" symbol="onStop"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="46" lineNum="25" pc="268447389" symbol="onStop"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="46" lineNum="26" pc="268447412" symbol="onStop"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="47" lineNum="29" pc="268447425" symbol="stopRecording"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="47" lineNum="32" pc="268447429" symbol="stopRecording"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="47" lineNum="33" pc="268447446" symbol="stopRecording"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="47" lineNum="34" pc="268447482" symbol="stopRecording"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="47" lineNum="35" pc="268447500" symbol="stopRecording"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="47" lineNum="36" pc="268447518" symbol="stopRecording"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="47" lineNum="37" pc="268447527" symbol="stopRecording"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="47" lineNum="38" pc="268447543" symbol="stopRecording"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="47" lineNum="39" pc="268447566" symbol="stopRecording"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="48" lineNum="44" pc="268447596" symbol="onPosition"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="48" lineNum="45" pc="268447600" symbol="onPosition"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="48" lineNum="46" pc="268447620" symbol="onPosition"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="49" lineNum="49" pc="268447637" symbol="onSensor"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="50" lineNum="54" pc="268447642" symbol="getInitialView"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="50" lineNum="55" pc="268447646" symbol="getInitialView"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="50" lineNum="56" pc="268447669" symbol="getInitialView"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="50" lineNum="57" pc="268447713" symbol="getInitialView"/>
+<entry filename="C:\\Users\\Robin\\eclipse-workspace\\Skating\\source\\SkatingApp.mc" id="50" lineNum="58" pc="268447743" symbol="getInitialView"/>
+<entry filename="Rez" id="56" lineNum="17" pc="268447797" symbol="MainLayout"/>
+<entry filename="Rez" id="59" lineNum="28" pc="268447810" symbol="initialize"/>
+<entry filename="Rez" id="59" lineNum="29" pc="268447814" symbol="initialize"/>
+<entry filename="Rez" id="59" lineNum="30" pc="268447832" symbol="initialize"/>
+<entry filename="Rez" id="59" lineNum="31" pc="268447888" symbol="initialize"/>
+</pcToLineNum>
+<symbolTable>
+<entry field="true" id="54" symbol="speedLayer"/>
+<entry id="8388639" module="true" symbol="Graphics"/>
+<entry field="true" id="9" symbol="cadenceLast"/>
+<entry field="true" id="45" symbol="ICON_CONNECTED_PHONE"/>
+<entry field="true" id="23" symbol="cadenceFitInterval"/>
+<entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+<entry field="true" id="40" symbol="ICON_BLUETOOTH"/>
+<entry id="4" module="true" symbol="globals/Rez/Menus"/>
+<entry id="8389849" symbol="units"/>
+<entry id="18" method="true" symbol="stopRecording"/>
+<entry field="true" id="56" symbol="cadenceLayer"/>
+<entry field="true" id="58" symbol="timerLayer"/>
+<entry id="8388638" module="true" symbol="ActivityRecording"/>
+<entry id="90" method="true" symbol="MainLayout"/>
+<entry field="true" id="42" symbol="ICON_MOON"/>
+<entry field="true" id="57" symbol="strideLengthLayer"/>
+<entry field="true" id="11" symbol="timer"/>
+<entry field="true" id="8388890" symbol="sport"/>
+<entry id="74" method="true" symbol="updateGrid"/>
+<entry field="true" id="63" symbol="screenSizeScale"/>
+<entry field="true" id="29" symbol="strideLengthRollingWindow"/>
+<entry id="80" method="true" symbol="updateStrideLength"/>
+<entry id="30" method="true" symbol="createFields"/>
+<entry id="14" object="true" symbol="SkatingMenuDelegate"/>
+<entry id="19" method="true" symbol="onPosition"/>
+<entry id="8388924" module="true" symbol="Gregorian"/>
+<entry field="true" id="93" symbol="chart_title_stride_length"/>
+<entry id="17" object="true" symbol="SkatingApp"/>
+<entry field="true" id="38" symbol="ICON_HEART"/>
+<entry field="true" id="8388611" module="true" symbol="Toybox"/>
+<entry field="true" id="100" symbol="unit_label_stride_length"/>
+<entry field="true" id="62" symbol="stdScreenSize"/>
+<entry field="true" id="92" symbol="data_label_stride_length"/>
+<entry id="66" method="true" symbol="rescaleLayerPos"/>
+<entry field="true" id="10" symbol="strideLengthLast"/>
+<entry field="true" id="25" symbol="timeInit"/>
+<entry field="true" id="99" symbol="AppName"/>
+<entry id="8388633" module="true" symbol="ActivityMonitor"/>
+<entry id="77" method="true" symbol="updatePositionAccuracy"/>
+<entry field="true" id="22" symbol="cadenceTimerInterval"/>
+<entry id="8" module="true" symbol="globals/Rez/Strings"/>
+<entry id="8389080" method="true" symbol="onMenu"/>
+<entry id="8388772" module="true" object="true" symbol="Fonts"/>
+<entry field="true" id="28" symbol="strideLengthFitInterval"/>
+<entry id="79" method="true" symbol="updateCadence"/>
+<entry id="8388631" module="true" symbol="Activity"/>
+<entry id="72" method="true" symbol="updateConnections"/>
+<entry id="8388648" module="true" symbol="WatchUi"/>
+<entry field="true" id="49" symbol="gridLayer"/>
+<entry id="2" module="true" symbol="globals/Rez"/>
+<entry field="true" id="98" symbol="prompt"/>
+<entry field="true" id="55" symbol="distanceLayer"/>
+<entry id="71" method="true" symbol="centerFontVert"/>
+<entry id="8389124" method="true" symbol="onUpdate"/>
+<entry field="true" id="8389065" symbol="locY"/>
+<entry field="true" id="8389064" symbol="locX"/>
+<entry field="true" id="27" symbol="strideLengthTimerInterval"/>
+<entry id="76" method="true" symbol="updateSpeed"/>
+<entry id="67" method="true" symbol="scale"/>
+<entry field="true" id="60" symbol="sw"/>
+<entry id="8388771" module="true" object="true" symbol="Drawables"/>
+<entry field="true" id="61" symbol="sh"/>
+<entry field="true" id="8389067" symbol="height"/>
+<entry field="true" id="50" symbol="batteryLayer"/>
+<entry id="102" symbol="item_2"/>
+<entry id="101" symbol="item_1"/>
+<entry id="87" module="true" symbol="Menus"/>
+<entry field="true" id="46" symbol="ICON_CONNECTED_BLUETOOTH"/>
+<entry id="6" module="true" symbol="globals/Rez/Layouts"/>
+<entry field="true" id="8389742" symbol="foregroundColor"/>
+<entry field="true" id="8389066" symbol="width"/>
+<entry field="true" id="53" symbol="accuracyLayer"/>
+<entry id="8391275" object="true" symbol="ToneProfile"/>
+<entry id="8389122" method="true" symbol="onLayout"/>
+<entry id="82" method="true" symbol="updateBattery"/>
+<entry id="8388987" method="true" symbol="vibrate"/>
+<entry id="7" module="true" symbol="globals/Rez/JsonData"/>
+<entry field="true" id="59" symbol="lowBatteryThreshold"/>
+<entry field="true" id="51" symbol="clockLayer"/>
+<entry field="true" id="97" symbol="data_label_cadence"/>
+<entry field="true" id="26" symbol="fieldStrideLength"/>
+<entry id="8388877" method="true" symbol="createSession"/>
+<entry id="32" method="true" symbol="recordStrideLength"/>
+<entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+<entry id="89" object="true" symbol="MainMenu"/>
+<entry field="true" id="21" symbol="fieldCadence"/>
+<entry id="75" method="true" symbol="updatePosition"/>
+<entry id="36" method="true" symbol="updateEverySecond"/>
+<entry id="8388985" method="true" symbol="playTone"/>
+<entry field="true" id="52" symbol="iconsConnectedLayer"/>
+<entry field="true" id="39" symbol="ICON_ALARM"/>
+<entry id="73" method="true" symbol="updateClock"/>
+<entry id="8388644" module="true" symbol="System"/>
+<entry id="8389619" method="true" symbol="onSelect"/>
+<entry id="8388645" module="true" symbol="Time"/>
+<entry id="8388769" module="true" object="true" symbol="Rez"/>
+<entry id="78" method="true" symbol="updateElapsedDistance"/>
+<entry field="true" id="48" symbol="ICON_CONNECTED_HEART_FILLED"/>
+<entry id="85" method="true" symbol="toMS"/>
+<entry id="20" method="true" symbol="onSensor"/>
+<entry id="81" method="true" symbol="drawValueUnit"/>
+<entry id="8390088" module="true" object="true" symbol="JsonData"/>
+<entry field="true" id="91" symbol="chart_title_cadence"/>
+<entry field="true" id="88" symbol="LauncherIcon"/>
+<entry field="true" id="41" symbol="ICON_NOTIFICATION"/>
+<entry id="8388610" symbol="statics"/>
+<entry id="8389123" method="true" symbol="onShow"/>
+<entry id="8388643" module="true" symbol="Sensor"/>
+<entry id="83" method="true" symbol="updateTimer"/>
+<entry field="true" id="44" symbol="iconsConnected"/>
+<entry id="8389350" module="true" symbol="globals"/>
+<entry id="34" method="true" symbol="userFeedbackNotification"/>
+<entry id="8388770" module="true" object="true" symbol="Strings"/>
+<entry id="8388702" method="true" symbol="initialize"/>
+<entry field="true" id="16" symbol="skatingView"/>
+<entry id="8389279" method="true" symbol="onStart"/>
+<entry field="true" id="64" symbol="stdFont"/>
+<entry field="true" id="8388891" symbol="subSport"/>
+<entry id="8389780" module="true" symbol="FitContributor"/>
+<entry id="35" method="true" symbol="setupTimer"/>
+<entry id="31" method="true" symbol="recordCadence"/>
+<entry field="true" id="8388892" symbol="name"/>
+<entry field="true" id="24" symbol="cadenceRollingWindow"/>
+<entry id="70" method="true" symbol="maxFont"/>
+<entry id="13" object="true" symbol="SkatingView"/>
+<entry field="true" id="37" symbol="customIcons"/>
+<entry id="12" object="true" symbol="SkatingDelegate"/>
+<entry id="8389280" method="true" symbol="getInitialView"/>
+<entry id="8389281" method="true" symbol="onStop"/>
+<entry id="8389109" method="true" symbol="onMenuItem"/>
+<entry id="8389847" symbol="mesgType"/>
+<entry id="68" method="true" symbol="rescaleStdFont"/>
+<entry id="69" method="true" symbol="maxFontDc"/>
+<entry field="true" id="47" symbol="ICON_CONNECTED_HEART_EMPTY"/>
+<entry id="8388646" module="true" object="true" symbol="Timer"/>
+<entry id="86" module="true" symbol="Layouts"/>
+<entry id="8388636" module="true" symbol="Attention"/>
+<entry id="8388642" module="true" symbol="Position"/>
+<entry id="84" method="true" symbol="toHMS"/>
+<entry id="33" method="true" symbol="calcSlope"/>
+<entry id="5" module="true" symbol="globals/Rez/Fonts"/>
+<entry field="true" id="8389743" symbol="backgroundColor"/>
+<entry field="true" id="65" symbol="stdFontHeight"/>
+<entry id="8389125" method="true" symbol="onHide"/>
+<entry field="true" id="15" symbol="session"/>
+<entry field="true" id="96" symbol="unit_label_cadence"/>
+<entry id="8388635" module="true" symbol="Application"/>
+<entry field="true" id="43" symbol="ICON_BATTERY"/>
+<entry field="true" id="95" symbol="menu_label_2"/>
+<entry field="true" id="94" symbol="menu_label_1"/>
+</symbolTable>
+<localVars>
+<entry endPc="268436015" name="session" stackId="2" startPc="268435915"/>
+<entry arg="true" endPc="268436021" name="value" stackId="1" startPc="268435879"/>
+<entry endPc="268436771" name="i" stackId="8" startPc="268436637"/>
+<entry endPc="268436835" name="currentSteps" stackId="2" startPc="268436355"/>
+<entry endPc="268436835" name="tupleCadence" stackId="7" startPc="268436355"/>
+<entry endPc="268436835" name="elapsedTime" stackId="3" startPc="268436355"/>
+<entry endPc="268436835" name="newCadenceRollingWindow" stackId="6" startPc="268436355"/>
+<entry endPc="268436835" name="lastCadenceTuple" stackId="5" startPc="268436355"/>
+<entry endPc="268436835" name="cadenceTuple" stackId="4" startPc="268436355"/>
+<entry endPc="268436964" name="currentCadence" stackId="1" startPc="268436283"/>
+<entry endPc="268437587" name="i" stackId="10" startPc="268437421"/>
+<entry endPc="268437639" name="currentSteps" stackId="3" startPc="268437097"/>
+<entry endPc="268437639" name="elapsedTime" stackId="5" startPc="268437097"/>
+<entry endPc="268437639" name="lastStrideLengthTuple" stackId="7" startPc="268437097"/>
+<entry endPc="268437639" name="tupleStrideLength" stackId="9" startPc="268437097"/>
+<entry endPc="268437639" name="newStrideLengthRollingWindow" stackId="8" startPc="268437097"/>
+<entry endPc="268437639" name="elapsedDistance" stackId="4" startPc="268437097"/>
+<entry endPc="268437639" name="strideLengthTuple" stackId="6" startPc="268437097"/>
+<entry endPc="268437766" name="currentSpeed" stackId="2" startPc="268436969"/>
+<entry endPc="268437766" name="currentCadence" stackId="1" startPc="268436969"/>
+<entry endPc="268438004" name="i" stackId="8" startPc="268437836"/>
+<entry endPc="268438070" name="sumXY" stackId="4" startPc="268437771"/>
+<entry endPc="268438070" name="tuple" stackId="3" startPc="268437771"/>
+<entry endPc="268438070" name="sumXsq" stackId="7" startPc="268437771"/>
+<entry endPc="268438070" name="sumY" stackId="6" startPc="268437771"/>
+<entry endPc="268438070" name="sumX" stackId="5" startPc="268437771"/>
+<entry endPc="268438070" name="n" stackId="2" startPc="268437771"/>
+<entry arg="true" endPc="268438071" name="tupleArray" stackId="1" startPc="268437767"/>
+<entry endPc="268439942" name="attentionTone" stackId="4" startPc="268438075"/>
+<entry endPc="268439942" name="toneProfile" stackId="2" startPc="268438075"/>
+<entry endPc="268439942" name="vibeData" stackId="3" startPc="268438075"/>
+<entry arg="true" endPc="268439943" name="start" stackId="1" startPc="268438071"/>
+<entry endPc="268442131" name="bottom" stackId="6" startPc="268440313"/>
+<entry endPc="268442131" name="leftLower" stackId="3" startPc="268440313"/>
+<entry endPc="268442131" name="rightLower" stackId="5" startPc="268440313"/>
+<entry endPc="268442131" name="leftUpper" stackId="2" startPc="268440313"/>
+<entry endPc="268442131" name="rightUpper" stackId="4" startPc="268440313"/>
+<entry arg="true" endPc="268442132" name="dc" stackId="1" startPc="268440309"/>
+<entry arg="true" endPc="268442205" name="layer" stackId="1" startPc="268442132"/>
+<entry endPc="268442234" name="devicePos" stackId="2" startPc="268442209"/>
+<entry arg="true" endPc="268442235" name="pos" stackId="1" startPc="268442205"/>
+<entry endPc="268442386" name="fontSizeScaleFactor" stackId="2" startPc="268442239"/>
+<entry endPc="268442386" name="fontSize" stackId="1" startPc="268442239"/>
+<entry arg="true" endPc="268442844" name="dc" stackId="1" startPc="268442443"/>
+<entry arg="true" endPc="268442889" name="dc" stackId="1" startPc="268442844"/>
+<entry arg="true" endPc="268442889" name="isNumber" stackId="3" startPc="268442844"/>
+<entry arg="true" endPc="268442889" name="text" stackId="2" startPc="268442844"/>
+<entry endPc="268443086" name="textDim" stackId="8" startPc="268442893"/>
+<entry endPc="268443086" name="textStr" stackId="7" startPc="268442893"/>
+<entry endPc="268443086" name="font" stackId="6" startPc="268442893"/>
+<entry arg="true" endPc="268443087" name="height" stackId="5" startPc="268442889"/>
+<entry arg="true" endPc="268443087" name="dc" stackId="1" startPc="268442889"/>
+<entry arg="true" endPc="268443087" name="isNumber" stackId="3" startPc="268442889"/>
+<entry arg="true" endPc="268443087" name="width" stackId="4" startPc="268442889"/>
+<entry arg="true" endPc="268443087" name="text" stackId="2" startPc="268442889"/>
+<entry endPc="268443141" name="yPos" stackId="3" startPc="268443091"/>
+<entry arg="true" endPc="268443142" name="height" stackId="1" startPc="268443087"/>
+<entry arg="true" endPc="268443142" name="font" stackId="2" startPc="268443087"/>
+<entry arg="true" endPc="268443280" name="dc" stackId="1" startPc="268443142"/>
+<entry endPc="268443514" name="font" stackId="6" startPc="268443284"/>
+<entry endPc="268443514" name="timeStringMin" stackId="4" startPc="268443284"/>
+<entry endPc="268443514" name="clockTime" stackId="2" startPc="268443284"/>
+<entry endPc="268443514" name="timeStr" stackId="5" startPc="268443284"/>
+<entry endPc="268443514" name="timeStringHour" stackId="3" startPc="268443284"/>
+<entry arg="true" endPc="268443515" name="dc" stackId="1" startPc="268443280"/>
+<entry endPc="268443976" name="lineWidth" stackId="4" startPc="268443519"/>
+<entry endPc="268443976" name="lineHeight" stackId="5" startPc="268443519"/>
+<entry endPc="268443976" name="lineStartY" stackId="3" startPc="268443519"/>
+<entry endPc="268443976" name="lineStartX" stackId="2" startPc="268443519"/>
+<entry arg="true" endPc="268443977" name="dc" stackId="1" startPc="268443515"/>
+<entry arg="true" endPc="268444011" name="info" stackId="1" startPc="268443977"/>
+<entry endPc="268444102" name="currentSpeed" stackId="2" startPc="268444015"/>
+<entry endPc="268444102" name="speed" stackId="3" startPc="268444015"/>
+<entry endPc="268444102" name="speedUnit" stackId="4" startPc="268444015"/>
+<entry arg="true" endPc="268444103" name="dc" stackId="1" startPc="268444011"/>
+<entry endPc="268444812" name="dcH" stackId="4" startPc="268444107"/>
+<entry endPc="268444812" name="font" stackId="5" startPc="268444107"/>
+<entry endPc="268444812" name="pen" stackId="7" startPc="268444107"/>
+<entry endPc="268444812" name="fontHeight" stackId="6" startPc="268444107"/>
+<entry endPc="268444812" name="dcW" stackId="3" startPc="268444107"/>
+<entry endPc="268444812" name="info" stackId="2" startPc="268444107"/>
+<entry arg="true" endPc="268444813" name="dc" stackId="1" startPc="268444103"/>
+<entry endPc="268445016" name="distanceUnit" stackId="3" startPc="268444817"/>
+<entry endPc="268445016" name="elapsedDistance" stackId="4" startPc="268444817"/>
+<entry endPc="268445016" name="distance" stackId="2" startPc="268444817"/>
+<entry arg="true" endPc="268445017" name="dc" stackId="1" startPc="268444813"/>
+<entry endPc="268445106" name="cadenceUnit" stackId="3" startPc="268445021"/>
+<entry endPc="268445106" name="cadence" stackId="2" startPc="268445021"/>
+<entry arg="true" endPc="268445107" name="dc" stackId="1" startPc="268445017"/>
+<entry endPc="268445275" name="strideLengthUnit" stackId="3" startPc="268445111"/>
+<entry endPc="268445275" name="strideLength" stackId="2" startPc="268445111"/>
+<entry arg="true" endPc="268445276" name="dc" stackId="1" startPc="268445107"/>
+<entry endPc="268445554" name="fontUnitWidth" stackId="10" startPc="268445421"/>
+<entry endPc="268445554" name="fontUnit" stackId="9" startPc="268445421"/>
+<entry endPc="268445635" name="fontValue" stackId="7" startPc="268445280"/>
+<entry endPc="268445635" name="dcH" stackId="5" startPc="268445280"/>
+<entry endPc="268445635" name="spacer" stackId="6" startPc="268445280"/>
+<entry endPc="268445635" name="fontValueWidth" stackId="8" startPc="268445280"/>
+<entry endPc="268445635" name="dcW" stackId="4" startPc="268445280"/>
+<entry arg="true" endPc="268445636" name="valueStr" stackId="2" startPc="268445276"/>
+<entry arg="true" endPc="268445636" name="dc" stackId="1" startPc="268445276"/>
+<entry arg="true" endPc="268445636" name="unitStr" stackId="3" startPc="268445276"/>
+<entry endPc="268446511" name="dcH" stackId="8" startPc="268445640"/>
+<entry endPc="268446511" name="battery" stackId="5" startPc="268445640"/>
+<entry endPc="268446511" name="batteryTextHeight" stackId="7" startPc="268445640"/>
+<entry endPc="268446511" name="batteryY" stackId="3" startPc="268445640"/>
+<entry endPc="268446511" name="batteryX" stackId="2" startPc="268445640"/>
+<entry endPc="268446511" name="batteryBarLength" stackId="6" startPc="268445640"/>
+<entry endPc="268446511" name="systemStats" stackId="4" startPc="268445640"/>
+<entry arg="true" endPc="268446512" name="dc" stackId="1" startPc="268445636"/>
+<entry endPc="268446928" name="fontHWidth" stackId="11" startPc="268446611"/>
+<entry endPc="268446928" name="msStr" stackId="12" startPc="268446611"/>
+<entry endPc="268446928" name="msWidth" stackId="13" startPc="268446611"/>
+<entry endPc="268446928" name="hourWidth" stackId="6" startPc="268446611"/>
+<entry endPc="268446928" name="fontH" stackId="10" startPc="268446611"/>
+<entry endPc="268446928" name="spacer" stackId="8" startPc="268446611"/>
+<entry endPc="268446928" name="hourHeight" stackId="7" startPc="268446611"/>
+<entry endPc="268446928" name="fontMS" stackId="14" startPc="268446611"/>
+<entry endPc="268446928" name="fontMSWidth" stackId="15" startPc="268446611"/>
+<entry endPc="268446928" name="hrStr" stackId="9" startPc="268446611"/>
+<entry endPc="268446968" name="dcH" stackId="3" startPc="268446516"/>
+<entry endPc="268446968" name="dc" stackId="1" startPc="268446516"/>
+<entry endPc="268446968" name="hr" stackId="5" startPc="268446516"/>
+<entry endPc="268446968" name="activityTimeSec" stackId="4" startPc="268446516"/>
+<entry endPc="268446968" name="dcW" stackId="2" startPc="268446516"/>
+<entry endPc="268447075" name="min" stackId="3" startPc="268446973"/>
+<entry endPc="268447075" name="sec" stackId="4" startPc="268446973"/>
+<entry endPc="268447075" name="hr" stackId="2" startPc="268446973"/>
+<entry arg="true" endPc="268447076" name="secs" stackId="1" startPc="268446969"/>
+<entry endPc="268447159" name="min" stackId="3" startPc="268447080"/>
+<entry endPc="268447159" name="sec" stackId="4" startPc="268447080"/>
+<entry endPc="268447159" name="hr" stackId="2" startPc="268447080"/>
+<entry arg="true" endPc="268447160" name="secs" stackId="1" startPc="268447076"/>
+<entry arg="true" endPc="268447279" name="item" stackId="1" startPc="268447204"/>
+<entry arg="true" endPc="268447385" name="state" stackId="1" startPc="268447325"/>
+<entry arg="true" endPc="268447425" name="state" stackId="1" startPc="268447385"/>
+<entry arg="true" endPc="268447637" name="info" stackId="1" startPc="268447596"/>
+<entry arg="true" endPc="268447642" name="info" stackId="1" startPc="268447637"/>
+<entry arg="true" endPc="268447810" name="dc" stackId="1" startPc="268447797"/>
+</localVars>
+<annotations/>
+<dataEntryOffsetMappings>
+<dataEntry offset="87" parentId="" symbolId="globals" type="module"/>
+<dataEntry offset="206" parentId="globals" symbolId="SkatingApp" type="class"/>
+<dataEntry offset="301" parentId="globals" symbolId="SkatingDelegate" type="class"/>
+<dataEntry offset="500" parentId="globals" symbolId="SkatingView" type="class"/>
+<dataEntry offset="987" parentId="globals" symbolId="Rez" type="module"/>
+<dataEntry offset="1066" parentId="Rez" symbolId="Drawables" type="module"/>
+<dataEntry offset="1105" parentId="Rez" symbolId="Menus" type="module"/>
+<dataEntry offset="1144" parentId="Menus" symbolId="MainMenu" type="class"/>
+<dataEntry offset="1191" parentId="Rez" symbolId="Fonts" type="module"/>
+<dataEntry offset="1238" parentId="Rez" symbolId="Layouts" type="module"/>
+<dataEntry offset="1277" parentId="Rez" symbolId="JsonData" type="module"/>
+<dataEntry offset="1308" parentId="Rez" symbolId="Strings" type="module"/>
+<dataEntry offset="1419" parentId="globals" symbolId="SkatingMenuDelegate" type="class"/>
+</dataEntryOffsetMappings>
+<functions>
+<functionEntry accessMode="public" name="initialize" parent="SkatingDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onMenu" parent="SkatingDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onSelect" parent="SkatingDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="createSession" parent="SkatingDelegate">
+<param id="value"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="createFields" parent="SkatingDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="recordCadence" parent="SkatingDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="recordStrideLength" parent="SkatingDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="calcSlope" parent="SkatingDelegate">
+<param id="tupleArray"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="userFeedbackNotification" parent="SkatingDelegate">
+<param id="start"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="setupTimer" parent="SkatingDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateEverySecond" parent="SkatingDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="initialize" parent="SkatingView">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onLayout" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="rescaleLayerPos" parent="SkatingView">
+<param id="layer"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="scale" parent="SkatingView">
+<param id="pos"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="rescaleStdFont" parent="SkatingView">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onShow" parent="SkatingView">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onHide" parent="SkatingView">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onUpdate" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="maxFontDc" parent="SkatingView">
+<param id="dc"/>
+<param id="text"/>
+<param id="isNumber"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="maxFont" parent="SkatingView">
+<param id="dc"/>
+<param id="text"/>
+<param id="isNumber"/>
+<param id="width"/>
+<param id="height"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="centerFontVert" parent="SkatingView">
+<param id="height"/>
+<param id="font"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateConnections" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateClock" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateGrid" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updatePosition" parent="SkatingView">
+<param id="info"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateSpeed" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updatePositionAccuracy" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateElapsedDistance" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateCadence" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateStrideLength" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="drawValueUnit" parent="SkatingView">
+<param id="dc"/>
+<param id="valueStr"/>
+<param id="unitStr"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateBattery" parent="SkatingView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="updateTimer" parent="SkatingView">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="toHMS" parent="SkatingView">
+<param id="secs"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="toMS" parent="SkatingView">
+<param id="secs"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="initialize" parent="SkatingMenuDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onMenuItem" parent="SkatingMenuDelegate">
+<param id="item"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="initialize" parent="SkatingApp">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onStart" parent="SkatingApp">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onStop" parent="SkatingApp">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="stopRecording" parent="SkatingApp">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onPosition" parent="SkatingApp">
+<param id="info"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="onSensor" parent="SkatingApp">
+<param id="info"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="getInitialView" parent="SkatingApp">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="MainLayout" parent="Layouts">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="initialize" parent="MainMenu">
+<documentation/>
+</functionEntry>
+</functions>
+</debugInfo>

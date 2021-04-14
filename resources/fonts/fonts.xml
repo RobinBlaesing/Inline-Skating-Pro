@@ -1,0 +1,4 @@
+<fonts>
+	<font id="customIcons" filename="customIcons.fnt" filter="012345" />
+	<font id="iconsConnected" filename="icons-connected.fnt" filter="0123" />
+</fonts>

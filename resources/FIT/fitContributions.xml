@@ -1,0 +1,22 @@
+<fitContributions>
+	<fitField id="0"
+	sortOrder="1"
+	precision="0"
+	chartTitle="@Strings.chart_title_cadence"
+	dataLabel="@Strings.data_label_cadence"
+	unitLabel="@Strings.unit_label_cadence"
+	displayInActivityLaps="true"
+	displayInChart="true"
+	displayInActivitySummary="true"
+	fillColor="#0E73AD" />
+	<fitField id="1"
+	sortOrder="2"
+	precision="1"
+	chartTitle="@Strings.chart_title_stride_length"
+	dataLabel="@Strings.data_label_stride_length"
+	unitLabel="@Strings.unit_label_stride_length"
+	displayInActivityLaps="true"
+	displayInChart="true"
+	displayInActivitySummary="true"
+	fillColor="#0E73AD" />
+</fitContributions>

@@ -1,0 +1,16 @@
+<strings>
+    <string id="AppName">Skate Master</string>
+
+    <string id="prompt">Click the menu button</string>
+
+    <string id="menu_label_1">Item 1</string>
+    <string id="menu_label_2">Item 2</string>
+    
+	<string id="chart_title_cadence">Cadence</string>
+	<string id="data_label_cadence">Cadence</string>
+	<string id="unit_label_cadence">Steps / minute</string>
+	
+	<string id="chart_title_stride_length">Stride length</string>
+	<string id="data_label_stride_length">Stride length</string>
+	<string id="unit_label_stride_length">m</string>
+</strings>
