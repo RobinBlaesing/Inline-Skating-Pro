@@ -8,7 +8,6 @@ var skatingView;
 
 class SkatingApp extends Application.AppBase {
 
-
     function initialize() {
         AppBase.initialize();
         System.println("initialize Skating App");
@@ -23,23 +22,31 @@ class SkatingApp extends Application.AppBase {
     // onStop() is called when your application is exiting
     function onStop(state) {
         System.println("onStop Skating App");
-        stopRecording();
+        var confirmExit = new WatchUi.Confirmation("Save and exit?");
+		WatchUi.pushView( confirmExit, new SaveConfirmationDelegate(), WatchUi.SLIDE_RIGHT );
     }
     
-    function stopRecording() {
-		//timer.stop();
+    function stopRecording(save) {
+		timer.stop();
         //Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
         if( Toybox has :ActivityRecording ) {
-            if ((session != null) && session.isRecording()) {
+            if (session != null) {
 		       	session.stop();                                     // stop the session
-			    session.save();                                     // save the session
+		       	if (save) {
+			   		session.save();									// save the session
+			   		System.println("--- Session saved! ---");
+			   	}
+			   	else {
+			   		session.discard();								// discard the session
+			   	}
 			    session = null;                                     // set session control variable to null
                 WatchUi.requestUpdate();
 			   	SkatingDelegate.userFeedbackNotification(0);		// Give feedback that Session started
 	    		System.println("Session stopped.");
+		        System.exit();
 		    }
         }
-    }
+    } 
     
     function onPosition(info) {
     	skatingView.updatePosition(info);

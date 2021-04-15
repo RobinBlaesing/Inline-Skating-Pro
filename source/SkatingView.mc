@@ -189,6 +189,7 @@ class SkatingView extends Ui.View {
 
     // Update the view
     function onUpdate(dc) {
+    	
         System.println("onUpdate SkatingView");
         dc.setColor(foregroundColor, backgroundColor);
         dc.clear();
@@ -256,7 +257,7 @@ class SkatingView extends Ui.View {
     	dc.clear();
     	
     	if (Sys.getDeviceSettings().phoneConnected) {
-	    	dc.setColor(foregroundColor, Gfx.COLOR_TRANSPARENT);
+	    	dc.setColor(foregroundColor, backgroundColor);
 	    	dc.drawText(dc.getWidth()-1, 0, iconsConnected, ICON_CONNECTED_PHONE, Gfx.TEXT_JUSTIFY_RIGHT); 
     	}
     }
@@ -270,13 +271,13 @@ class SkatingView extends Ui.View {
         var timeStr = Lang.format("$1$:$2$", [timeStringHour, timeStringMin]);
         var font = maxFontDc(dc,timeStr,true);
         
-        dc.setColor(foregroundColor, Gfx.COLOR_TRANSPARENT);	
+        dc.setColor(foregroundColor, backgroundColor);	
 	    dc.drawText(dc.getWidth()/2, 0, font, timeStr, Gfx.TEXT_JUSTIFY_CENTER);
     }
 		
 	function updateGrid(dc){
+        dc.setColor(Gfx.COLOR_DK_GRAY, backgroundColor);
 		dc.clear();
-        dc.setColor(Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT);
 		
 	    dc.setPenWidth(3);
 		
@@ -468,7 +469,7 @@ class SkatingView extends Ui.View {
 		if (battery < lowBatteryThreshold) {
 			// Warning Text with Remaining Battery Status
     		dc.clear();
-			dc.setColor(Gfx.COLOR_RED, Gfx.COLOR_TRANSPARENT);	
+			dc.setColor(Gfx.COLOR_RED, backgroundColor);	
 	    	dc.drawText(6, 0, customIcons, ICON_BATTERY, Gfx.TEXT_JUSTIFY_LEFT); 
 	        dc.drawText(batteryX, batteryY - batteryTextHeight * 0.3, Gfx.FONT_XTINY, battery.format("%d") + "%", Gfx.TEXT_JUSTIFY_LEFT);		
 		}

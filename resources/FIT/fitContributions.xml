@@ -19,4 +19,24 @@
 	displayInChart="true"
 	displayInActivitySummary="true"
 	fillColor="#0E73AD" />
+	<fitField id="2"
+	sortOrder="3"
+	precision="1"
+	chartTitle="@Strings.chart_title_cadence_avg"
+	dataLabel="@Strings.data_label_cadence_avg"
+	unitLabel="@Strings.unit_label_cadence_avg"
+	displayInActivityLaps="true"
+	displayInChart="true"
+	displayInActivitySummary="true"
+	fillColor="#0E73AD" />
+	<fitField id="3"
+	sortOrder="3"
+	precision="1"
+	chartTitle="@Strings.chart_title_stride_length_avg"
+	dataLabel="@Strings.data_label_stride_length_avg"
+	unitLabel="@Strings.unit_label_stride_length_avg"
+	displayInActivityLaps="true"
+	displayInChart="true"
+	displayInActivitySummary="true"
+	fillColor="#0E73AD" />
 </fitContributions>

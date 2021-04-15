@@ -1,7 +1,6 @@
 using Toybox.WatchUi;
 using Toybox.ActivityRecording;
 using Toybox.Activity;
-using Toybox.WatchUi;
 using Toybox.Attention;
 using Toybox.FitContributor;
 using Toybox.Timer;
@@ -15,16 +14,21 @@ class SkatingDelegate  extends WatchUi.BehaviorDelegate {
 
 	// Calculate cadence by steps
 	var fieldCadence = null;
+	var fieldCadenceAvg = null;
 	var cadenceTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
-	var cadenceFitInterval = 12000.0;			// Approx. fit interval in milliseconds
+	var cadenceFitInterval = 8500.0;			// Approx. fit interval in milliseconds
 	var cadenceRollingWindow = [[null,null]]; 	// Array of rolling window tuples (timestamp, steps)
 	var timeInit;
 	
 	// Calculate stride length by steps and elapsed distance
 	var fieldStrideLength = null;	
+	var fieldStrideLengthAvg = null;
 	var strideLengthTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
-	var strideLengthFitInterval = 12000.0;			// Approx. fit interval in milliseconds
+	var strideLengthFitInterval = 8500.0;			// Approx. fit interval in milliseconds
 	var strideLengthRollingWindow = [[null,null,null]];	// Array of rolling window tuples (steps, distance, timestamp)
+	
+	// Used to calcualte avgerage cadence and stride length:
+	var stepsAtStart = null;
 
     function initialize() {
         System.println("initialize SkatingDelegate");
@@ -47,24 +51,31 @@ class SkatingDelegate  extends WatchUi.BehaviorDelegate {
 			if ((session == null) || (session.isRecording() == false)) {
 		       	session = createSession(30);
 			    if (session != null) {
+	    			createFields();
 			   		session.start();                                // call start session
+        			stepsAtStart = ActivityMonitor.getInfo().steps;
 			   		userFeedbackNotification(1);					// Give feedback that Session started
 	    			System.println("Session started.");
 			    }
 			    else {
 			   		System.println("Session failed to start. Session is null.");
 			    }
-	    		createFields();
                 WatchUi.requestUpdate();
 		    }
 		    else {
-		    	SkatingApp.stopRecording();
+				onSessionStoped();
 		    }
 	   	}
 	   	else {
 	   		// This product doesn't\nhave FIT Support
 	   	}
 	   	return true;                                                 // return true for onSelect function
+	}
+	
+	function onSessionStoped () {
+		System.println("onSessionStoped SkatingDelegate");
+        WatchUi.pushView(new Rez.Menus.MainMenu(), new SkatingMenuStopDelegate(), WatchUi.SLIDE_UP);
+        return true;
 	}
 	
 	function createSession(value) {	
@@ -82,13 +93,33 @@ class SkatingDelegate  extends WatchUi.BehaviorDelegate {
 	}    
 	
 	function createFields() {
-		if (session != null && session.isRecording()){
+		if (session != null && !session.isRecording()){
 			fieldCadence = session.createField("cadence", 0, FitContributor.DATA_TYPE_UINT16, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"spm" });
 			System.println("Field fieldCadence created.");
 			fieldStrideLength = session.createField("stride_length", 1, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"m" });
 			System.println("Field fieldStrideLength created.");
+			fieldCadenceAvg = session.createField("cadence_avg", 2, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"spm" });
+			System.println("Field fieldCadenceAvg created.");
+    		fieldStrideLengthAvg = session.createField("stride_length_avg", 3, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"m" });
+			System.println("Field fieldStrideLengthAvg created.");
 		}
 	}
+	
+	function recordAvgSessionData() {
+		if (fieldCadenceAvg != null && fieldStrideLengthAvg != null && stepsAtStart != null && session != null && session.isRecording()){
+			var stepsDuringSession = (ActivityMonitor.getInfo().steps - stepsAtStart).toFloat();
+	    	var avgCadence = 0.0;
+	    	var avgStrideLength = 0.0;
+	    	System.println("Steps during session: " + stepsDuringSession + ", elapsed time: " + Activity.getActivityInfo().elapsedTime + ", elapsed distance: " + Activity.getActivityInfo().elapsedDistance);
+	    	if (stepsDuringSession != null && stepsDuringSession > 0 && Activity.getActivityInfo().elapsedTime != null && Activity.getActivityInfo().elapsedTime > 0 && Activity.getActivityInfo().elapsedDistance != null && Activity.getActivityInfo().elapsedDistance > 0) {
+		    	avgCadence = (stepsDuringSession * 60.0 / Activity.getActivityInfo().elapsedTime * 1000);
+		    	avgStrideLength = (Activity.getActivityInfo().elapsedDistance / stepsDuringSession);
+		    }
+	    	fieldCadenceAvg.setData(avgCadence);
+	    	fieldStrideLengthAvg.setData(avgStrideLength);
+	    	System.println("Saved avg. cadence: " + avgCadence + ", and stride length: " + avgStrideLength);
+    	}
+    }
 	
 	function recordCadence(){
 		var currentCadence = Activity.getActivityInfo().currentCadence;
@@ -276,6 +307,7 @@ class SkatingDelegate  extends WatchUi.BehaviorDelegate {
 	function updateEverySecond(){
 		recordCadence();
 		recordStrideLength();
+        recordAvgSessionData();
 	    WatchUi.requestUpdate();
 	}
 

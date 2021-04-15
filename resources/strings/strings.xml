@@ -1,10 +1,11 @@
 <strings>
-    <string id="AppName">Skate Master</string>
+    <string id="AppName">Inline Skating Pro</string>
 
     <string id="prompt">Click the menu button</string>
 
-    <string id="menu_label_1">Item 1</string>
-    <string id="menu_label_2">Item 2</string>
+    <string id="menu_label_1">Continue</string>
+    <string id="menu_label_2">Stop and save</string>
+    <string id="menu_label_3">Stop and discard</string>
     
 	<string id="chart_title_cadence">Cadence</string>
 	<string id="data_label_cadence">Cadence</string>
@@ -13,4 +14,12 @@
 	<string id="chart_title_stride_length">Stride length</string>
 	<string id="data_label_stride_length">Stride length</string>
 	<string id="unit_label_stride_length">m</string>
+	
+	<string id="chart_title_cadence_avg">Ø cadence</string>
+	<string id="data_label_cadence_avg">Ø cadence</string>
+	<string id="unit_label_cadence_avg">spm</string>
+	
+	<string id="chart_title_stride_length_avg">Ø stride length</string>
+	<string id="data_label_stride_length_avg">Ø stride length</string>
+	<string id="unit_label_stride_length_avg">m</string>
 </strings>
