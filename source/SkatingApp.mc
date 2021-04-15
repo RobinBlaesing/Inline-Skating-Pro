@@ -22,8 +22,6 @@ class SkatingApp extends Application.AppBase {
     // onStop() is called when your application is exiting
     function onStop(state) {
         System.println("onStop Skating App");
-        var confirmExit = new WatchUi.Confirmation("Save and exit?");
-		WatchUi.pushView( confirmExit, new SaveConfirmationDelegate(), WatchUi.SLIDE_RIGHT );
     }
     
     function stopRecording(save) {
@@ -31,7 +29,7 @@ class SkatingApp extends Application.AppBase {
         //Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
         if( Toybox has :ActivityRecording ) {
             if (session != null) {
-		       	session.stop();                                     // stop the session
+		       	                                     // stop the session
 		       	if (save) {
 			   		session.save();									// save the session
 			   		System.println("--- Session saved! ---");
@@ -54,7 +52,6 @@ class SkatingApp extends Application.AppBase {
     }
     
     function onSensor(info) {
-    	//skatingView.dasd();
     }
 
     // Return the initial view of your application here
