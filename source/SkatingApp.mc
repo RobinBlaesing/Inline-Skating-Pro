@@ -2,15 +2,20 @@ using Toybox.Application;
 using Toybox.WatchUi;
 using Toybox.Position;
 using Toybox.Sensor;
-
-var session = null; 
-var skatingView;
+using Toybox.Attention;
 
 class SkatingApp extends Application.AppBase {
+
+	var controller;
+	var skatingView;
+	var fitManager;
 
     function initialize() {
         AppBase.initialize();
         System.println("initialize Skating App");
+        fitManager = new $.SkatingFitManager(); 
+        controller = new $.SkatingController();
+        skatingView = new $.SkatingView();
     }
 
     // onStart() is called on application start up
@@ -24,41 +29,12 @@ class SkatingApp extends Application.AppBase {
         System.println("onStop Skating App");
     }
     
-    function stopRecording(save) {
-		timer.stop();
-        //Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
-        if( Toybox has :ActivityRecording ) {
-            if (session != null) {
-		       	                                     // stop the session
-		       	if (save) {
-			   		session.save();									// save the session
-			   		System.println("--- Session saved! ---");
-			   	}
-			   	else {
-			   		session.discard();								// discard the session
-			   	}
-			    session = null;                                     // set session control variable to null
-                WatchUi.requestUpdate();
-			   	SkatingDelegate.userFeedbackNotification(0);		// Give feedback that Session started
-	    		System.println("Session stopped.");
-		        System.exit();
-		    }
-        }
-    } 
-    
-    function onPosition(info) {
-    	skatingView.updatePosition(info);
-    	WatchUi.requestUpdate();
-    }
-    
     function onSensor(info) {
     }
 
     // Return the initial view of your application here
     function getInitialView() {
         System.println("getInitialView Skating App");
-        Position.enableLocationEvents(Position.LOCATION_CONTINUOUS, method(:onPosition));
-        skatingView = new SkatingView();
         return [ skatingView, new SkatingDelegate() ];
     }
 

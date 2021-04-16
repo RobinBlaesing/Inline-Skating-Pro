@@ -6,8 +6,12 @@ using Toybox.ActivityMonitor;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 using Toybox.System as Sys;
+using Toybox.Application;
 
 class SkatingView extends Ui.View {
+
+	hidden var _fitManager;
+	hidden var _controller;
 
 	var customIcons = null;
 	// customIcons
@@ -37,6 +41,13 @@ class SkatingView extends Ui.View {
 	var strideLengthLayer;
 	var timerLayer;
 	
+	var top;
+	var leftUpper;
+    var leftLower;
+    var rightUpper;
+    var rightLower;
+    var bottom;
+	
 	// TODOs:
 	// Heart rate
 	// Training effect
@@ -64,6 +75,9 @@ class SkatingView extends Ui.View {
     function initialize() {
         System.println("initialize SkatingView");
         View.initialize();
+        
+        _fitManager = Application.getApp().fitManager;
+        _controller = Application.getApp().controller;
         
         // Custom resources
     	customIcons = Ui.loadResource(Rez.Fonts.customIcons);
@@ -101,6 +115,13 @@ class SkatingView extends Ui.View {
         rescaleStdFont();
         System.println("Screen width: " + 100*sw + " -> scale factor: " + screenSizeScale.format("%f") + " --> font size: " + stdFont);
         
+        // Grid with data fields:
+		var leftUpper = {:locX=>10, :locY=>62, :width=>scale(105), :height=>scale(57)};
+		var leftLower = {:locX=>122, :locY=>62, :width=>scale(105), :height=>scale(57)};
+		var rightUpper = {:locX=>10, :locY=>122, :width=>scale(105), :height=>scale(57)};
+		var rightLower = {:locX=>122, :locY=>122, :width=>scale(105), :height=>scale(57)};
+		var bottom = {:locX=>35*sw, :locY=>86*sh, :width=>30*sw, :height=>12.5*sh};
+        
         // Custom layouts
         // Position is measured for standard screen size
         // Width and height needs to be scaled (height can be stdFontHeight for auto-height)
@@ -119,34 +140,28 @@ class SkatingView extends Ui.View {
         
         batteryLayer = new Ui.Layer({:locX=>39.5*sw, :locY=>15*sh, :width=>23*sw, :height=>7*sh});
         addLayer(batteryLayer);
-         
-        var leftUpper = {:locX=>10, :locY=>62, :width=>scale(105), :height=>scale(57)};
+        
         speedLayer = new Ui.Layer(leftUpper);
         rescaleLayerPos(speedLayer);
         addLayer(speedLayer);
         
-        var leftLower = {:locX=>122, :locY=>62, :width=>scale(105), :height=>scale(57)};
         distanceLayer = new Ui.Layer(leftLower);
         rescaleLayerPos(distanceLayer);
         addLayer(distanceLayer);
         
-        var rightUpper = {:locX=>10, :locY=>122, :width=>scale(105), :height=>scale(57)};
         cadenceLayer = new Ui.Layer(rightUpper);
         rescaleLayerPos(cadenceLayer);
         addLayer(cadenceLayer);
         
-        var rightLower = {:locX=>122, :locY=>122, :width=>scale(105), :height=>scale(57)};
         strideLengthLayer = new Ui.Layer(rightLower);
         rescaleLayerPos(strideLengthLayer);
         addLayer(strideLengthLayer);
         
-        var bottom = {:locX=>35*sw, :locY=>86*sh, :width=>30*sw, :height=>12.5*sh};
         timerLayer = new Ui.Layer(bottom);
         addLayer(timerLayer);
     }
     
     	// Scaling functions
-    	
     	
     	// Adjust position of layer to screen size
 	    function rescaleLayerPos(layer){
@@ -171,6 +186,7 @@ class SkatingView extends Ui.View {
 	    	stdFont = fontSize;
 	    	stdFontHeight = Gfx.getFontHeight(stdFont);
 	    }
+
 
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
@@ -219,7 +235,25 @@ class SkatingView extends Ui.View {
         updatePositionAccuracy(accuracyLayer.getDc());
         
         updateTimer();
+        
+        manageStatus();
     }
+    
+    
+    function manageStatus () {
+    	if (_controller.status == _controller.STAT_STD){
+    		removeLayer(batteryLayer);
+    		removeLayer(iconsConnectedLayer);
+    		removeLayer(clockLayer);
+    		removeLayer(accuracyLayer);
+    	}
+    }
+    
+    	function addLayerIfHidden(layer){
+    		if (getLayerIndex(layer) == -1) {
+    			addLayer(layer);
+    		}
+    	}
     
 	
 	// Return largest possible font for DC
@@ -382,8 +416,9 @@ class SkatingView extends Ui.View {
         var cadence = "-";
         var cadenceUnit = "spm";
         
-        if (cadenceLast != 0.0){
-			cadence = cadenceLast.toNumber().format("%i");
+        if (_fitManager.getCadence() != 0.0){
+			cadence = _fitManager.getCadence().toNumber().format("%i");
+        	System.println("Cadence: " + cadence);
 		}
         
         drawValueUnit(dc, cadence, cadenceUnit);
@@ -393,10 +428,9 @@ class SkatingView extends Ui.View {
         var strideLength = "-";
         var strideLengthUnit = "m";
         
-        	System.println(strideLengthLast);
-        if (strideLengthLast != 0.0 && strideLengthLast != null){
-        	System.println("Stride length: " + strideLengthLast.format("%f"));
-			strideLength = strideLengthLast.format("%.1f");
+        if (_fitManager.getStrideLength() != 0.0 && _fitManager.getStrideLength() != null){
+			strideLength = _fitManager.getStrideLength().format("%.1f");
+        	System.println("Stride length: " + strideLength);
 		}
         
         drawValueUnit(dc, strideLength, strideLengthUnit);

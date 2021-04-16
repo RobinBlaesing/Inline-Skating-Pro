@@ -1,24 +1,30 @@
 // https://developer.garmin.com/connect-iq/core-topics/native-controls/
 using Toybox.WatchUi;
 using Toybox.System;
+using Toybox.Application;
 
 class SkatingMenuStopDelegate extends WatchUi.MenuInputDelegate {
+
+	hidden var _fitManager;
+	hidden var _controller;
 
     function initialize() {
         System.println("initialize SkatingMenuDelegate");
         MenuInputDelegate.initialize();
-        session.stop();
+        _fitManager = Application.getApp().fitManager;
+        _controller = Application.getApp().controller;
+        _fitManager.pauseSession();
     }
 
     function onMenuItem(item) {
     	if (item == :item_1) {
-    		session.start();
+    		_fitManager.continueSession();
             System.println("Continue");
         } else if (item == :item_2) {
-        	SkatingApp.stopRecording(true);
+        	_controller.stopRecording(true);
             System.println("Save and exit");
         } else if (item == :item_3) {
-        	SkatingApp.stopRecording(false);
+        	_controller.stopRecording(false);
             System.println("Discard and exit");
         }
     }
