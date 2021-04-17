@@ -1,5 +1,9 @@
 <strings>
     <string id="AppName">Inline Skating Pro</string>
+    
+    <string id="view_title_current">Live</string>
+	<string id="view_title_lap">Lap</string>
+	<string id="view_title_total">Total</string>
 
     <string id="menu_label_1">Continue</string>
     <string id="menu_label_2">Save</string>

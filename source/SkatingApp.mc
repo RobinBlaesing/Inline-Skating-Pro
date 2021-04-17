@@ -13,9 +13,9 @@ class SkatingApp extends Application.AppBase {
     function initialize() {
         AppBase.initialize();
         System.println("initialize Skating App");
-        fitManager = new $.SkatingFitManager(); 
-        controller = new $.SkatingController();
+        fitManager = new $.FitManager(); 
         skatingView = new $.SkatingView();
+        controller = new $.Controller();
     }
 
     // onStart() is called on application start up

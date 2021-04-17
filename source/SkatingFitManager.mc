@@ -6,7 +6,7 @@ using Toybox.System;
 using Toybox.Timer;
 
 
-class SkatingFitManager {
+class FitManager {
 
 	hidden var session = null; 
 	hidden var cadenceLast = 0.0;
@@ -35,25 +35,27 @@ class SkatingFitManager {
 	// Used to calcualte avgerage cadence and stride length:
 	hidden var stepsAtStart = null;
 	
+	// Lap variables
+	hidden var lapTimeAtStart = 0.0;
+	hidden var lapDistanceAtStart = 0.0;
+	hidden var lapStepsAtStart = 0.0;
+	
+	hidden var lapAvgVelocity = 0.0;
+	hidden var lapAvgCadence = 0.0;
+	hidden var lapAvgStrideLength = 0.0;
+	
 	
 	function initialize (){
 		timeInit = System.getTimer();
-		setupTimer();
-	}
-	
-	// Timer:
-	
-	function setupTimer() {
 		timerSession = new Timer.Timer();
-		timerSession.start(method(:updateEverySecond), 1000, true);
 	}
 	
-		function updateEverySecond(){
-			recordCadence();
-			recordStrideLength();
-	        recordAvgSessionData();
-		    WatchUi.requestUpdate();
-		}
+		
+	function updateFitData(){
+		recordCadence();
+		recordStrideLength();
+        recordAvgSessionData();
+	}
 	
 	
 	function sessionStart () {
@@ -76,6 +78,13 @@ class SkatingFitManager {
         return true;
 	}
 	
+	function newSessionLap () {
+		session.addLap();
+		lapTimeAtStart = Activity.getActivityInfo().elapsedTime.toFloat();
+		lapDistanceAtStart = Activity.getActivityInfo().elapsedDistance.toFloat();
+		lapStepsAtStart = ActivityMonitor.getInfo().steps.toFloat();
+	}
+	
 	function hasSession(){
 		return (session != null);
 	}
@@ -91,7 +100,6 @@ class SkatingFitManager {
 	function continueSession(){
 		session.start();
 	}
-	
 	
     
     function stopRecording(save) {
@@ -263,6 +271,72 @@ class SkatingFitManager {
 			}
 			return (n > 2 && (n * sumXsq - sumX * sumX) != 0) ? (n * sumXY - sumX * sumY) / (n * sumXsq - sumX * sumX) : 0;
     	}
+    	
+    	
+    function getLapAvgVelocity () {
+    	var lapElapsedDistance = Activity.getActivityInfo().elapsedDistance - lapDistanceAtStart;
+    	System.println("Total distance: " + Activity.getActivityInfo().elapsedDistance + ", lap distance at start: " + lapDistanceAtStart + ", elapsed distance: " + lapElapsedDistance);
+    	var lapElapsedTime = (Activity.getActivityInfo().elapsedTime - lapTimeAtStart) / 1000;
+    	if (lapElapsedTime > 0) {
+	    	lapAvgVelocity = (lapElapsedDistance) / (lapElapsedTime);
+	    	return lapAvgVelocity;
+	    }
+	    return 0.0;
+    }
+    
+    function getLapDistance () {
+    	var lapElapsedDistance = Activity.getActivityInfo().elapsedDistance - lapDistanceAtStart;
+    	if (lapElapsedDistance == null || lapElapsedDistance == 0){
+    		return 0.0;
+    	}
+	    return lapElapsedDistance;
+    }
+    
+    function getLapAvgCadence () {
+    	var lapElapsedSteps = ActivityMonitor.getInfo().steps - lapStepsAtStart;
+    	var lapElapsedTime = (Activity.getActivityInfo().elapsedTime - lapTimeAtStart) / 1000 / 60;
+    	System.println("Lap steps: " + lapElapsedSteps + ", lap time: " + lapElapsedTime);
+    	if (lapElapsedTime > 0) {
+	    	lapAvgCadence = (lapElapsedSteps) / (lapElapsedTime);
+    		System.println("Lap cadence: " + lapAvgCadence);
+	    	return lapAvgCadence;
+	    }
+	    return 0.0;
+    }
+    
+    function getLapAvgStrideLength () {
+    	var lapElapsedDistance = Activity.getActivityInfo().elapsedDistance - lapDistanceAtStart;
+    	var lapElapsedSteps = ActivityMonitor.getInfo().steps - lapStepsAtStart;
+    	if (lapElapsedSteps > 0) {
+	    	lapAvgStrideLength = (lapElapsedDistance) / (lapElapsedSteps);
+	    	return lapAvgStrideLength;
+	    }
+	    return 0.0;
+    }
+    
+    function getLapTime () {
+    	var lapElapsedTime = Activity.getActivityInfo().elapsedTime - lapTimeAtStart;
+    	if (lapElapsedTime == null || lapElapsedTime == 0){
+    		return 0.0;
+    	}
+	    return lapElapsedTime;
+    }
+    
+    
+    
+    function getTotalAvgVelocity () {
+    	return (Activity.getActivityInfo().elapsedTime != 0) ? Activity.getActivityInfo().elapsedDistance / (Activity.getActivityInfo().elapsedTime) * 1000 : 0.0;
+    }
+    
+    function getTotalAvgCadence () {
+	    return (Activity.getActivityInfo().elapsedTime != 0) ? (ActivityMonitor.getInfo().steps.toFloat() - stepsAtStart) / Activity.getActivityInfo().elapsedTime * 1000 * 60 : 0.0;
+    }
+    
+    function getTotalAvgStrideLength () {
+	    return (ActivityMonitor.getInfo().steps - stepsAtStart != 0) ? Activity.getActivityInfo().elapsedDistance / (ActivityMonitor.getInfo().steps - stepsAtStart) : 0.0;
+    }
+    
+    
     	
     function getCadence(){
     	return cadenceLast;

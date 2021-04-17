@@ -21,7 +21,7 @@ class SkatingDelegate  extends WatchUi.BehaviorDelegate {
     
     // Example from: https://developer.garmin.com/connect-iq/api-docs/Toybox/ActivityRecording.html
 	
-	// use the select Start/Stop or touch for recording
+	
 	function onSelect() {
 	    System.println("onSelect SkatingDelegate");
 	   	if (Toybox has :ActivityRecording) {                          // check device for activity recording
@@ -31,6 +31,26 @@ class SkatingDelegate  extends WatchUi.BehaviorDelegate {
 	   		// This product doesn't\nhave FIT Support
 	   	}
 	   	return true;                                                 // return true for onSelect function
+	}
+	
+	// New lap
+	function onBack() {
+	    System.println("onBack SkatingDelegate");
+		if (Toybox has :ActivityRecording) {                          // check device for activity recording
+	   		_controller.handleLap();
+	   	}
+	   	else {
+	   		// This product doesn't\nhave FIT Support
+	   	}
+	   	return true;   
+	}
+	
+	function onPreviousPage() {
+		_controller.handlePageSwitch(-1);
+	}
+	
+	function onNextPage() {
+		_controller.handlePageSwitch(1);
 	}
 
 }

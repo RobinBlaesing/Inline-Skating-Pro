@@ -5,34 +5,54 @@ using Toybox.Application;
 using Toybox.Attention;
 
 
-class SkatingController {
+class Controller {
 
 	hidden var _fitManager;
+	hidden var _skatingView;
 	
 	// View controll:
-	var status;
+	hidden var status;
+	hidden var hasLab = false;
+	
+	hidden var timerUpdate;
 	
 	const STAT_IDLE = 0;
 	const STAT_INIT = 1;
 	const STAT_STD = 2;
 	const STAT_LAP = 3;
+	const STAT_TOTAL = 4;
 	
 
 	function initialize() {
 		_fitManager = Application.getApp().fitManager;
+		_skatingView = Application.getApp().skatingView;
 		status = STAT_IDLE;
         Position.enableLocationEvents(Position.LOCATION_CONTINUOUS, method(:onPosition));
+        setupTimer();
     }
     
+    // Timer:
+	
+	function setupTimer() {
+		timerUpdate = new Timer.Timer();
+		timerUpdate.start(method(:updateEverySecond), 1000, true);
+	}
+	
+		function updateEverySecond(){
+			_fitManager.updateFitData();
+		    WatchUi.requestUpdate();
+		}
+    
     function onPosition(info) {
-		Application.getApp().skatingView.updatePosition(info);
-    	WatchUi.requestUpdate();
+		_skatingView.updatePosition(info);
+    	//WatchUi.requestUpdate();
     }
     
     function handleStartStop(){
     	if ((_fitManager.hasSession() == null) || (_fitManager.isRecording() == false)) {
     		_fitManager.sessionStart();
-    		status = STAT_STD;
+			status = STAT_STD;
+    		_skatingView.manageStatus(status);
 	   		userFeedbackNotification(1);					// Give feedback that Session started
 	    }
 	    else {
@@ -41,9 +61,47 @@ class SkatingController {
 	    }
     }
     
+    function handleLap(){
+    	if (_fitManager.isRecording()) {
+    		_fitManager.newSessionLap();
+    		hasLab = true;
+	    	status = STAT_LAP;
+	    	_skatingView.manageStatus(status);
+	    }
+    }
+    
+    function handlePageSwitch(switchPage){
+    	var initStatus = status;
+    	System.println("Incomming status: " + initStatus + ". switchPage: " + switchPage);
+    	if (hasLab){
+    		if (switchPage > 0 && status == STAT_TOTAL) {
+    			status = STAT_STD;
+    		} else if (switchPage < 0 && status == STAT_STD) {
+    			status = STAT_TOTAL;
+    		} else {
+    			status += switchPage;
+    		}
+    	} 
+    	else {
+    		if (status == STAT_STD){
+    			status = STAT_TOTAL;
+    		} else if (status == STAT_TOTAL){
+    			status = STAT_STD;
+    		}
+    	}
+    	System.println("Handle page switch. Has Lab: " + hasLab + ". New status: " + status);
+		if (initStatus != status) {
+			_skatingView.manageStatus(status);
+		}
+    }
+    
     function stopRecording(save){
     	_fitManager.stopRecording(save);
     	userFeedbackNotification(0);
+    }
+    
+    function getStatus(){
+    	return status;
     }
     	
 	
