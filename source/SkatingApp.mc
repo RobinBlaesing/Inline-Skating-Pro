@@ -35,7 +35,7 @@ class SkatingApp extends Application.AppBase {
     // Return the initial view of your application here
     function getInitialView() {
         System.println("getInitialView Skating App");
-        return [ skatingView, new SkatingDelegate() ];
+        return [ new SkatingInitView(), new WatchUi.BehaviorDelegate() ];
     }
 
 }

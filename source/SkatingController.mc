@@ -35,13 +35,19 @@ class Controller {
 	
 	function setupTimer() {
 		timerUpdate = new Timer.Timer();
-		timerUpdate.start(method(:updateEverySecond), 1000, true);
+		timerUpdate.start(method(:removeInitViewAndStartUp), 2000, false);
 	}
 	
 		function updateEverySecond(){
 			_fitManager.updateFitData();
 		    WatchUi.requestUpdate();
 		}
+	
+    
+    function removeInitViewAndStartUp (){
+    	WatchUi.switchToView(_skatingView, new SkatingDelegate(), WatchUi.SLIDE_RIGHT);
+		timerUpdate.start(method(:updateEverySecond), 1000, true);
+    }
     
     function onPosition(info) {
 		_skatingView.updatePosition(info);
@@ -67,6 +73,9 @@ class Controller {
     		hasLab = true;
 	    	status = STAT_LAP;
 	    	_skatingView.manageStatus(status);
+	    }
+	    else {
+	    	System.exit();
 	    }
     }
     

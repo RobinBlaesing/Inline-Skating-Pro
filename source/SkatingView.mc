@@ -114,9 +114,7 @@ class SkatingView extends Ui.View {
     // Load your resources here
     function onLayout(dc) {    
         System.println("onLayout SkatingView");
-        setLayout(Rez.Layouts.MainLayout(dc));
         
-        dc.clear();
         dc.setColor(foregroundColor, backgroundColor);
         dc.clear();
         
@@ -145,9 +143,6 @@ class SkatingView extends Ui.View {
     function manageStatus (stat) {
     	status = stat;
     	clearLayers();    
-    	
-    	gridLayer = new Ui.Layer({:locX=>0, :locY=>0, :width=>100*sw-1, :height=>100*sh-1});
-	    addLayer(gridLayer);
     	
     	if (status == Controller.STAT_INIT) {	  
     		System.println("View status changed: " +  status);
@@ -279,6 +274,9 @@ class SkatingView extends Ui.View {
     		viewNameLayer = new Ui.Layer({:locX=>20*sw, :locY=>92*sh, :width=>60*sw, :height=>8*sh});
     		addLayer(viewNameLayer);
     	}
+    	
+    	gridLayer = new Ui.Layer({:locX=>0, :locY=>0, :width=>100*sw-1, :height=>100*sh-1});
+	    addLayer(gridLayer);
     }
     
     	function addLayerIfHidden(layer){
@@ -736,6 +734,7 @@ class SkatingView extends Ui.View {
 	
     
     function updateClock(dc){
+        dc.setColor(foregroundColor, backgroundColor);	
     	dc.clear();
     	
     	var clockTime = System.getClockTime();
@@ -743,12 +742,11 @@ class SkatingView extends Ui.View {
         var timeStringMin = clockTime.min.format("%02d");
         var timeStr = Lang.format("$1$:$2$", [timeStringHour, timeStringMin]);
         var font = maxFontDc(dc,timeStr,true);
-        
-        dc.setColor(foregroundColor, backgroundColor);	
 	    dc.drawText(dc.getWidth()/2, 0, font, timeStr, Gfx.TEXT_JUSTIFY_CENTER);
     }
 	
 	function updateConnections(dc) {
+        dc.setColor(foregroundColor, backgroundColor);	
     	dc.clear();
     	
     	if (Sys.getDeviceSettings().phoneConnected) {
@@ -764,6 +762,7 @@ class SkatingView extends Ui.View {
     	function updatePositionAccuracy(dc){
     		var info = Position.getInfo();
     		
+        	dc.setColor(foregroundColor, backgroundColor);	
     		dc.clear();
 	        var dcW = dc.getWidth();
 	        var dcH = dc.getHeight();
@@ -861,7 +860,7 @@ class SkatingView extends Ui.View {
 	}
 		
 	function updateGrid(dc){
-        dc.setColor(Gfx.COLOR_DK_GRAY, backgroundColor);
+        dc.setColor(Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT);
 		dc.clear();
 		
 	    dc.setPenWidth(3);
@@ -894,6 +893,15 @@ class SkatingView extends Ui.View {
 		lineWidth = scale(0);
 		lineHeight = scale(120);
 		dc.drawLine(lineStartX, lineStartY, lineWidth + lineStartX, lineStartY + lineHeight);
+		
+		if (status == Controller.STAT_LAP || status == Controller.STAT_TOTAL){
+        	dc.setColor(Gfx.COLOR_WHITE, backgroundColor);
+			dc.fillCircle(scale(120), scale(120), 15);
+        	dc.setColor(Gfx.COLOR_DK_GRAY, backgroundColor);
+			dc.drawCircle(scale(120), scale(120), 16);
+        	dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
+			dc.drawText(scale(124), scale(120), Gfx.FONT_XTINY, "Ø", Gfx.TEXT_JUSTIFY_VCENTER);
+		}
 	}
 	
 	
