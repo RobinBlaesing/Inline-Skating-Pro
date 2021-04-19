@@ -10,8 +10,8 @@ class SkatingInitView extends WatchUi.View {
     }
     
     function onLayout(dc) {
-    	var xPos = (dc.getWidth() - 190) / 2;
-    	var yPos = (dc.getHeight() - 190) / 2;
+    	var xPos = (dc.getWidth() - 170) / 2;
+    	var yPos = (dc.getHeight() - 170) / 2;
         initImage = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.InlineSkater,
             :locX=>xPos,

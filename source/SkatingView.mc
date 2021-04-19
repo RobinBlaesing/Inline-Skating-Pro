@@ -5,8 +5,9 @@ using Toybox.Activity;
 using Toybox.ActivityMonitor;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
-using Toybox.System as Sys;
 using Toybox.Application;
+using Toybox.System as Sys;
+using Toybox.UserProfile;
 
 class SkatingView extends Ui.View {
 
@@ -57,11 +58,14 @@ class SkatingView extends Ui.View {
 	var lapTimeLayer;
 	
 	var top;
-	var leftUpper;
-    var leftLower;
-    var rightUpper;
-    var rightLower;
+	var upperLeft;
+    var upperRight;
+    var lowerLeft;
+    var lowerRight;
     var bottom;
+    var bottomLeft;
+    var bottomRight;
+    var full;
 	
 	// TODOs:
 	// Heart rate
@@ -129,11 +133,14 @@ class SkatingView extends Ui.View {
         
         // Grid with data fields:
         top = {:locX=>20*sw, :locY=>0.5*sh, :width=>60*sw, :height=>23*sh};
-		leftUpper = {:locX=>10, :locY=>62, :width=>scale(105), :height=>scale(57)};
-		leftLower = {:locX=>122, :locY=>62, :width=>scale(105), :height=>scale(57)};
-		rightUpper = {:locX=>10, :locY=>122, :width=>scale(105), :height=>scale(57)};
-		rightLower = {:locX=>122, :locY=>122, :width=>scale(105), :height=>scale(57)};
+		upperLeft = {:locX=>10, :locY=>62, :width=>scale(105), :height=>scale(57)};
+		upperRight = {:locX=>126, :locY=>62, :width=>scale(105), :height=>scale(57)};
+		lowerLeft = {:locX=>10, :locY=>122, :width=>scale(105), :height=>scale(57)};
+		lowerRight = {:locX=>126, :locY=>122, :width=>scale(105), :height=>scale(57)};
 		bottom = {:locX=>20*sw, :locY=>76.5*sh, :width=>60*sw, :height=>15.5*sh};
+    	bottomLeft = {:locX=>18.5*sw, :locY=>76*sh, :width=>29.5*sw, :height=>16*sh};
+    	bottomRight = {:locX=>52.5*sw, :locY=>76*sh, :width=>29.5*sw, :height=>16*sh};
+		full = {:locX=>0, :locY=>0, :width=>100*sw-1, :height=>100*sh-1};
 		//var bottom = {:locX=>35*sw, :locY=>86*sh, :width=>30*sw, :height=>12.5*sh};
         
         manageStatus (Controller.STAT_INIT);
@@ -143,6 +150,9 @@ class SkatingView extends Ui.View {
     function manageStatus (stat) {
     	status = stat;
     	clearLayers();    
+    	
+    	gridLayer = new Ui.Layer(full);
+	    addLayer(gridLayer);
     	
     	if (status == Controller.STAT_INIT) {	  
     		System.println("View status changed: " +  status);
@@ -161,76 +171,85 @@ class SkatingView extends Ui.View {
 	        
 	        heartRateLayer = new Ui.Layer(top);
 	        
-	        speedLayer = new Ui.Layer(leftUpper);
+	        speedLayer = new Ui.Layer(upperLeft);
 	        rescaleLayerPos(speedLayer);
 	        addLayer(speedLayer);
 	        
-	        distanceLayer = new Ui.Layer(leftLower);
+	        distanceLayer = new Ui.Layer(upperRight);
 	        rescaleLayerPos(distanceLayer);
-	        addLayer(distanceLayer);
+	        //addLayer(distanceLayer);
 	        
-	        cadenceLayer = new Ui.Layer(rightUpper);
+	        cadenceLayer = new Ui.Layer(lowerLeft);
 	        rescaleLayerPos(cadenceLayer);
 	        addLayer(cadenceLayer);
 	        
-	        strideLengthLayer = new Ui.Layer(rightLower);
+	        strideLengthLayer = new Ui.Layer(lowerRight);
 	        rescaleLayerPos(strideLengthLayer);
 	        addLayer(strideLengthLayer);
 	        
-	        timerLayer = new Ui.Layer(bottom);
+	        timerLayer = new Ui.Layer(bottomLeft);
 	        addLayer(timerLayer);
+	        
+	        distanceLayer = new Ui.Layer(bottomRight);
+	        addLayer(distanceLayer);
     	}
     	if (status == Controller.STAT_STD) {	  
     		System.println("View status changed: " +  status);
 	        
-	        heartRateLayer = new Ui.Layer(top);
+	        heartRateLayer = new Ui.Layer(full);
 	        addLayer(heartRateLayer);
 	        
-	        speedLayer = new Ui.Layer(leftUpper);
+	        speedLayer = new Ui.Layer(upperLeft);
 	        rescaleLayerPos(speedLayer);
 	        addLayer(speedLayer);
 	        
-	        distanceLayer = new Ui.Layer(leftLower);
+	        distanceLayer = new Ui.Layer(upperRight);
 	        rescaleLayerPos(distanceLayer);
-	        addLayer(distanceLayer);
+	        //addLayer(distanceLayer);
 	        
-	        cadenceLayer = new Ui.Layer(rightUpper);
+	        cadenceLayer = new Ui.Layer(lowerLeft);
 	        rescaleLayerPos(cadenceLayer);
 	        addLayer(cadenceLayer);
 	        
-	        strideLengthLayer = new Ui.Layer(rightLower);
+	        strideLengthLayer = new Ui.Layer(lowerRight);
 	        rescaleLayerPos(strideLengthLayer);
 	        addLayer(strideLengthLayer);
 	        
-	        timerLayer = new Ui.Layer(bottom);
+	        timerLayer = new Ui.Layer(bottomLeft);
 	        addLayer(timerLayer);
+	        
+	        distanceLayer = new Ui.Layer(bottomRight);
+	        addLayer(distanceLayer);
 	        
     		viewNameLayer = new Ui.Layer({:locX=>20*sw, :locY=>92*sh, :width=>60*sw, :height=>8*sh});
     		addLayer(viewNameLayer);
     	}
     	if (status == Controller.STAT_LAP){
     	
-	        heartRateLayer = new Ui.Layer(top);
+	        heartRateLayer = new Ui.Layer(full);
 	        addLayer(heartRateLayer);
 	        
-    		lapAvgSpeedLayer = new Ui.Layer(leftUpper);
+    		lapAvgSpeedLayer = new Ui.Layer(upperLeft);
 	        rescaleLayerPos(lapAvgSpeedLayer);
 	        addLayer(lapAvgSpeedLayer);
 	        
-	        lapDistanceLayer = new Ui.Layer(leftLower);
+	        lapDistanceLayer = new Ui.Layer(upperRight);
 	        rescaleLayerPos(lapDistanceLayer);
-	        addLayer(lapDistanceLayer);
+	        //addLayer(lapDistanceLayer);
 	        
-	        lapAvgCadenceLayer = new Ui.Layer(rightUpper);
+	        lapAvgCadenceLayer = new Ui.Layer(lowerLeft);
 	        rescaleLayerPos(lapAvgCadenceLayer);
 	        addLayer(lapAvgCadenceLayer);
 	        
-	        lapAvgStrideLengthLayer = new Ui.Layer(rightLower);
+	        lapAvgStrideLengthLayer = new Ui.Layer(lowerRight);
 	        rescaleLayerPos(lapAvgStrideLengthLayer);
 	        addLayer(lapAvgStrideLengthLayer);
 	        
-	        lapTimeLayer = new Ui.Layer(bottom);
+	        lapTimeLayer = new Ui.Layer(bottomLeft);
 	        addLayer(lapTimeLayer);
+	        
+	        lapDistanceLayer = new Ui.Layer(bottomRight);
+	        addLayer(distanceLayer);
 	        
     		viewNameLayer = new Ui.Layer({:locX=>20*sw, :locY=>92*sh, :width=>60*sw, :height=>8*sh});
     		addLayer(viewNameLayer);
@@ -252,31 +271,31 @@ class SkatingView extends Ui.View {
 	        
 	        heartRateLayer = new Ui.Layer(top);
 	        
-	        totalAvgSpeedLayer = new Ui.Layer(leftUpper);
+	        totalAvgSpeedLayer = new Ui.Layer(upperLeft);
 	        rescaleLayerPos(totalAvgSpeedLayer);
 	        addLayer(totalAvgSpeedLayer);
 	        
-	        distanceLayer = new Ui.Layer(leftLower);
+	        distanceLayer = new Ui.Layer(upperRight);
 	        rescaleLayerPos(distanceLayer);
 	        addLayer(distanceLayer);
 	        
-	        totalAvgCadenceLayer = new Ui.Layer(rightUpper);
+	        totalAvgCadenceLayer = new Ui.Layer(lowerLeft);
 	        rescaleLayerPos(totalAvgCadenceLayer);
 	        addLayer(totalAvgCadenceLayer);
 	        
-	        totalAvgStrideLengthLayer = new Ui.Layer(rightLower);
+	        totalAvgStrideLengthLayer = new Ui.Layer(lowerRight);
 	        rescaleLayerPos(totalAvgStrideLengthLayer);
 	        addLayer(totalAvgStrideLengthLayer);
 	        
-	        timerLayer = new Ui.Layer(bottom);
+	        timerLayer = new Ui.Layer(bottomLeft);
 	        addLayer(timerLayer);
+	        
+	        distanceLayer = new Ui.Layer(bottomRight);
+	        addLayer(distanceLayer);
 	        
     		viewNameLayer = new Ui.Layer({:locX=>20*sw, :locY=>92*sh, :width=>60*sw, :height=>8*sh});
     		addLayer(viewNameLayer);
     	}
-    	
-    	gridLayer = new Ui.Layer({:locX=>0, :locY=>0, :width=>100*sw-1, :height=>100*sh-1});
-	    addLayer(gridLayer);
     }
     
     	function addLayerIfHidden(layer){
@@ -420,6 +439,10 @@ class SkatingView extends Ui.View {
 			var textDim = dc.getTextDimensions(textStr, font);
 	    	while (width >= textDim[0] && height >= textDim[1]) {
 	    		font++;
+	    		if (font == 9){
+	    			textDim[0] = width;
+	    			textDim[1] = height;
+	    		}
 	    		textDim = dc.getTextDimensions(textStr, font);
 	    	}
 	    	if (!isNumber) {
@@ -468,11 +491,14 @@ class SkatingView extends Ui.View {
     
     
     function updateHeartRateLayer(dc) {
-    	dc.setColor(foregroundColor, backgroundColor);
+    	dc.setColor(foregroundColor, Gfx.COLOR_TRANSPARENT);
 		dc.clear();
 		
 		var dcW = dc.getWidth();
         var dcH = dc.getHeight();
+        
+		var maxHRFontHeight = dcH/8;
+		var posYHR = dcH/4 - maxHRFontHeight;
         
         var heartRateText = "---";
 	    var lastHeartRate = 0;
@@ -495,20 +521,50 @@ class SkatingView extends Ui.View {
 			}
 		}
 		
-		dc.drawText(0, 8, customIcons, ICON_HEART, Gfx.TEXT_JUSTIFY_CENTER); 
-		
 		var iconWidth = dc.getTextDimensions(ICON_HEART, customIcons)[0];
 		var iconHeight = dc.getTextDimensions(ICON_HEART, customIcons)[1];
 		var spacer = dcW/20.0;
         
 		var hrWidth = dcW-iconWidth-spacer;
-    	var fontHR = maxFont(dc, heartRateText, true, hrWidth, dcH);
+    	var fontHR = maxFont(dc, heartRateText, true, hrWidth, maxHRFontHeight);
         var fontHRWidth = dc.getTextDimensions(heartRateText, fontHR)[0];
+        var fontHRHeight = dc.getTextDimensions(heartRateText, fontHR)[1];
         
         var xPos = dcW/2 - spacer - iconWidth/2 - fontHRWidth/2;
         
-        dc.drawText(xPos, centerFontVert(dcH,customIcons),customIcons, ICON_HEART, Gfx.TEXT_JUSTIFY_CENTER);	
-        dc.drawText(dcW/2, centerFontVert(dcH,fontHR),fontHR, heartRateText, Gfx.TEXT_JUSTIFY_CENTER);	
+        dc.drawText(xPos, centerFontVert(maxHRFontHeight,customIcons)+posYHR,customIcons, ICON_HEART, Gfx.TEXT_JUSTIFY_CENTER);	
+        dc.drawText(dcW/2, centerFontVert(maxHRFontHeight,fontHR)+posYHR,fontHR, heartRateText, Gfx.TEXT_JUSTIFY_CENTER);	
+        
+        // Heart rate zones
+        
+        var genericZoneInfo = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_GENERIC);
+        
+        
+        var halfSpace = 1; // degree
+        var zoneLenght = 18; // degree
+        var startLeft = 90+2.5*zoneLenght;
+        var endRight = 90-2.5*zoneLenght;
+        var zoneColors = [Gfx.COLOR_LT_GRAY, Gfx.COLOR_BLUE, Gfx.COLOR_GREEN, Gfx.COLOR_ORANGE, Gfx.COLOR_RED];
+        for( var i = 1; i < genericZoneInfo.size(); i += 1 ) {
+        	dc.setColor(zoneColors[i-1], Gfx.COLOR_TRANSPARENT);
+        	if (heartRate > genericZoneInfo[i-1] && heartRate < genericZoneInfo[i]){
+        		dc.setPenWidth(posYHR/2);
+        	}
+        	else {
+        		dc.setPenWidth(posYHR/4);
+        	}
+        	dc.drawArc(sw*50, sh*50, sw*50-sw*4, Gfx.ARC_CLOCKWISE, startLeft-halfSpace-zoneLenght*(i-1), startLeft+halfSpace-zoneLenght*i);
+        }
+        
+        // Draw current heart rate marker
+    	dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
+        dc.setPenWidth(posYHR/2+2);
+    	
+    	var markerPos = startLeft - zoneLenght.toFloat() * 5 * (1 - (genericZoneInfo[5].toFloat() - heartRate.toFloat()) / (genericZoneInfo[5].toFloat() - genericZoneInfo[0].toFloat()));
+    	markerPos = (markerPos > startLeft) ? startLeft : markerPos;
+    	markerPos = (markerPos < endRight) ? endRight : markerPos;
+    	
+    	dc.drawArc(sw*50, sh*50, sw*50-sw*4, Gfx.ARC_CLOCKWISE, markerPos+1, markerPos-1);
     }
     
     
@@ -891,16 +947,20 @@ class SkatingView extends Ui.View {
 		lineStartX = scale(120);
 		lineStartY = scale(60);
 		lineWidth = scale(0);
-		lineHeight = scale(120);
+		lineHeight = scale(170);
 		dc.drawLine(lineStartX, lineStartY, lineWidth + lineStartX, lineStartY + lineHeight);
 		
+		// Draw average symbol
 		if (status == Controller.STAT_LAP || status == Controller.STAT_TOTAL){
         	dc.setColor(Gfx.COLOR_WHITE, backgroundColor);
-			dc.fillCircle(scale(120), scale(120), 15);
-        	dc.setColor(Gfx.COLOR_DK_GRAY, backgroundColor);
-			dc.drawCircle(scale(120), scale(120), 16);
+			dc.fillCircle(scale(120), scale(120), 11);
+        	dc.setColor(Gfx.COLOR_WHITE, backgroundColor);
+			dc.drawCircle(scale(120), scale(120), 12);
         	dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
-			dc.drawText(scale(124), scale(120), Gfx.FONT_XTINY, "Ø", Gfx.TEXT_JUSTIFY_VCENTER);
+			//dc.drawText(scale(124), scale(120), Gfx.FONT_TINY, "Ø", Gfx.TEXT_JUSTIFY_VCENTER);
+			dc.setPenWidth(2);
+			dc.drawEllipse(scale(120), scale(120), 4, 6);
+			dc.drawLine(scale(116), scale(127), scale(125), scale(113));
 		}
 	}
 	

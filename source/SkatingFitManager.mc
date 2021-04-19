@@ -274,9 +274,9 @@ class FitManager {
     	
     	
     function getLapAvgVelocity () {
-    	var lapElapsedDistance = Activity.getActivityInfo().elapsedDistance - lapDistanceAtStart;
+    	var lapElapsedDistance = (Activity.getActivityInfo().elapsedDistance - lapDistanceAtStart).toFloat();
     	System.println("Total distance: " + Activity.getActivityInfo().elapsedDistance + ", lap distance at start: " + lapDistanceAtStart + ", elapsed distance: " + lapElapsedDistance);
-    	var lapElapsedTime = (Activity.getActivityInfo().elapsedTime - lapTimeAtStart) / 1000;
+    	var lapElapsedTime = ((Activity.getActivityInfo().elapsedTime - lapTimeAtStart) / 1000).toFloat();
     	if (lapElapsedTime > 0) {
 	    	lapAvgVelocity = (lapElapsedDistance) / (lapElapsedTime);
 	    	return lapAvgVelocity;
@@ -293,8 +293,8 @@ class FitManager {
     }
     
     function getLapAvgCadence () {
-    	var lapElapsedSteps = ActivityMonitor.getInfo().steps - lapStepsAtStart;
-    	var lapElapsedTime = (Activity.getActivityInfo().elapsedTime - lapTimeAtStart) / 1000 / 60;
+    	var lapElapsedSteps = (ActivityMonitor.getInfo().steps - lapStepsAtStart).toFloat();
+    	var lapElapsedTime = ((Activity.getActivityInfo().elapsedTime - lapTimeAtStart) / 1000 / 60).toFloat();
     	System.println("Lap steps: " + lapElapsedSteps + ", lap time: " + lapElapsedTime);
     	if (lapElapsedTime > 0) {
 	    	lapAvgCadence = (lapElapsedSteps) / (lapElapsedTime);
@@ -305,8 +305,8 @@ class FitManager {
     }
     
     function getLapAvgStrideLength () {
-    	var lapElapsedDistance = Activity.getActivityInfo().elapsedDistance - lapDistanceAtStart;
-    	var lapElapsedSteps = ActivityMonitor.getInfo().steps - lapStepsAtStart;
+    	var lapElapsedDistance = (Activity.getActivityInfo().elapsedDistance - lapDistanceAtStart).toFloat();
+    	var lapElapsedSteps = (ActivityMonitor.getInfo().steps - lapStepsAtStart).toFloat();
     	if (lapElapsedSteps > 0) {
 	    	lapAvgStrideLength = (lapElapsedDistance) / (lapElapsedSteps);
 	    	return lapAvgStrideLength;
@@ -325,7 +325,7 @@ class FitManager {
     
     
     function getTotalAvgVelocity () {
-    	return (Activity.getActivityInfo().elapsedTime != 0) ? Activity.getActivityInfo().elapsedDistance / (Activity.getActivityInfo().elapsedTime) * 1000 : 0.0;
+    	return (Activity.getActivityInfo().elapsedTime != 0) ? Activity.getActivityInfo().elapsedDistance.toFloat() / (Activity.getActivityInfo().elapsedTime) * 1000 : 0.0;
     }
     
     function getTotalAvgCadence () {
@@ -333,7 +333,7 @@ class FitManager {
     }
     
     function getTotalAvgStrideLength () {
-	    return (ActivityMonitor.getInfo().steps - stepsAtStart != 0) ? Activity.getActivityInfo().elapsedDistance / (ActivityMonitor.getInfo().steps - stepsAtStart) : 0.0;
+	    return (ActivityMonitor.getInfo().steps - stepsAtStart != 0) ? Activity.getActivityInfo().elapsedDistance.toFloat() / (ActivityMonitor.getInfo().steps - stepsAtStart) : 0.0;
     }
     
     

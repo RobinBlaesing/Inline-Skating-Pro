@@ -50,7 +50,7 @@ class Controller {
     }
     
     function onPosition(info) {
-		_skatingView.updatePosition(info);
+		//_skatingView.updatePosition(info);
     	//WatchUi.requestUpdate();
     }
     
