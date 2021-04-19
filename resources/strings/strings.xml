@@ -13,15 +13,24 @@
 	<string id="data_label_cadence">Cadence</string>
 	<string id="unit_label_cadence">Steps / minute</string>
 	
-	<string id="chart_title_stride_length">Stride length</string>
-	<string id="data_label_stride_length">Stride length</string>
-	<string id="unit_label_stride_length">m</string>
-	
 	<string id="chart_title_cadence_avg">Ø cadence</string>
 	<string id="data_label_cadence_avg">Ø cadence</string>
 	<string id="unit_label_cadence_avg">spm</string>
 	
+	<string id="chart_title_stride_length">Stride length</string>
+	<string id="data_label_stride_length">Stride length</string>
+	<string id="unit_label_stride_length">m</string>
+	
 	<string id="chart_title_stride_length_avg">Ø stride length</string>
 	<string id="data_label_stride_length_avg">Ø stride length</string>
 	<string id="unit_label_stride_length_avg">m</string>
+	
+	
+	<string id="chart_title_glide_time">Glide time</string>
+	<string id="data_label_glide_time">Glide time</string>
+	<string id="unit_label_glide_time">s</string>
+	
+	<string id="chart_title_glide_time_avg">Ø glide time</string>
+	<string id="data_label_glide_time_avg">Ø glide time</string>
+	<string id="unit_label_glide_time_avg">s</string>
 </strings>

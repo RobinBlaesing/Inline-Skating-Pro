@@ -9,28 +9,39 @@ using Toybox.Timer;
 class FitManager {
 
 	hidden var session = null; 
+	
 	hidden var cadenceLast = 0.0;
+	hidden var glideTimeLast = 0.0;
 	hidden var strideLengthLast = 0.0;
+	
+	
+	// Timer for updates every second
+	hidden var timerSession;
+	hidden var timeInit;
 
 	// Calculate cadence by steps
 	hidden var fieldCadence = null;
 	hidden var fieldCadenceAvg = null;
 	hidden var cadenceTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
-	hidden var cadenceFitInterval = 8500.0;			// Approx. fit interval in milliseconds
+	hidden var cadenceFitInterval = 7500.0;				// Approx. fit interval in milliseconds
 	hidden var cadenceRollingWindow = [[null,null]]; 	// Array of rolling window tuples (timestamp, steps)
-	hidden var timeInit;
 	
-	
-	// Timer for updates every second
-	hidden var timerSession;
+	// Calculate cadence by steps
+	hidden var fieldGlideTime = null;
+	hidden var fieldGlideTimeAvg = null;
+	hidden var lastGlideTimeTuple = [null,null]; 		// Array of rolling window tuples (steps, timestamp)
+	hidden var glideTimeWeightOld = 0.5;				
 
-	
 	// Calculate stride length by steps and elapsed distance
 	hidden var fieldStrideLength = null;	
 	hidden var fieldStrideLengthAvg = null;
 	hidden var strideLengthTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
-	hidden var strideLengthFitInterval = 8500.0;			// Approx. fit interval in milliseconds
+	hidden var strideLengthFitInterval = 7500.0;			// Approx. fit interval in milliseconds
 	hidden var strideLengthRollingWindow = [[null,null,null]];	// Array of rolling window tuples (steps, distance, timestamp)
+	
+	// In order to smooth the data, include last values in current value
+	// currentValue = ( newValue + oldValue * weightOld ) / (1 + weightOld)
+	hidden var weightOld = 0.5;
 	
 	// Used to calcualte avgerage cadence and stride length:
 	hidden var stepsAtStart = null;
@@ -55,6 +66,7 @@ class FitManager {
 		recordCadence();
 		recordStrideLength();
         recordAvgSessionData();
+        recordGlideTime();
 	}
 	
 	
@@ -141,12 +153,16 @@ class FitManager {
 		if (session != null && !session.isRecording()){
 			fieldCadence = session.createField("cadence", 0, FitContributor.DATA_TYPE_UINT16, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"spm" });
 			System.println("Field fieldCadence created.");
-			fieldStrideLength = session.createField("stride_length", 1, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"m" });
-			System.println("Field fieldStrideLength created.");
-			fieldCadenceAvg = session.createField("cadence_avg", 2, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"spm" });
+			fieldCadenceAvg = session.createField("cadence_avg", 1, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"spm" });
 			System.println("Field fieldCadenceAvg created.");
+			fieldStrideLength = session.createField("stride_length", 2, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"m" });
+			System.println("Field fieldStrideLength created.");
     		fieldStrideLengthAvg = session.createField("stride_length_avg", 3, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"m" });
 			System.println("Field fieldStrideLengthAvg created.");
+			fieldGlideTime = session.createField("glide_time", 4, FitContributor.DATA_TYPE_UINT16, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"s" });
+			System.println("Field fieldGlideTime created.");
+			fieldGlideTimeAvg = session.createField("glide_time_avg", 5, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"s" });
+			System.println("Field fieldGlideTimeAvg created.");
 		}
 	}
 	
@@ -154,13 +170,16 @@ class FitManager {
 		if (fieldCadenceAvg != null && fieldStrideLengthAvg != null && stepsAtStart != null && session != null && session.isRecording()){
 			var stepsDuringSession = (ActivityMonitor.getInfo().steps - stepsAtStart).toFloat();
 	    	var avgCadence = 0.0;
+	    	var avgGlideTime = 0.0;
 	    	var avgStrideLength = 0.0;
 	    	System.println("Steps during session: " + stepsDuringSession + ", elapsed time: " + Activity.getActivityInfo().elapsedTime + ", elapsed distance: " + Activity.getActivityInfo().elapsedDistance);
 	    	if (stepsDuringSession != null && stepsDuringSession > 0 && Activity.getActivityInfo().elapsedTime != null && Activity.getActivityInfo().elapsedTime > 0 && Activity.getActivityInfo().elapsedDistance != null && Activity.getActivityInfo().elapsedDistance > 0) {
 		    	avgCadence = (stepsDuringSession * 60.0 / Activity.getActivityInfo().elapsedTime * 1000);
+		    	avgGlideTime = (avgCadence != 0) ? (1.0/avgCadence)*60 : 0;
 		    	avgStrideLength = (Activity.getActivityInfo().elapsedDistance / stepsDuringSession);
 		    }
 	    	fieldCadenceAvg.setData(avgCadence);
+	    	fieldGlideTimeAvg.setData(avgGlideTime);
 	    	fieldStrideLengthAvg.setData(avgStrideLength);
 	    	System.println("Saved avg. cadence: " + avgCadence + ", and stride length: " + avgStrideLength);
     	}
@@ -169,7 +188,7 @@ class FitManager {
 	function recordCadence(){
 		var currentCadence = Activity.getActivityInfo().currentCadence;
         if (currentCadence != null && currentCadence != 0){
-        	cadenceLast = (currentCadence + cadenceLast) / 2.0;
+        	cadenceLast = (currentCadence + cadenceLast * weightOld ) / (1 + weightOld);
 		} 
 		else {
 			var currentSteps = ActivityMonitor.getInfo().steps;
@@ -199,7 +218,7 @@ class FitManager {
 				}
 			}
 			cadenceRollingWindow = newCadenceRollingWindow;
-			cadenceLast = (cadenceLast + (calcSlope(cadenceRollingWindow))*1000*60) / 2.0;
+			cadenceLast = ((calcSlope(cadenceRollingWindow))*1000*60 + cadenceLast* weightOld ) / (1 + weightOld);
 		} 
 		if (fieldCadence != null && session != null && session.isRecording()){
     		fieldCadence.setData(cadenceLast.toNumber()); 
@@ -211,7 +230,7 @@ class FitManager {
 		var currentCadence = Activity.getActivityInfo().currentCadence;
 		var currentSpeed = Activity.getActivityInfo().currentSpeed;
         if (currentCadence != null && currentCadence != 0 && currentSpeed != null && currentSpeed != 0){
-        	strideLengthLast = (currentSpeed / currentCadence * 60 + strideLengthLast) / 2.0;
+        	strideLengthLast = (currentSpeed / currentCadence * 60 + strideLengthLast * weightOld ) / (1 + weightOld);
  		} 
  		else {
 			var currentSteps = ActivityMonitor.getInfo().steps;
@@ -242,13 +261,48 @@ class FitManager {
 				}
 			}
 			strideLengthRollingWindow = newStrideLengthRollingWindow;
-			strideLengthLast = (strideLengthLast + (calcSlope(strideLengthRollingWindow))) / 2.0;
+			strideLengthLast = ((calcSlope(strideLengthRollingWindow)) + strideLengthLast* weightOld ) / (1 + weightOld);
  		} 
  		if (fieldStrideLength != null && session != null && strideLengthLast != null && session.isRecording()){
     		fieldStrideLength.setData(strideLengthLast); 
     		System.println("New strideLengthLast written to fieldStrideLength: " + strideLengthLast);
     	}
 	}
+	
+	function recordGlideTime(){
+		var currentCadence = Activity.getActivityInfo().currentCadence;
+        if (currentCadence != null && currentCadence != 0){
+        	glideTimeLast = 1.0/currentCadence*60; // Glide time in seconds
+		} 
+		else {
+			var currentSteps = ActivityMonitor.getInfo().steps;
+			var elapsedTime = System.getTimer() - timeInit;
+			
+			var glideTimeTuple = [currentSteps,elapsedTime];
+			
+			if (lastGlideTimeTuple[0] != null){
+				if (lastGlideTimeTuple[0] < currentSteps) {
+					var avgGlideTimeWithinLastMeasInterv = (elapsedTime - lastGlideTimeTuple[1]).toFloat() / (currentSteps - lastGlideTimeTuple[0])/1000;
+					glideTimeLast = avgGlideTimeWithinLastMeasInterv;
+					lastGlideTimeTuple = glideTimeTuple;
+    				System.println("Some steps within last check. Calc. glide time within interval: "+ avgGlideTimeWithinLastMeasInterv + ", new glide time: " + glideTimeLast);
+				}
+				else {
+					var newGlideTime = (elapsedTime - lastGlideTimeTuple[1])/1000;
+					glideTimeLast = (newGlideTime > glideTimeLast) ? (newGlideTime + glideTimeLast * glideTimeWeightOld ) / (1 + glideTimeWeightOld) : glideTimeLast;
+    				System.println("No steps within last check. New glide time: " + glideTimeLast);
+				}
+			}
+			else {
+				lastGlideTimeTuple = glideTimeTuple;
+			}
+		} 
+		if (fieldGlideTime != null && session != null && session.isRecording()){
+    		fieldGlideTime.setData(glideTimeLast.toNumber()); 
+    		System.println("New cadenceLast written to fieldCadence: " + cadenceLast.toNumber());
+    	}
+	}
+	
 	
 		function calcSlope(tupleArray){
     		var n = tupleArray.size();
@@ -292,7 +346,7 @@ class FitManager {
 	    return lapElapsedDistance;
     }
     
-    function getLapAvgCadence () {
+    function getLapAvgCadence() {
     	var lapElapsedSteps = (ActivityMonitor.getInfo().steps - lapStepsAtStart).toFloat();
     	var lapElapsedTime = ((Activity.getActivityInfo().elapsedTime - lapTimeAtStart) / 1000 / 60).toFloat();
     	System.println("Lap steps: " + lapElapsedSteps + ", lap time: " + lapElapsedTime);
@@ -302,6 +356,10 @@ class FitManager {
 	    	return lapAvgCadence;
 	    }
 	    return 0.0;
+    }
+    
+    function getLapAvgGlideTime () {
+	    return (getLapAvgCadence() != 0) ? 1.0/getLapAvgCadence()*60 : 0.0;
     }
     
     function getLapAvgStrideLength () {
@@ -332,6 +390,10 @@ class FitManager {
 	    return (Activity.getActivityInfo().elapsedTime != 0) ? (ActivityMonitor.getInfo().steps.toFloat() - stepsAtStart) / Activity.getActivityInfo().elapsedTime * 1000 * 60 : 0.0;
     }
     
+    function getTotalAvgGlideTime () {
+    	return (getTotalAvgCadence() != 0) ? (1.0/getTotalAvgCadence())*60 : 0.0;
+    }
+    
     function getTotalAvgStrideLength () {
 	    return (ActivityMonitor.getInfo().steps - stepsAtStart != 0) ? Activity.getActivityInfo().elapsedDistance.toFloat() / (ActivityMonitor.getInfo().steps - stepsAtStart) : 0.0;
     }
@@ -340,6 +402,10 @@ class FitManager {
     	
     function getCadence(){
     	return cadenceLast;
+    }
+    
+    function getGlideTime(){
+    	return glideTimeLast;
     }
     
     function getStrideLength(){

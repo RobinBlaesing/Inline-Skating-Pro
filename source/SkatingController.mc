@@ -35,7 +35,7 @@ class Controller {
 	
 	function setupTimer() {
 		timerUpdate = new Timer.Timer();
-		timerUpdate.start(method(:removeInitViewAndStartUp), 2000, false);
+		timerUpdate.start(method(:removeInitViewAndStartUp), 1200, false);
 	}
 	
 		function updateEverySecond(){

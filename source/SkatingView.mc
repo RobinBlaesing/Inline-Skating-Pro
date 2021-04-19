@@ -44,16 +44,19 @@ class SkatingView extends Ui.View {
 	var speedLayer;
 	var distanceLayer;
 	var cadenceLayer;
+	var glideTimeLayer;
 	var strideLengthLayer;
 	var timerLayer;
 	// Total Layers:
 	var totalAvgSpeedLayer;
 	var totalAvgCadenceLayer;
+	var totalAvgGlideTimeLayer;
 	var totalAvgStrideLengthLayer;
 	// Lap Layers:
 	var lapAvgSpeedLayer;
 	var lapDistanceLayer;
 	var lapAvgCadenceLayer;
+	var lapAvgGlideTimeLayer;
 	var lapAvgStrideLengthLayer;
 	var lapTimeLayer;
 	
@@ -175,9 +178,9 @@ class SkatingView extends Ui.View {
 	        rescaleLayerPos(speedLayer);
 	        addLayer(speedLayer);
 	        
-	        distanceLayer = new Ui.Layer(upperRight);
-	        rescaleLayerPos(distanceLayer);
-	        //addLayer(distanceLayer);
+	        glideTimeLayer = new Ui.Layer(upperRight);
+	        rescaleLayerPos(glideTimeLayer);
+	        addLayer(glideTimeLayer);
 	        
 	        cadenceLayer = new Ui.Layer(lowerLeft);
 	        rescaleLayerPos(cadenceLayer);
@@ -203,9 +206,9 @@ class SkatingView extends Ui.View {
 	        rescaleLayerPos(speedLayer);
 	        addLayer(speedLayer);
 	        
-	        distanceLayer = new Ui.Layer(upperRight);
-	        rescaleLayerPos(distanceLayer);
-	        //addLayer(distanceLayer);
+	        glideTimeLayer = new Ui.Layer(upperRight);
+	        rescaleLayerPos(glideTimeLayer);
+	        addLayer(glideTimeLayer);
 	        
 	        cadenceLayer = new Ui.Layer(lowerLeft);
 	        rescaleLayerPos(cadenceLayer);
@@ -233,9 +236,9 @@ class SkatingView extends Ui.View {
 	        rescaleLayerPos(lapAvgSpeedLayer);
 	        addLayer(lapAvgSpeedLayer);
 	        
-	        lapDistanceLayer = new Ui.Layer(upperRight);
-	        rescaleLayerPos(lapDistanceLayer);
-	        //addLayer(lapDistanceLayer);
+	        lapAvgGlideTimeLayer = new Ui.Layer(upperRight);
+	        rescaleLayerPos(lapAvgGlideTimeLayer);
+	        addLayer(lapAvgGlideTimeLayer);
 	        
 	        lapAvgCadenceLayer = new Ui.Layer(lowerLeft);
 	        rescaleLayerPos(lapAvgCadenceLayer);
@@ -249,7 +252,7 @@ class SkatingView extends Ui.View {
 	        addLayer(lapTimeLayer);
 	        
 	        lapDistanceLayer = new Ui.Layer(bottomRight);
-	        addLayer(distanceLayer);
+	        addLayer(lapDistanceLayer);
 	        
     		viewNameLayer = new Ui.Layer({:locX=>20*sw, :locY=>92*sh, :width=>60*sw, :height=>8*sh});
     		addLayer(viewNameLayer);
@@ -275,9 +278,9 @@ class SkatingView extends Ui.View {
 	        rescaleLayerPos(totalAvgSpeedLayer);
 	        addLayer(totalAvgSpeedLayer);
 	        
-	        distanceLayer = new Ui.Layer(upperRight);
-	        rescaleLayerPos(distanceLayer);
-	        addLayer(distanceLayer);
+	        totalAvgGlideTimeLayer = new Ui.Layer(upperRight);
+	        rescaleLayerPos(totalAvgGlideTimeLayer);
+	        addLayer(totalAvgGlideTimeLayer);
 	        
 	        totalAvgCadenceLayer = new Ui.Layer(lowerLeft);
 	        rescaleLayerPos(totalAvgCadenceLayer);
@@ -383,20 +386,22 @@ class SkatingView extends Ui.View {
 	        updateClock(clockLayer.getDc());
 	    	updateHeartRateLayer(heartRateLayer.getDc());
 	    	updateSpeed(speedLayer.getDc());
-	        updateElapsedDistance(distanceLayer.getDc());
+	        updateGlideTime(glideTimeLayer.getDc());
 	        updateCadence(cadenceLayer.getDc());
 	        updateStrideLength(strideLengthLayer.getDc());
 	        updateTimerLayer(timerLayer.getDc());
+			updateElapsedDistance(distanceLayer.getDc());
 	    }
 	    
 	    function updateStd(){
 	    	updateGrid(gridLayer.getDc());
 	    	updateHeartRateLayer(heartRateLayer.getDc());
 	    	updateSpeed(speedLayer.getDc());
-	        updateElapsedDistance(distanceLayer.getDc());
+	        updateGlideTime(glideTimeLayer.getDc());
 	        updateCadence(cadenceLayer.getDc());
 	        updateStrideLength(strideLengthLayer.getDc());
 	        updateTimerLayer(timerLayer.getDc());
+			updateElapsedDistance(distanceLayer.getDc());
 	        updateViewNameLayer(viewNameLayer.getDc());
 	    }
 	    
@@ -404,10 +409,11 @@ class SkatingView extends Ui.View {
 	    	updateGrid(gridLayer.getDc());
 	    	updateHeartRateLayer(heartRateLayer.getDc());
 	    	updateLapAvgSpeedLayer(lapAvgSpeedLayer.getDc());
-			updateLapDistanceLayer(lapDistanceLayer.getDc());
 			updateLapAvgCadenceLayer(lapAvgCadenceLayer.getDc());
+			updateLapAvgGlideTimeLayer(lapAvgGlideTimeLayer.getDc());
 			updateLapAvgStrideLengthLayer(lapAvgStrideLengthLayer.getDc());
 			updateLapTimeLayer(lapTimeLayer.getDc());
+			updateLapDistanceLayer(lapDistanceLayer.getDc());
 	        updateViewNameLayer(viewNameLayer.getDc());
 	    }
 	    
@@ -419,10 +425,11 @@ class SkatingView extends Ui.View {
 	        updateClock(clockLayer.getDc());
 	    	updateHeartRateLayer(heartRateLayer.getDc());
 	    	updateTotalAvgSpeedLayer(totalAvgSpeedLayer.getDc());
-	        updateElapsedDistance(distanceLayer.getDc());
+			updateTotalAvgGlideTimeLayer(totalAvgGlideTimeLayer.getDc());
 	        updateTotalAvgCadenceLayer(totalAvgCadenceLayer.getDc());
 	        updateTotalAvgStrideLengthLayer(totalAvgStrideLengthLayer.getDc());
 	        updateTimerLayer(timerLayer.getDc());
+	        updateElapsedDistance(distanceLayer.getDc());
 	        updateViewNameLayer(viewNameLayer.getDc());
 	    }
     
@@ -523,7 +530,7 @@ class SkatingView extends Ui.View {
 		
 		var iconWidth = dc.getTextDimensions(ICON_HEART, customIcons)[0];
 		var iconHeight = dc.getTextDimensions(ICON_HEART, customIcons)[1];
-		var spacer = dcW/20.0;
+		var spacer = dcW/40.0;
         
 		var hrWidth = dcW-iconWidth-spacer;
     	var fontHR = maxFont(dc, heartRateText, true, hrWidth, maxHRFontHeight);
@@ -548,6 +555,7 @@ class SkatingView extends Ui.View {
         for( var i = 1; i < genericZoneInfo.size(); i += 1 ) {
         	dc.setColor(zoneColors[i-1], Gfx.COLOR_TRANSPARENT);
         	if (heartRate > genericZoneInfo[i-1] && heartRate < genericZoneInfo[i]){
+        		dc.drawText(xPos, centerFontVert(maxHRFontHeight,customIcons)+posYHR,customIcons, ICON_HEART, Gfx.TEXT_JUSTIFY_CENTER);	
         		dc.setPenWidth(posYHR/2);
         	}
         	else {
@@ -625,6 +633,52 @@ class SkatingView extends Ui.View {
 			
 			drawValueUnit(dc, distance, distanceUnit);	
     	}
+    	
+   	// Glide time
+    
+    function updateGlideTime(dc){ 
+        var glideTime = "-";
+        var glideTimeUnit = "s";
+        
+        if (_fitManager.getGlideTime() != 0.0){
+			glideTime = _fitManager.getGlideTime().format("%.1f");
+		}
+        drawValueUnit(dc, glideTime, glideTimeUnit);
+    }
+    
+	function updateLapAvgGlideTimeLayer(dc){
+		var glideTime = "-";
+        var glideTimeUnit = "s";
+        
+        var avgGT = _fitManager.getLapAvgGlideTime();
+        
+        if (avgGT != 0.0 && avgGT != null){
+        	if (avgGT < 10){
+				glideTime = avgGT.format("%.2f");
+			}
+			else {
+				glideTime = avgGT.toNumber().format("%.1f");
+			}
+		}
+        drawValueUnit(dc, glideTime, glideTimeUnit);
+    }
+    
+    function updateTotalAvgGlideTimeLayer(dc){
+		var glideTime = "-";
+        var glideTimeUnit = "s";
+        
+        var avgGT = _fitManager.getTotalAvgGlideTime();
+        
+        if (avgGT != 0.0 && avgGT != null){
+        	if (avgGT < 100){
+				glideTime = avgGT.format("%.2f");
+			}
+			else {
+				glideTime = avgGT.toNumber().format("%.1f");
+			}
+		}
+        drawValueUnit(dc, glideTime, glideTimeUnit);
+    }
     
     
     // Cadence
@@ -635,7 +689,6 @@ class SkatingView extends Ui.View {
         
         if (_fitManager.getCadence() != 0.0){
 			cadence = _fitManager.getCadence().toNumber().format("%i");
-        	System.println("Cadence: " + cadence);
 		}
         
         drawValueUnit(dc, cadence, cadenceUnit);
@@ -648,13 +701,12 @@ class SkatingView extends Ui.View {
         var avgCad = _fitManager.getLapAvgCadence();
         
         if (avgCad != 0.0 && avgCad != null){
-        	if (avgCad >= 100){
+        	if (avgCad < 100){
 				cadence = avgCad.format("%.1f");
 			}
 			else {
 				cadence = avgCad.toNumber().format("%i");
 			}
-        	System.println("Cadence: " + cadence);
 		}
         
         drawValueUnit(dc, cadence, cadenceUnit);
@@ -667,13 +719,12 @@ class SkatingView extends Ui.View {
         var avgCad = _fitManager.getTotalAvgCadence();
         
         if (avgCad != 0.0 && avgCad != null){
-        	if (avgCad >= 100){
+        	if (avgCad < 100){
 				cadence = avgCad.format("%.1f");
 			}
 			else {
 				cadence = avgCad.toNumber().format("%i");
 			}
-        	System.println("Cadence: " + cadence);
 		}
         
         drawValueUnit(dc, cadence, cadenceUnit);
@@ -960,7 +1011,7 @@ class SkatingView extends Ui.View {
 			//dc.drawText(scale(124), scale(120), Gfx.FONT_TINY, "Ø", Gfx.TEXT_JUSTIFY_VCENTER);
 			dc.setPenWidth(2);
 			dc.drawEllipse(scale(120), scale(120), 4, 6);
-			dc.drawLine(scale(116), scale(127), scale(125), scale(113));
+			dc.drawLine(scale(115), scale(127), scale(125), scale(113));
 		}
 	}
 	
