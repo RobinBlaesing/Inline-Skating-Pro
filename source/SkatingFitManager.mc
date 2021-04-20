@@ -25,12 +25,14 @@ class FitManager {
 	hidden var cadenceTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
 	hidden var cadenceFitInterval = 7500.0;				// Approx. fit interval in milliseconds
 	hidden var cadenceRollingWindow = [[null,null]]; 	// Array of rolling window tuples (timestamp, steps)
+	hidden var cadenceLimits = [0,300];
 	
 	// Calculate cadence by steps
 	hidden var fieldGlideTime = null;
 	hidden var fieldGlideTimeAvg = null;
 	hidden var lastGlideTimeTuple = [null,null]; 		// Array of rolling window tuples (steps, timestamp)
 	hidden var glideTimeWeightOld = 0.5;				
+	hidden var glideTimeLimits = [0,120];
 
 	// Calculate stride length by steps and elapsed distance
 	hidden var fieldStrideLength = null;	
@@ -38,6 +40,7 @@ class FitManager {
 	hidden var strideLengthTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
 	hidden var strideLengthFitInterval = 7500.0;			// Approx. fit interval in milliseconds
 	hidden var strideLengthRollingWindow = [[null,null,null]];	// Array of rolling window tuples (steps, distance, timestamp)
+	hidden var strideLengthLimits = [0,200];
 	
 	// In order to smooth the data, include last values in current value
 	// currentValue = ( newValue + oldValue * weightOld ) / (1 + weightOld)
@@ -159,11 +162,18 @@ class FitManager {
 			System.println("Field fieldStrideLength created.");
     		fieldStrideLengthAvg = session.createField("stride_length_avg", 3, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"m" });
 			System.println("Field fieldStrideLengthAvg created.");
-			fieldGlideTime = session.createField("glide_time", 4, FitContributor.DATA_TYPE_UINT16, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"s" });
+			fieldGlideTime = session.createField("glide_time", 4, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"s" });
 			System.println("Field fieldGlideTime created.");
 			fieldGlideTimeAvg = session.createField("glide_time_avg", 5, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"s" });
 			System.println("Field fieldGlideTimeAvg created.");
 		}
+	}
+	
+	function inLimits(value,limits){
+		var returnValue = 0.0;
+		returnValue = (value > limits[0]) ? value : limits[0];
+		returnValue = (returnValue < limits[1]) ? returnValue : limits[1];
+		return returnValue;
 	}
 	
 	function recordAvgSessionData() {
@@ -218,10 +228,11 @@ class FitManager {
 				}
 			}
 			cadenceRollingWindow = newCadenceRollingWindow;
-			cadenceLast = ((calcSlope(cadenceRollingWindow))*1000*60 + cadenceLast* weightOld ) / (1 + weightOld);
+			var newCadenceLast = ((calcSlope(cadenceRollingWindow))*1000*60 + cadenceLast* weightOld ) / (1 + weightOld);
+			cadenceLast = inLimits(newCadenceLast,cadenceLimits);
 		} 
 		if (fieldCadence != null && session != null && session.isRecording()){
-    		fieldCadence.setData(cadenceLast.toNumber()); 
+    		fieldCadence.setData(inLimits(cadenceLast,cadenceLimits).toNumber()); 
     		System.println("New cadenceLast written to fieldCadence: " + cadenceLast.toNumber());
     	}
 	}
@@ -261,11 +272,11 @@ class FitManager {
 				}
 			}
 			strideLengthRollingWindow = newStrideLengthRollingWindow;
-			strideLengthLast = ((calcSlope(strideLengthRollingWindow)) + strideLengthLast* weightOld ) / (1 + weightOld);
+			var newStrideLengthLast = ((calcSlope(strideLengthRollingWindow)) + strideLengthLast* weightOld ) / (1 + weightOld);
+			strideLengthLast = inLimits(newStrideLengthLast,strideLengthLimits);
  		} 
  		if (fieldStrideLength != null && session != null && strideLengthLast != null && session.isRecording()){
-    		fieldStrideLength.setData(strideLengthLast); 
-    		System.println("New strideLengthLast written to fieldStrideLength: " + strideLengthLast);
+    		fieldStrideLength.setData(inLimits(strideLengthLast,strideLengthLimits)); 
     	}
 	}
 	
@@ -298,7 +309,7 @@ class FitManager {
 			}
 		} 
 		if (fieldGlideTime != null && session != null && session.isRecording()){
-    		fieldGlideTime.setData(glideTimeLast.toNumber()); 
+    		fieldGlideTime.setData(inLimits(glideTimeLast,glideTimeLimits)); 
     		System.println("New cadenceLast written to fieldCadence: " + cadenceLast.toNumber());
     	}
 	}
@@ -353,13 +364,14 @@ class FitManager {
     	if (lapElapsedTime > 0) {
 	    	lapAvgCadence = (lapElapsedSteps) / (lapElapsedTime);
     		System.println("Lap cadence: " + lapAvgCadence);
-	    	return lapAvgCadence;
+	    	return inLimits(lapAvgCadence,cadenceLimits);
 	    }
 	    return 0.0;
     }
     
     function getLapAvgGlideTime () {
-	    return (getLapAvgCadence() != 0) ? 1.0/getLapAvgCadence()*60 : 0.0;
+    	var labAvgGlideTime = (getLapAvgCadence() != 0) ? 1.0/getLapAvgCadence()*60 : 0.0;
+	    return inLimits(labAvgGlideTime,glideTimeLimits);
     }
     
     function getLapAvgStrideLength () {
@@ -367,7 +379,7 @@ class FitManager {
     	var lapElapsedSteps = (ActivityMonitor.getInfo().steps - lapStepsAtStart).toFloat();
     	if (lapElapsedSteps > 0) {
 	    	lapAvgStrideLength = (lapElapsedDistance) / (lapElapsedSteps);
-	    	return lapAvgStrideLength;
+	    	return inLimits(lapAvgStrideLength,strideLengthLimits);
 	    }
 	    return 0.0;
     }
@@ -401,15 +413,15 @@ class FitManager {
     
     	
     function getCadence(){
-    	return cadenceLast;
+    	return inLimits(cadenceLast,cadenceLimits);
     }
     
     function getGlideTime(){
-    	return glideTimeLast;
+    	return inLimits(glideTimeLast,glideTimeLimits);
     }
     
     function getStrideLength(){
-    	return strideLengthLast;
+    	return inLimits(strideLengthLast,strideLengthLimits);
     }
 
 }
