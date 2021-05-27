@@ -27,7 +27,7 @@ Track your inline skating activities with Inline Skating Pro and analyze your pe
 - Elapsed time
 - Current speed
 
-# Additional Information
+## Additional Information
 - GPS signal strength
 - Clock
 - Battery status
