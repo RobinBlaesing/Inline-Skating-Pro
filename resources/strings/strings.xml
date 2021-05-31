@@ -25,7 +25,6 @@
 	<string id="data_label_stride_length_avg">Ø stride length</string>
 	<string id="unit_label_stride_length_avg">m</string>
 	
-	
 	<string id="chart_title_glide_time">Glide time</string>
 	<string id="data_label_glide_time">Glide time</string>
 	<string id="unit_label_glide_time">s</string>
@@ -33,4 +32,17 @@
 	<string id="chart_title_glide_time_avg">Ø glide time</string>
 	<string id="data_label_glide_time_avg">Ø glide time</string>
 	<string id="unit_label_glide_time_avg">s</string>
+	
+	<string id="label_distance">distance</string>
+	<string id="label_timer">timer</string>
+	<string id="label_speed">speed</string>
+	<string id="label_energy_expenditure">energy expen.</string>
+	<string id="label_training_effect">train. eff.</string>
+	<string id="label_calories">calories</string>
+	<string id="label_cadence">cadence</string>
+	<string id="label_glide_time">glide time</string>
+	<string id="label_stride_length">stride length</string>
+	<string id="label_heart_rate">heart rate</string>
+	
+	<string id="device_type">base</string>
 </strings>

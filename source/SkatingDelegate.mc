@@ -15,7 +15,7 @@ class SkatingDelegate  extends WatchUi.BehaviorDelegate {
 
     function onMenu() {
         System.println("onMenu SkatingDelegate");
-        WatchUi.pushView(new Rez.Menus.MainMenu(), new SkatingMenuDelegate(), WatchUi.SLIDE_UP);
+        WatchUi.pushView(new Rez.Menus.MainMenu(), new SkatingMenuStopDelegate(), WatchUi.SLIDE_UP);
         return true;
     }
     

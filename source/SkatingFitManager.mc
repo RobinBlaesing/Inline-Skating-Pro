@@ -22,6 +22,7 @@ class FitManager {
 	// Calculate cadence by steps
 	hidden var fieldCadence = null;
 	hidden var fieldCadenceAvg = null;
+	hidden var fieldCadenceAvgLap = null;
 	hidden var cadenceTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
 	hidden var cadenceFitInterval = 20000.0;			// Approx. fit interval in milliseconds
 	hidden var cadenceRollingWindow = [[null,null]]; 	// Array of rolling window tuples (timestamp, steps)
@@ -30,6 +31,7 @@ class FitManager {
 	// Calculate cadence by steps
 	hidden var fieldGlideTime = null;
 	hidden var fieldGlideTimeAvg = null;
+	hidden var fieldGlideTimeAvgLap = null;
 	hidden var lastGlideTimeTuple = [null,null]; 		// Array of rolling window tuples (steps, timestamp)
 	hidden var glideTimeWeightOld = 0.5;				
 	hidden var glideTimeLimits = [0,120];
@@ -37,6 +39,7 @@ class FitManager {
 	// Calculate stride length by steps and elapsed distance
 	hidden var fieldStrideLength = null;	
 	hidden var fieldStrideLengthAvg = null;
+	hidden var fieldStrideLengthAvgLap = null;
 	hidden var strideLengthTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
 	hidden var strideLengthFitInterval = 20000.0;			// Approx. fit interval in milliseconds
 	hidden var strideLengthRollingWindow = [[null,null,null]];	// Array of rolling window tuples (steps, distance, timestamp)
@@ -163,14 +166,17 @@ class FitManager {
 			//System.println("Field fieldCadence created.");
 			fieldCadenceAvg = session.createField("cadence_avg", 1, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"spm" });
 			System.println("Field fieldCadenceAvg created.");
+			fieldCadenceAvgLap = session.createField("cadence_avg_lap", 6, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_LAP, :units=>"spm" });
 			//fieldStrideLength = session.createField("stride_length", 2, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"m" });
 			//System.println("Field fieldStrideLength created.");
     		fieldStrideLengthAvg = session.createField("stride_length_avg", 3, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"m" });
 			System.println("Field fieldStrideLengthAvg created.");
+    		fieldStrideLengthAvgLap = session.createField("stride_length_avg_lap", 7, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_LAP, :units=>"m" });
 			//fieldGlideTime = session.createField("glide_time", 4, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"s" });
 			//System.println("Field fieldGlideTime created.");
 			fieldGlideTimeAvg = session.createField("glide_time_avg", 5, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"s" });
 			System.println("Field fieldGlideTimeAvg created.");
+			fieldGlideTimeAvgLap = session.createField("glide_time_avg_lap", 8, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_LAP, :units=>"s" });
 		}
 	}
 	
@@ -193,10 +199,21 @@ class FitManager {
 		    	avgGlideTime = (avgCadence != 0) ? (1.0/avgCadence)*60 : 0;
 		    	avgStrideLength = (Activity.getActivityInfo().elapsedDistance / stepsDuringSession);
 		    }
+		    // Session data
 	    	fieldCadenceAvg.setData(avgCadence);
 	    	fieldGlideTimeAvg.setData(avgGlideTime);
 	    	fieldStrideLengthAvg.setData(avgStrideLength);
-	    	System.println("Saved avg. cadence: " + avgCadence + ", and stride length: " + avgStrideLength);
+	    	// Lap data
+	    	if (lapAvgCadence > 0){
+		    	fieldCadenceAvgLap.setData(getLapAvgCadence());
+		    	fieldGlideTimeAvgLap.setData(getLapAvgGlideTime());
+		    	fieldStrideLengthAvgLap.setData(getLapAvgStrideLength());
+		    }
+		    else {
+		    	fieldCadenceAvgLap.setData(avgCadence);
+		    	fieldGlideTimeAvgLap.setData(avgGlideTime);
+		    	fieldStrideLengthAvgLap.setData(avgStrideLength);
+		    }
     	}
     }
 	

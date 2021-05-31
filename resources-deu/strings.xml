@@ -1,0 +1,48 @@
+<strings>
+    <string id="AppName">Inlineskating Pro</string>
+    
+    <string id="view_title_current">Training</string>
+	<string id="view_title_lap">Lap</string>
+	<string id="view_title_total">Max</string>
+
+    <string id="menu_label_1">Fortsetzen</string>
+    <string id="menu_label_2">Speichern</string>
+    <string id="menu_label_3">Verwerfen</string>
+    
+	<string id="chart_title_cadence">Schrittfrequenz</string>
+	<string id="data_label_cadence">Schrittfrequenz</string>
+	<string id="unit_label_cadence">Schritte/Minute</string>
+	
+	<string id="chart_title_cadence_avg">Ø Schrittfrequenz</string>
+	<string id="data_label_cadence_avg">Ø Schrittfrequenz</string>
+	<string id="unit_label_cadence_avg">SpM</string>
+	
+	<string id="chart_title_stride_length">Schrittlänge</string>
+	<string id="data_label_stride_length">Schrittlänge</string>
+	<string id="unit_label_stride_length">m</string>
+	
+	<string id="chart_title_stride_length_avg">Ø Schrittlänge</string>
+	<string id="data_label_stride_length_avg">Ø Schrittlänge</string>
+	<string id="unit_label_stride_length_avg">m</string>
+	
+	<string id="chart_title_glide_time">Gleitzeit</string>
+	<string id="data_label_glide_time">Gleitzeit</string>
+	<string id="unit_label_glide_time">s</string>
+	
+	<string id="chart_title_glide_time_avg">Ø Gleitzeit</string>
+	<string id="data_label_glide_time_avg">Ø Gleitzeit</string>
+	<string id="unit_label_glide_time_avg">s</string>
+	
+	<string id="label_distance">Distanz</string>
+	<string id="label_timer">Timer</string>
+	<string id="label_speed">Geschw.</string>
+	<string id="label_energy_expenditure">Energieaufwand</string>
+	<string id="label_training_effect">Train.-Eff.</string>
+	<string id="label_calories">Kalorien</string>
+	<string id="label_cadence">Schrittfreq.</string>
+	<string id="label_glide_time">Gleitzeit</string>
+	<string id="label_stride_length">Schrittlänge</string>
+	<string id="label_heart_rate">Herzfreq.</string>
+	
+	<string id="device_type">base</string>
+</strings>

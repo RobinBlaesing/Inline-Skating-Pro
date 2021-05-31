@@ -673,6 +673,7 @@ class SkatingView extends Ui.View {
     
     var speed = "-";
     var speedUnit = "km/h";
+    var speedTitle = WatchUi.loadResource(Rez.Strings.label_speed);
     
 	function updateSpeed(dc){
 		var currentSpeed = Activity.getActivityInfo().currentSpeed;
@@ -680,7 +681,7 @@ class SkatingView extends Ui.View {
 			speed = (currentSpeed * 3.6).format("%.1f");
 			speedUnit = "km/h";
 		}
-		drawValueUnitTitle(dc, speed, speedUnit,"speed");
+		drawValueUnitTitle(dc, speed, speedUnit, speedTitle);
 	}
 	
     function updateLapAvgSpeedLayer(dc){
@@ -689,7 +690,7 @@ class SkatingView extends Ui.View {
 			speed = (currentSpeed * 3.6).format("%.1f");
 			speedUnit = "km/h";
 		}
-		drawValueUnitTitle(dc, speed, speedUnit, "speed");
+		drawValueUnitTitle(dc, speed, speedUnit, speedTitle);
 	}
 	
 	function updateTotalAvgSpeedLayer(dc){
@@ -698,7 +699,7 @@ class SkatingView extends Ui.View {
 			speed = (currentSpeed * 3.6).format("%.1f");
 			speedUnit = "km/h";
 		}
-		drawValueUnitTitle(dc, speed, speedUnit, "speed");
+		drawValueUnitTitle(dc, speed, speedUnit, speedTitle);
 	}
 		
 	
@@ -706,6 +707,7 @@ class SkatingView extends Ui.View {
     
     var distance = "-";
     var distanceUnit = "m";
+    var distanceTitle = WatchUi.loadResource(Rez.Strings.label_distance);
     
     function updateElapsedDistance(dc){    
         var elapsedDistance = Activity.getActivityInfo().elapsedDistance;
@@ -733,21 +735,22 @@ class SkatingView extends Ui.View {
 	        		distanceUnit = "km";
 	        	}
 			}
-			drawValueUnitTitle(dc, distance, distanceUnit, "distance");	
+			drawValueUnitTitle(dc, distance, distanceUnit, distanceTitle);	
     	}
     	
     	
     // Energy Expenditure
     
     var energyExpenditure = "-";
-    var energyExpenditureUnit = "cal./min.";
+    var energyExpenditureUnit = "kcal/min";
+    var energyExpenditureTitle = WatchUi.loadResource(Rez.Strings.label_energy_expenditure);
     
     function updateEnergyExpenditure(dc) {
         if (Activity.getActivityInfo().energyExpenditure != 0.0 && Activity.getActivityInfo().energyExpenditure != null && status != Controller.STAT_INIT) {
 			energyExpenditure = Activity.getActivityInfo().energyExpenditure.format("%.1f");
-			energyExpenditureUnit = "cal/min";
+			energyExpenditureUnit = "kcal/min";
 		}
-        drawValueUnitTitle(dc, energyExpenditure, energyExpenditureUnit, "energy expen.");
+        drawValueUnitTitle(dc, energyExpenditure, energyExpenditureUnit, energyExpenditureTitle);
     }
     
     
@@ -755,27 +758,29 @@ class SkatingView extends Ui.View {
     
     var trainingEffect = "-";
     var trainingEffectUnit = " ";
+    var trainingEffectTitle = WatchUi.loadResource(Rez.Strings.label_training_effect);
     
 	function updateTrainingEffect(dc){
         if (Activity.getActivityInfo().trainingEffect != 0.0 && Activity.getActivityInfo().trainingEffect != null && status != Controller.STAT_INIT){
 			trainingEffect = Activity.getActivityInfo().trainingEffect.format("%.1f");
 			trainingEffectUnit = " ";
 		}
-        drawValueUnitTitle(dc, trainingEffect, trainingEffectUnit, "train. eff.");
+        drawValueUnitTitle(dc, trainingEffect, trainingEffectUnit, trainingEffectTitle);
 	}
 	
 	
 	// Calories
 	
 	var calories = "-";
-    var caloriesUnit = " cal";
+    var caloriesUnit = "kcal";
+    var caloriesTitle = WatchUi.loadResource(Rez.Strings.label_calories);
     
 	function updateCaloriesLayer(dc){
         if (Activity.getActivityInfo().calories != 0.0 && Activity.getActivityInfo().calories != null && status != Controller.STAT_INIT){
 			calories = Activity.getActivityInfo().calories.format("%i");
-			caloriesUnit = "cal";
+			caloriesUnit = "kcal";
 		}
-        drawValueUnitTitle(dc, calories, caloriesUnit, "calories");
+        drawValueUnitTitle(dc, calories, caloriesUnit, caloriesTitle);
 	}
     	
     	
@@ -783,13 +788,14 @@ class SkatingView extends Ui.View {
     
 	var glideTime = "-";
     var glideTimeUnit = "s";
+    var glideTimeTitle = WatchUi.loadResource(Rez.Strings.label_glide_time);
     
     function updateGlideTime(dc){ 
         if (_fitManager.getGlideTime() != 0.0 && status != Controller.STAT_INIT){
 			glideTime = _fitManager.getGlideTime().format("%.1f");
 			glideTimeUnit = "s";
 		}
-        drawValueUnitTitle(dc, glideTime, glideTimeUnit, "glide time");
+        drawValueUnitTitle(dc, glideTime, glideTimeUnit, glideTimeTitle);
     }
     
 	function updateLapAvgGlideTimeLayer(dc){
@@ -805,7 +811,7 @@ class SkatingView extends Ui.View {
 				glideTimeUnit = "s";
 			}
 		}
-        drawValueUnitTitle(dc, glideTime, glideTimeUnit,"glide time");
+        drawValueUnitTitle(dc, glideTime, glideTimeUnit, glideTimeTitle);
     }
     
     function updateTotalAvgGlideTimeLayer(dc){
@@ -821,7 +827,7 @@ class SkatingView extends Ui.View {
 				glideTimeUnit = "s";
 			}
 		}
-        drawValueUnitTitle(dc, glideTime, glideTimeUnit,"glide time");
+        drawValueUnitTitle(dc, glideTime, glideTimeUnit, glideTimeTitle);
     }
     
     
@@ -829,13 +835,14 @@ class SkatingView extends Ui.View {
     
 	var cadence = "-";
     var cadenceUnit = "spm";
+    var cadenceTitle = WatchUi.loadResource(Rez.Strings.label_cadence);
     
     function updateCadence(dc){ 
         if (_fitManager.getCadence() != 0.0 && status != Controller.STAT_INIT){
 			cadence = _fitManager.getCadence().toNumber().format("%i");
 			cadenceUnit = "spm";
 		}
-        drawValueUnitTitle(dc, cadence, cadenceUnit,"cadence");
+        drawValueUnitTitle(dc, cadence, cadenceUnit, cadenceTitle);
     }
     
 	function updateLapAvgCadenceLayer(dc){
@@ -852,7 +859,7 @@ class SkatingView extends Ui.View {
 			}
 		}
         
-        drawValueUnitTitle(dc, cadence, cadenceUnit,"cadence");
+        drawValueUnitTitle(dc, cadence, cadenceUnit, cadenceTitle);
     }
     
     function updateTotalAvgCadenceLayer(dc){
@@ -869,7 +876,7 @@ class SkatingView extends Ui.View {
 			}
 		}
         
-        drawValueUnitTitle(dc, cadence, cadenceUnit, "cadence");
+        drawValueUnitTitle(dc, cadence, cadenceUnit, cadenceTitle);
     }
     
     
@@ -877,6 +884,7 @@ class SkatingView extends Ui.View {
     
     var strideLength = "-";
     var strideLengthUnit = "m";
+    var strideLengthTitle = WatchUi.loadResource(Rez.Strings.label_stride_length);
     
     function updateStrideLength(dc){        
 		var currentStrideLength =  _fitManager.getStrideLength();
@@ -885,7 +893,7 @@ class SkatingView extends Ui.View {
 			strideLength = currentStrideLength.format("%.1f");
         	strideLengthUnit = "m";
 		}
-        drawValueUnitTitle(dc, strideLength, strideLengthUnit, "stride length");
+        drawValueUnitTitle(dc, strideLength, strideLengthUnit, strideLengthTitle);
     }
     
 	function updateLapAvgStrideLengthLayer(dc){        
@@ -895,7 +903,7 @@ class SkatingView extends Ui.View {
 			strideLength = currentStrideLength.format("%.2f");
         	strideLengthUnit = "m";
 		}
-        drawValueUnitTitle(dc, strideLength, strideLengthUnit, "stride length");
+        drawValueUnitTitle(dc, strideLength, strideLengthUnit, strideLengthTitle);
     }    
     
     function updateTotalAvgStrideLengthLayer(dc){        
@@ -905,7 +913,7 @@ class SkatingView extends Ui.View {
 			strideLength = currentStrideLength.format("%.2f");
         	strideLengthUnit = "m";
 		}
-        drawValueUnitTitle(dc, strideLength, strideLengthUnit, "stride length");
+        drawValueUnitTitle(dc, strideLength, strideLengthUnit, strideLengthTitle);
     }    
     
     
@@ -913,13 +921,14 @@ class SkatingView extends Ui.View {
     
 	var maxSpeed = "-";
     var maxSpeedUnit = "km/h";
+    var maxSpeedTitle = WatchUi.loadResource(Rez.Strings.label_speed);
     
     function updateMaxSpeedLayer(dc){
         if (Activity.getActivityInfo().maxSpeed != 0.0 && Activity.getActivityInfo().maxSpeed != null && status != Controller.STAT_INIT){
 			maxSpeed = (Activity.getActivityInfo().maxSpeed * 3.6).format("%.1f");
 			maxSpeedUnit = "km/h";
 		}
-        drawValueUnitTitle(dc, maxSpeed, maxSpeedUnit, "speed");
+        drawValueUnitTitle(dc, maxSpeed, maxSpeedUnit, maxSpeedTitle);
     }
     
     
@@ -927,17 +936,20 @@ class SkatingView extends Ui.View {
     
 	var maxHeartRate = "-";
     var maxHeartRateUnit = "bpm";
+    var maxHeartTitle = WatchUi.loadResource(Rez.Strings.label_heart_rate);
     
     function updateMaxHeartRateLayer(dc){
         if (Activity.getActivityInfo().maxHeartRate != 0.0 && Activity.getActivityInfo().maxHeartRate != null && status != Controller.STAT_INIT){
 			maxHeartRate = Activity.getActivityInfo().maxHeartRate.format("%i");
 			maxHeartRateUnit = "bpm";
 		}
-        drawValueUnitTitle(dc, maxHeartRate, maxHeartRateUnit, "heart rate");
+        drawValueUnitTitle(dc, maxHeartRate, maxHeartRateUnit, maxHeartTitle);
     }
     
 	    
 	// Timer
+	
+    var timerTitle = WatchUi.loadResource(Rez.Strings.label_timer);
 	    
 	function updateTimerLayer(dc) {
 		var activityTimeSec = Activity.getActivityInfo().elapsedTime/1000;
@@ -945,7 +957,7 @@ class SkatingView extends Ui.View {
 			drawTimerLayer(dc,activityTimeSec);
 		}
 		else {
-			drawValueUnitTitle(dc, "-", " ", "timer");
+			drawValueUnitTitle(dc, "-", " ", timerTitle);
 		}
 	}
 	
@@ -956,7 +968,7 @@ class SkatingView extends Ui.View {
 			drawTimerLayer(dc,activityTimeSec);
 		}
 		else {
-			drawValueUnit(dc, "lap timer", " ");
+			drawValueUnit(dc, "Lap-" + timerTitle, " ");
 		}
 	}
 	
@@ -969,8 +981,8 @@ class SkatingView extends Ui.View {
 	        
 	        // Title
 	        var fontTitle = Gfx.FONT_XTINY;
-	        var fontTitleHeight = dc.getTextDimensions("timer", fontTitle)[1];
-	        dc.drawText(dcW/2, 0, fontTitle, "timer", Gfx.TEXT_JUSTIFY_CENTER);	
+	        var fontTitleHeight = dc.getTextDimensions(timerTitle, fontTitle)[1];
+	        dc.drawText(dcW/2, 0, fontTitle, timerTitle, Gfx.TEXT_JUSTIFY_CENTER);	
 	        
 	        // Value 
 	        var heightValue = dcH - fontTitleHeight;
@@ -997,7 +1009,7 @@ class SkatingView extends Ui.View {
 		        dc.drawText(fontMSWidth/2+spacer+hourWidth+offsetX, centerFontVert(heightValue,fontMS)+fontTitleHeight,fontMS, msStr, Gfx.TEXT_JUSTIFY_CENTER);	
 	        }
 	        else {
-	        	drawValueUnitTitle(dc,toMS(activityTimeSec).toString(),null,"timer");
+	        	drawValueUnitTitle(dc,toMS(activityTimeSec).toString(),null,timerTitle);
 	        }
 		}
 	
@@ -1157,7 +1169,7 @@ class SkatingView extends Ui.View {
         dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
 		dc.clear();
 		
-	    dc.setPenWidth(1);
+	    dc.setPenWidth(2);
 		
 		var lineStartX;
 		var lineStartY;
