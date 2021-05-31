@@ -145,13 +145,13 @@ class SkatingView extends Ui.View {
         
         // Grid with data fields:
         top = {:locX=>20*sw, :locY=>0.5*sh, :width=>60*sw, :height=>23*sh};
-		upperLeft = {:locX=>10, :locY=>62, :width=>scale(105), :height=>scale(57)};
-		upperRight = {:locX=>126, :locY=>62, :width=>scale(105), :height=>scale(57)};
-		lowerLeft = {:locX=>10, :locY=>122, :width=>scale(105), :height=>scale(57)};
-		lowerRight = {:locX=>126, :locY=>122, :width=>scale(105), :height=>scale(57)};
-		bottom = {:locX=>20*sw, :locY=>76.5*sh, :width=>60*sw, :height=>15.5*sh};
-    	bottomLeft = {:locX=>18.5*sw, :locY=>76*sh, :width=>29.5*sw, :height=>16*sh};
-    	bottomRight = {:locX=>52.5*sw, :locY=>76*sh, :width=>29.5*sw, :height=>16*sh};
+		upperLeft = {:locX=>15, :locY=>62, :width=>scale(100), :height=>scale(57)};
+		upperRight = {:locX=>126, :locY=>62, :width=>scale(100), :height=>scale(57)};
+		lowerLeft = {:locX=>15, :locY=>122, :width=>scale(100), :height=>scale(57)};
+		lowerRight = {:locX=>126, :locY=>122, :width=>scale(100), :height=>scale(57)};
+    	bottomLeft = {:locX=>20.5*sw, :locY=>76*sh, :width=>27.5*sw, :height=>16*sh};
+    	bottomRight = {:locX=>51.5*sw, :locY=>76*sh, :width=>27.5*sw, :height=>16*sh};
+		bottom = {:locX=>20*sw, :locY=>92*sh, :width=>60*sw, :height=>8*sh};
 		full = {:locX=>0, :locY=>0, :width=>100*sw-1, :height=>100*sh-1};
 		//var bottom = {:locX=>35*sw, :locY=>86*sh, :width=>30*sw, :height=>12.5*sh};
         
@@ -249,7 +249,7 @@ class SkatingView extends Ui.View {
 	        caloriesLayer = new Ui.Layer(bottomRight);
 	        addLayer(caloriesLayer);
 	        
-    		viewNameLayer = new Ui.Layer({:locX=>20*sw, :locY=>90*sh, :width=>60*sw, :height=>8*sh});
+    		viewNameLayer = new Ui.Layer(bottom);
     		addLayer(viewNameLayer);
     	}
     	if (status == Controller.STAT_LAP){
@@ -279,7 +279,7 @@ class SkatingView extends Ui.View {
 	        lapDistanceLayer = new Ui.Layer(bottomRight);
 	        addLayer(lapDistanceLayer);
 	        
-    		viewNameLayer = new Ui.Layer({:locX=>20*sw, :locY=>90*sh, :width=>60*sw, :height=>8*sh});
+    		viewNameLayer = new Ui.Layer(bottom);
     		addLayer(viewNameLayer);
     	}
     	if (status == Controller.STAT_TOTAL) {	  
@@ -321,7 +321,7 @@ class SkatingView extends Ui.View {
 	        maxHeartRateLayer = new Ui.Layer(bottomRight);
 	        addLayer(maxHeartRateLayer);
 	        
-    		viewNameLayer = new Ui.Layer({:locX=>20*sw, :locY=>90*sh, :width=>60*sw, :height=>8*sh});
+    		viewNameLayer = new Ui.Layer(bottom);
     		addLayer(viewNameLayer);
     	}
     }
@@ -552,6 +552,39 @@ class SkatingView extends Ui.View {
 	        fontValue = maxFont(dc, valueStr, true, fontValueWidth, dcH);  // Check if more space is avaible
 	        dc.drawText(fontValueWidth/2, centerFontVert(dcH,fontValue),fontValue, valueStr, Gfx.TEXT_JUSTIFY_CENTER);	
 	    }
+	    
+	    function drawValueUnitTitle(dc, valueStr, unitStr, titleStr)  {
+	    	dc.setColor(foregroundColor, backgroundColor);
+	    	dc.clear();
+			var dcW = dc.getWidth();
+	        var dcH = dc.getHeight();
+	        var spacer = dcW/20.0;
+	        
+	        // Title
+	        var fontTitle = Gfx.FONT_XTINY;
+	        var fontTitleHeight = dc.getTextDimensions(titleStr, fontTitle)[1];
+	        dc.drawText(dcW/2, 0, fontTitle, titleStr, Gfx.TEXT_JUSTIFY_CENTER);	
+	        
+	        // Value 
+	        var heightValue = dcH - fontTitleHeight;
+	        var fontValue = maxFont(dc, valueStr, true, dcW*3.0/4, heightValue);
+	        var fontValueWidth = dc.getTextDimensions(valueStr, fontValue)[0];
+	        
+	        // Unit 
+	        if (unitStr != null){
+	        	var fontUnit = maxFont(dc, unitStr , false, dcW - fontValueWidth - spacer, heightValue);
+		        fontUnit = (fontUnit > 0) ? fontUnit-1 : fontUnit;
+		        var fontUnitWidth = dc.getTextDimensions(unitStr, fontUnit)[0];
+		        fontValueWidth = dcW - fontUnitWidth - spacer;  // May be larger than 3/4 of with if unit width is small or none
+	        	dc.drawText(dcW, centerFontVert(heightValue,fontUnit)+fontTitleHeight, fontUnit, unitStr, Gfx.TEXT_JUSTIFY_RIGHT);	
+	        }
+	        else {
+	        	fontValueWidth = dcW;
+	        }
+	        
+	        fontValue = maxFont(dc, valueStr, true, fontValueWidth, heightValue);  // Check if more space is avaible
+	        dc.drawText(fontValueWidth/2, centerFontVert(heightValue,fontValue)+fontTitleHeight,fontValue, valueStr, Gfx.TEXT_JUSTIFY_CENTER);	
+	    }
     
     
     // --- Update layer functions ---
@@ -638,8 +671,8 @@ class SkatingView extends Ui.View {
     
     // Speed
     
-    var speed = " velocity";
-    var speedUnit = " ";
+    var speed = "-";
+    var speedUnit = "km/h";
     
 	function updateSpeed(dc){
 		var currentSpeed = Activity.getActivityInfo().currentSpeed;
@@ -647,7 +680,7 @@ class SkatingView extends Ui.View {
 			speed = (currentSpeed * 3.6).format("%.1f");
 			speedUnit = "km/h";
 		}
-		drawValueUnit(dc, speed, speedUnit);
+		drawValueUnitTitle(dc, speed, speedUnit,"speed");
 	}
 	
     function updateLapAvgSpeedLayer(dc){
@@ -656,7 +689,7 @@ class SkatingView extends Ui.View {
 			speed = (currentSpeed * 3.6).format("%.1f");
 			speedUnit = "km/h";
 		}
-		drawValueUnit(dc, speed, speedUnit);
+		drawValueUnitTitle(dc, speed, speedUnit, "speed");
 	}
 	
 	function updateTotalAvgSpeedLayer(dc){
@@ -665,14 +698,14 @@ class SkatingView extends Ui.View {
 			speed = (currentSpeed * 3.6).format("%.1f");
 			speedUnit = "km/h";
 		}
-		drawValueUnit(dc, speed, speedUnit);
+		drawValueUnitTitle(dc, speed, speedUnit, "speed");
 	}
 		
 	
 	// Elapsed distance
     
-    var distance = " distance";
-    var distanceUnit = " ";
+    var distance = "-";
+    var distanceUnit = "m";
     
     function updateElapsedDistance(dc){    
         var elapsedDistance = Activity.getActivityInfo().elapsedDistance;
@@ -700,64 +733,63 @@ class SkatingView extends Ui.View {
 	        		distanceUnit = "km";
 	        	}
 			}
-			
-			drawValueUnit(dc, distance, distanceUnit);	
+			drawValueUnitTitle(dc, distance, distanceUnit, "distance");	
     	}
     	
     	
     // Energy Expenditure
     
-    var energyExpenditure = "cal./min.";
-    var energyExpenditureUnit = " ";
+    var energyExpenditure = "-";
+    var energyExpenditureUnit = "cal./min.";
     
     function updateEnergyExpenditure(dc) {
         if (Activity.getActivityInfo().energyExpenditure != 0.0 && Activity.getActivityInfo().energyExpenditure != null && status != Controller.STAT_INIT) {
 			energyExpenditure = Activity.getActivityInfo().energyExpenditure.format("%.1f");
 			energyExpenditureUnit = "cal/min";
 		}
-        drawValueUnit(dc, energyExpenditure, energyExpenditureUnit);
+        drawValueUnitTitle(dc, energyExpenditure, energyExpenditureUnit, "energy expen.");
     }
     
     
     // Training Effect
     
-    var trainingEffect = " tran. eff.";
+    var trainingEffect = "-";
     var trainingEffectUnit = " ";
     
 	function updateTrainingEffect(dc){
         if (Activity.getActivityInfo().trainingEffect != 0.0 && Activity.getActivityInfo().trainingEffect != null && status != Controller.STAT_INIT){
 			trainingEffect = Activity.getActivityInfo().trainingEffect.format("%.1f");
-			trainingEffectUnit = "TE";
+			trainingEffectUnit = " ";
 		}
-        drawValueUnit(dc, trainingEffect, trainingEffectUnit);
+        drawValueUnitTitle(dc, trainingEffect, trainingEffectUnit, "train. eff.");
 	}
 	
 	
 	// Calories
 	
-	var calories = "calories";
-    var caloriesUnit = " ";
+	var calories = "-";
+    var caloriesUnit = " cal";
     
 	function updateCaloriesLayer(dc){
         if (Activity.getActivityInfo().calories != 0.0 && Activity.getActivityInfo().calories != null && status != Controller.STAT_INIT){
 			calories = Activity.getActivityInfo().calories.format("%i");
 			caloriesUnit = "cal";
 		}
-        drawValueUnit(dc, calories, caloriesUnit);
+        drawValueUnitTitle(dc, calories, caloriesUnit, "calories");
 	}
     	
     	
    	// Glide time
     
-	var glideTime = " glide time";
-    var glideTimeUnit = " ";
+	var glideTime = "-";
+    var glideTimeUnit = "s";
     
     function updateGlideTime(dc){ 
         if (_fitManager.getGlideTime() != 0.0 && status != Controller.STAT_INIT){
 			glideTime = _fitManager.getGlideTime().format("%.1f");
 			glideTimeUnit = "s";
 		}
-        drawValueUnit(dc, glideTime, glideTimeUnit);
+        drawValueUnitTitle(dc, glideTime, glideTimeUnit, "glide time");
     }
     
 	function updateLapAvgGlideTimeLayer(dc){
@@ -773,7 +805,7 @@ class SkatingView extends Ui.View {
 				glideTimeUnit = "s";
 			}
 		}
-        drawValueUnit(dc, glideTime, glideTimeUnit);
+        drawValueUnitTitle(dc, glideTime, glideTimeUnit,"glide time");
     }
     
     function updateTotalAvgGlideTimeLayer(dc){
@@ -789,22 +821,21 @@ class SkatingView extends Ui.View {
 				glideTimeUnit = "s";
 			}
 		}
-        drawValueUnit(dc, glideTime, glideTimeUnit);
+        drawValueUnitTitle(dc, glideTime, glideTimeUnit,"glide time");
     }
     
     
     // Cadence
     
-	var cadence = " cadence";
-    var cadenceUnit = " ";
+	var cadence = "-";
+    var cadenceUnit = "spm";
     
     function updateCadence(dc){ 
         if (_fitManager.getCadence() != 0.0 && status != Controller.STAT_INIT){
 			cadence = _fitManager.getCadence().toNumber().format("%i");
 			cadenceUnit = "spm";
 		}
-        
-        drawValueUnit(dc, cadence, cadenceUnit);
+        drawValueUnitTitle(dc, cadence, cadenceUnit,"cadence");
     }
     
 	function updateLapAvgCadenceLayer(dc){
@@ -821,7 +852,7 @@ class SkatingView extends Ui.View {
 			}
 		}
         
-        drawValueUnit(dc, cadence, cadenceUnit);
+        drawValueUnitTitle(dc, cadence, cadenceUnit,"cadence");
     }
     
     function updateTotalAvgCadenceLayer(dc){
@@ -838,14 +869,14 @@ class SkatingView extends Ui.View {
 			}
 		}
         
-        drawValueUnit(dc, cadence, cadenceUnit);
+        drawValueUnitTitle(dc, cadence, cadenceUnit, "cadence");
     }
     
     
     // Stride length
     
-    var strideLength = " stride len.";
-    var strideLengthUnit = " ";
+    var strideLength = "-";
+    var strideLengthUnit = "m";
     
     function updateStrideLength(dc){        
 		var currentStrideLength =  _fitManager.getStrideLength();
@@ -854,8 +885,7 @@ class SkatingView extends Ui.View {
 			strideLength = currentStrideLength.format("%.1f");
         	strideLengthUnit = "m";
 		}
-        
-        drawValueUnit(dc, strideLength, strideLengthUnit);
+        drawValueUnitTitle(dc, strideLength, strideLengthUnit, "stride length");
     }
     
 	function updateLapAvgStrideLengthLayer(dc){        
@@ -865,8 +895,7 @@ class SkatingView extends Ui.View {
 			strideLength = currentStrideLength.format("%.2f");
         	strideLengthUnit = "m";
 		}
-        
-        drawValueUnit(dc, strideLength, strideLengthUnit);
+        drawValueUnitTitle(dc, strideLength, strideLengthUnit, "stride length");
     }    
     
     function updateTotalAvgStrideLengthLayer(dc){        
@@ -876,36 +905,35 @@ class SkatingView extends Ui.View {
 			strideLength = currentStrideLength.format("%.2f");
         	strideLengthUnit = "m";
 		}
-        
-        drawValueUnit(dc, strideLength, strideLengthUnit);
+        drawValueUnitTitle(dc, strideLength, strideLengthUnit, "stride length");
     }    
     
     
     // Max. Speed
     
-	var maxSpeed = "vel. max.";
-    var maxSpeedUnit = " ";
+	var maxSpeed = "-";
+    var maxSpeedUnit = "km/h";
     
     function updateMaxSpeedLayer(dc){
         if (Activity.getActivityInfo().maxSpeed != 0.0 && Activity.getActivityInfo().maxSpeed != null && status != Controller.STAT_INIT){
-			maxSpeed = (Activity.getActivityInfo().maxSpeed * 3.6).format("%i");
+			maxSpeed = (Activity.getActivityInfo().maxSpeed * 3.6).format("%.1f");
 			maxSpeedUnit = "km/h";
 		}
-        drawValueUnit(dc, maxSpeed, maxSpeedUnit);
+        drawValueUnitTitle(dc, maxSpeed, maxSpeedUnit, "speed");
     }
     
     
     // Max. Heart Rate
     
-	var maxHeartRate = " bpm max.";
-    var maxHeartRateUnit = " ";
+	var maxHeartRate = "-";
+    var maxHeartRateUnit = "bpm";
     
     function updateMaxHeartRateLayer(dc){
         if (Activity.getActivityInfo().maxHeartRate != 0.0 && Activity.getActivityInfo().maxHeartRate != null && status != Controller.STAT_INIT){
 			maxHeartRate = Activity.getActivityInfo().maxHeartRate.format("%i");
 			maxHeartRateUnit = "bpm";
 		}
-        drawValueUnit(dc, maxHeartRate, maxHeartRateUnit);
+        drawValueUnitTitle(dc, maxHeartRate, maxHeartRateUnit, "heart rate");
     }
     
 	    
@@ -917,7 +945,7 @@ class SkatingView extends Ui.View {
 			drawTimerLayer(dc,activityTimeSec);
 		}
 		else {
-			drawValueUnit(dc, "act. timer", " ");
+			drawValueUnitTitle(dc, "-", " ", "timer");
 		}
 	}
 	
@@ -928,7 +956,7 @@ class SkatingView extends Ui.View {
 			drawTimerLayer(dc,activityTimeSec);
 		}
 		else {
-			drawValueUnit(dc, "act. timer", " ");
+			drawValueUnit(dc, "lap timer", " ");
 		}
 	}
 	
@@ -938,27 +966,38 @@ class SkatingView extends Ui.View {
 			
 			var dcW = dc.getWidth();
 	        var dcH = dc.getHeight();
+	        
+	        // Title
+	        var fontTitle = Gfx.FONT_XTINY;
+	        var fontTitleHeight = dc.getTextDimensions("timer", fontTitle)[1];
+	        dc.drawText(dcW/2, 0, fontTitle, "timer", Gfx.TEXT_JUSTIFY_CENTER);	
+	        
+	        // Value 
+	        var heightValue = dcH - fontTitleHeight;
 			
 			var activityTimeSec = time;
-			var hr = activityTimeSec/3600;  
+			var hr = activityTimeSec/3600; 
 			
 			if (hr > 0) {
 				var hourWidth = dcW/6.0;
-				var hourHeight = dcH/2.0;
+				var hourHeight = heightValue/2.0;
 				var spacer = dcW/10.0;
 				var hrStr = hr.toString();
 	        	var fontH = maxFont(dc, hrStr, true, hourWidth, hourHeight);
 		        var fontHWidth = dc.getTextDimensions(hrStr, fontH)[0];
-		        dc.drawText(fontHWidth/2, centerFontVert(hourHeight,fontH),fontH, hrStr, Gfx.TEXT_JUSTIFY_CENTER);	
 		        
-				var msStr = toMS(activityTimeSec).toString();
+		        var msStr = toMS(activityTimeSec).toString();
 				var msWidth = dcW-hourWidth-spacer;
-	        	var fontMS = maxFont(dc, msStr, true, msWidth, dcH);
+	        	var fontMS = maxFont(dc, msStr, true, msWidth, heightValue);
 		        var fontMSWidth = dc.getTextDimensions(msStr, fontH)[0];
-		        dc.drawText(fontMSWidth/2+spacer+hourWidth, centerFontVert(dcH,fontMS),fontMS, msStr, Gfx.TEXT_JUSTIFY_CENTER);	
+		        
+		        var offsetX = (dcW-(fontMSWidth+spacer+hourWidth))/2;
+		        
+		        dc.drawText(fontHWidth/2+offsetX, centerFontVert(hourHeight,fontH)+fontTitleHeight,fontH, hrStr, Gfx.TEXT_JUSTIFY_CENTER);	
+		        dc.drawText(fontMSWidth/2+spacer+hourWidth+offsetX, centerFontVert(heightValue,fontMS)+fontTitleHeight,fontMS, msStr, Gfx.TEXT_JUSTIFY_CENTER);	
 	        }
 	        else {
-	        	drawValueUnit(dc,toMS(activityTimeSec).toString(),null);
+	        	drawValueUnitTitle(dc,toMS(activityTimeSec).toString(),null,"timer");
 	        }
 		}
 	
@@ -1033,7 +1072,7 @@ class SkatingView extends Ui.View {
 	        dc.setPenWidth(pen);
 	        
 	        var fontWidth = dc.getTextDimensions("GPS", font)[0];
-	        var margin = (dcW - fontWidth) / 2 + 3;
+	        var margin = (dcW - fontWidth) / 2 + 4;
 	        var step = (fontWidth - pen) / 4 - 1;
 	        var heightStep = (dcH-fontHeight) / 5;
 	        

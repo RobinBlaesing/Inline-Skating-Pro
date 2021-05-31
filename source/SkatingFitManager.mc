@@ -17,7 +17,6 @@ class FitManager {
 	
 	
 	// Timer for updates every second
-	hidden var timerSession;
 	hidden var timeInit;
 
 	// Calculate cadence by steps
@@ -62,7 +61,6 @@ class FitManager {
 	
 	function initialize (){
 		timeInit = System.getTimer();
-		timerSession = new Timer.Timer();
 	}
 	
 		
@@ -76,16 +74,13 @@ class FitManager {
 	
 	
 	function sessionStart () {
-	    session = createSession(ActivityRecording.SPORT_INLINE_SKATING);
-	    if (session != null) {
-	    	createFields();
-	   		session.start();                                // call start session
-			stepsAtStart = ActivityMonitor.getInfo().steps;
-			System.println("Session started.");
+		if (session == null) {
+	    	session = createSession(ActivityRecording.SPORT_INLINE_SKATING);
 	    }
-	    else {
-	   		System.println("Session failed to start. Session is null.");
-	    }
+	    createFields();
+   		session.start();                                // call start session
+		stepsAtStart = ActivityMonitor.getInfo().steps;
+		System.println("Session started.");
         WatchUi.requestUpdate();
 	 }
     
@@ -120,7 +115,6 @@ class FitManager {
 	
     
     function stopRecording(save) {
-		timerSession.stop();
         //Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
         if( Toybox has :ActivityRecording ) {
             if (session != null) {
