@@ -41,7 +41,7 @@
 	fillColor="#0E73AD" />
 	<fitField id="4"
 	sortOrder="1"
-	precision="1"
+	precision="2"
 	chartTitle="@Strings.chart_title_glide_time"
 	dataLabel="@Strings.data_label_glide_time"
 	unitLabel="@Strings.unit_label_glide_time"
@@ -51,7 +51,7 @@
 	fillColor="#0E73AD" />
 	<fitField id="5"
 	sortOrder="3"
-	precision="1"
+	precision="2"
 	chartTitle="@Strings.chart_title_glide_time_avg"
 	dataLabel="@Strings.data_label_glide_time_avg"
 	unitLabel="@Strings.unit_label_glide_time_avg"

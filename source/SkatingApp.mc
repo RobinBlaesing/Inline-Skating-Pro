@@ -21,6 +21,10 @@ class SkatingApp extends Application.AppBase {
     // onStart() is called on application start up
     function onStart(state) {
         System.println("onStart Skating App");
+        Sensor.enableSensorType(Sensor.SENSOR_TECHNOLOGY_BLE);
+        Sensor.enableSensorType(Sensor.SENSOR_TECHNOLOGY_ANT);
+        Sensor.enableSensorType(Sensor.SENSOR_FOOTPOD);
+        Sensor.enableSensorType(Sensor.SENSOR_TECHNOLOGY_ONBOARD);
         //Sensor.enableSensorEvents(method(:onSensor));
     }
 

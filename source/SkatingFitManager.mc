@@ -13,6 +13,7 @@ class FitManager {
 	hidden var cadenceLast = 0.0;
 	hidden var glideTimeLast = 0.0;
 	hidden var strideLengthLast = 0.0;
+	hidden var stepsLast = 0;
 	
 	
 	// Timer for updates every second
@@ -23,7 +24,7 @@ class FitManager {
 	hidden var fieldCadence = null;
 	hidden var fieldCadenceAvg = null;
 	hidden var cadenceTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
-	hidden var cadenceFitInterval = 7500.0;				// Approx. fit interval in milliseconds
+	hidden var cadenceFitInterval = 20000.0;			// Approx. fit interval in milliseconds
 	hidden var cadenceRollingWindow = [[null,null]]; 	// Array of rolling window tuples (timestamp, steps)
 	hidden var cadenceLimits = [0,300];
 	
@@ -38,7 +39,7 @@ class FitManager {
 	hidden var fieldStrideLength = null;	
 	hidden var fieldStrideLengthAvg = null;
 	hidden var strideLengthTimerInterval = 500.0;			// Minimum timer interval in milliseconds (should not be larger than cadenceFitInterval)
-	hidden var strideLengthFitInterval = 7500.0;			// Approx. fit interval in milliseconds
+	hidden var strideLengthFitInterval = 20000.0;			// Approx. fit interval in milliseconds
 	hidden var strideLengthRollingWindow = [[null,null,null]];	// Array of rolling window tuples (steps, distance, timestamp)
 	hidden var strideLengthLimits = [0,200];
 	
@@ -70,11 +71,12 @@ class FitManager {
 		recordStrideLength();
         recordAvgSessionData();
         recordGlideTime();
+        setStepsLast();
 	}
 	
 	
 	function sessionStart () {
-	    session = createSession(30);
+	    session = createSession(ActivityRecording.SPORT_INLINE_SKATING);
 	    if (session != null) {
 	    	createFields();
 	   		session.start();                                // call start session
@@ -140,30 +142,39 @@ class FitManager {
     
     function createSession(value) {	
 	    System.println("createSession SkatingDelegate");
-		if (value == 30) {
-		    var session = ActivityRecording.createSession({     // set up recording session
+		if (value == ActivityRecording.SPORT_INLINE_SKATING) {
+		    var s = ActivityRecording.createSession({     // set up recording session
 		        :name=>"Inline Skating",                        // set session name
 		        :sport=>ActivityRecording.SPORT_INLINE_SKATING, // set sport type
 		        :subSport=>ActivityRecording.SUB_SPORT_GENERIC, // set sub sport type
 		    });
 	    	System.println("Session created.");
-		    return session;
+		    return s;
+	    }
+	    if (value == ActivityRecording.SPORT_RUNNING){
+		    var s = ActivityRecording.createSession({     // set up recording session
+		        :name=>"Inline Skating",                        // set session name
+		        :sport=>ActivityRecording.SPORT_RUNNING, // set sport type
+		        :subSport=>ActivityRecording.SUB_SPORT_GENERIC, // set sub sport type
+		    });
+	    	System.println("Session created.");
+		    return s;
 	    }
 	    return null;
 	}    
 	
 	function createFields() {
 		if (session != null && !session.isRecording()){
-			fieldCadence = session.createField("cadence", 0, FitContributor.DATA_TYPE_UINT16, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"spm" });
-			System.println("Field fieldCadence created.");
+			//fieldCadence = session.createField("cadence", 0, FitContributor.DATA_TYPE_UINT16, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"spm" });
+			//System.println("Field fieldCadence created.");
 			fieldCadenceAvg = session.createField("cadence_avg", 1, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"spm" });
 			System.println("Field fieldCadenceAvg created.");
-			fieldStrideLength = session.createField("stride_length", 2, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"m" });
-			System.println("Field fieldStrideLength created.");
+			//fieldStrideLength = session.createField("stride_length", 2, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"m" });
+			//System.println("Field fieldStrideLength created.");
     		fieldStrideLengthAvg = session.createField("stride_length_avg", 3, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"m" });
 			System.println("Field fieldStrideLengthAvg created.");
-			fieldGlideTime = session.createField("glide_time", 4, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"s" });
-			System.println("Field fieldGlideTime created.");
+			//fieldGlideTime = session.createField("glide_time", 4, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_RECORD, :units=>"s" });
+			//System.println("Field fieldGlideTime created.");
 			fieldGlideTimeAvg = session.createField("glide_time_avg", 5, FitContributor.DATA_TYPE_FLOAT, { :mesgType=>FitContributor.MESG_TYPE_SESSION, :units=>"s" });
 			System.println("Field fieldGlideTimeAvg created.");
 		}
@@ -196,11 +207,12 @@ class FitManager {
     }
 	
 	function recordCadence(){
+		System.println("Cadence here. Steps last: " + stepsLast);
 		var currentCadence = Activity.getActivityInfo().currentCadence;
         if (currentCadence != null && currentCadence != 0){
-        	cadenceLast = (currentCadence + cadenceLast * weightOld ) / (1 + weightOld);
+        	cadenceLast = currentCadence;
 		} 
-		else {
+		else{
 			var currentSteps = ActivityMonitor.getInfo().steps;
 			var elapsedTime = (System.getTimer() - timeInit);
 			
@@ -210,7 +222,7 @@ class FitManager {
 			
 			// Check if new data (with offset of cadenceTimerInterval)
 			if (lastCadenceTuple[0] != null){
-				if (elapsedTime - lastCadenceTuple[0] > cadenceTimerInterval && lastCadenceTuple[0] < elapsedTime) {
+				if (elapsedTime - lastCadenceTuple[0] > cadenceTimerInterval && lastCadenceTuple[0] < elapsedTime && currentSteps > stepsLast) {
 					cadenceRollingWindow.add(cadenceTuple);
 				}
 			}
@@ -241,9 +253,9 @@ class FitManager {
 		var currentCadence = Activity.getActivityInfo().currentCadence;
 		var currentSpeed = Activity.getActivityInfo().currentSpeed;
         if (currentCadence != null && currentCadence != 0 && currentSpeed != null && currentSpeed != 0){
-        	strideLengthLast = (currentSpeed / currentCadence * 60 + strideLengthLast * weightOld ) / (1 + weightOld);
+        	strideLengthLast = (currentSpeed / currentCadence * 60);
  		} 
- 		else {
+ 		else{
 			var currentSteps = ActivityMonitor.getInfo().steps;
 			var elapsedDistance = Activity.getActivityInfo().elapsedDistance;
 			var elapsedTime = (System.getTimer() - timeInit);
@@ -254,7 +266,7 @@ class FitManager {
 			
 			// Check if new data (with offset of cadenceTimerInterval)
 			if (lastStrideLengthTuple[2] != null){
-				if (elapsedTime - lastStrideLengthTuple[2] > strideLengthTimerInterval && lastStrideLengthTuple[2] < elapsedTime) {
+				if (elapsedTime - lastStrideLengthTuple[2] > strideLengthTimerInterval && lastStrideLengthTuple[2] < elapsedTime  && currentSteps > stepsLast) {
 					strideLengthRollingWindow.add(strideLengthTuple);
 				}
 			}
@@ -298,11 +310,13 @@ class FitManager {
 					lastGlideTimeTuple = glideTimeTuple;
     				System.println("Some steps within last check. Calc. glide time within interval: "+ avgGlideTimeWithinLastMeasInterv + ", new glide time: " + glideTimeLast);
 				}
+				/*
 				else {
 					var newGlideTime = (elapsedTime - lastGlideTimeTuple[1])/1000;
 					glideTimeLast = (newGlideTime > glideTimeLast) ? (newGlideTime + glideTimeLast * glideTimeWeightOld ) / (1 + glideTimeWeightOld) : glideTimeLast;
     				System.println("No steps within last check. New glide time: " + glideTimeLast);
 				}
+				*/
 			}
 			else {
 				lastGlideTimeTuple = glideTimeTuple;
@@ -310,7 +324,7 @@ class FitManager {
 		} 
 		if (fieldGlideTime != null && session != null && session.isRecording()){
     		fieldGlideTime.setData(inLimits(glideTimeLast,glideTimeLimits)); 
-    		System.println("New cadenceLast written to fieldCadence: " + cadenceLast.toNumber());
+    		System.println("New glideTimeLast written to fieldGlideTime: " + glideTimeLast.toNumber());
     	}
 	}
 	
@@ -410,6 +424,16 @@ class FitManager {
 	    return (ActivityMonitor.getInfo().steps - stepsAtStart != 0) ? Activity.getActivityInfo().elapsedDistance.toFloat() / (ActivityMonitor.getInfo().steps - stepsAtStart) : 0.0;
     }
     
+    
+    
+    function setStepsLast (){
+    	if (stepsAtStart != null && ActivityMonitor.getInfo().steps != null){
+	    	if (ActivityMonitor.getInfo().steps > stepsLast) {
+	    		stepsLast = ActivityMonitor.getInfo().steps;
+				System.println("Steps at start: " + stepsAtStart + ", current steps: " + ActivityMonitor.getInfo().steps + ", Steps during interval: " + stepsLast);
+	    	} 
+	    }
+    }
     
     	
     function getCadence(){

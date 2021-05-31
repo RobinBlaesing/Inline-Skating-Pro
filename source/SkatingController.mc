@@ -73,6 +73,7 @@ class Controller {
     		hasLab = true;
 	    	status = STAT_LAP;
 	    	_skatingView.manageStatus(status);
+	    	userFeedbackNotification(2);
 	    }
 	    else {
 	    	System.exit();
@@ -114,72 +115,86 @@ class Controller {
     }
     	
 	
-	function userFeedbackNotification(start) {
+	function userFeedbackNotification(eventType) {
 		var toneProfile = null;
 		var vibeData = null;
 		var attentionTone = null;
-		if (start == 0) {
-			attentionTone = Attention.TONE_STOP;
-			vibeData = [
-		        new Attention.VibeProfile(25, 200),
-		        new Attention.VibeProfile(50, 200),
-		        new Attention.VibeProfile(100, 400)
-		    ];
-		}
-		if (start == 1) {
-			attentionTone = Attention.TONE_START;
-			vibeData = [
-		        new Attention.VibeProfile(100, 400),
-		        new Attention.VibeProfile(50, 200),
-		        new Attention.VibeProfile(25, 200)
-		    ];
-		} 
-		if (start == 2) { // on stop
-			toneProfile = [
-		        new Attention.ToneProfile( 262 , 250),
-		        new Attention.ToneProfile( 294 , 250),
-		        new Attention.ToneProfile( 330 , 250),
-		        new Attention.ToneProfile( 349 , 250),
-		        new Attention.ToneProfile( 392 , 500),
-		        new Attention.ToneProfile( 392 , 500),
-		        new Attention.ToneProfile( 440 , 250),
-		        new Attention.ToneProfile( 440 , 250),
-		        new Attention.ToneProfile( 440 , 250),
-		        new Attention.ToneProfile( 440 , 250),
-		        new Attention.ToneProfile( 392 , 1000),
-		        new Attention.ToneProfile( 440 , 250),
-		        new Attention.ToneProfile( 440 , 250),
-		        new Attention.ToneProfile( 440 , 250),
-		        new Attention.ToneProfile( 440 , 250),
-		        new Attention.ToneProfile( 392 , 1000),
-		        new Attention.ToneProfile( 349 , 250),
-		        new Attention.ToneProfile( 349 , 250),
-		        new Attention.ToneProfile( 349 , 250),
-		        new Attention.ToneProfile( 349 , 250),
-		        new Attention.ToneProfile( 330 , 500),
-		        new Attention.ToneProfile( 330 , 500),
-		        new Attention.ToneProfile( 294 , 250),
-		        new Attention.ToneProfile( 294 , 250),
-		        new Attention.ToneProfile( 294 , 250),
-		        new Attention.ToneProfile( 294 , 250),
-		        new Attention.ToneProfile( 262 , 1000),
-		        new Attention.ToneProfile( 494 , 250),
-		        new Attention.ToneProfile( 523 , 250)
-		    ];
-		    vibeData = [
-		        new Attention.VibeProfile(25, 2000),
-		        new Attention.VibeProfile(50, 2000),
-		        new Attention.VibeProfile(100, 2000)
-		    ];
-		}
-		if (Attention has :playTone && attentionTone != null) {
-		   //Attention.playTone(attentionTone);
-		}
-		if (Attention has :ToneProfile && toneProfile != null) {
-		    //Attention.playTone({:toneProfile=>toneProfile});
-	   	}
-   		if (Attention has :vibrate && vibeData != null) {
-			//Attention.vibrate(vibeData);
+		if (Attention has :playTone) {
+			if (eventType == 0) {
+				attentionTone = Attention.TONE_STOP;
+				vibeData = [
+			        new Attention.VibeProfile(25, 200),
+			        new Attention.VibeProfile(1, 1),
+			        new Attention.VibeProfile(50, 200),
+			        new Attention.VibeProfile(1, 1),
+			        new Attention.VibeProfile(100, 400)
+			    ];
+			}
+			if (eventType == 1) {
+				attentionTone = Attention.TONE_START;
+				vibeData = [
+			        new Attention.VibeProfile(100, 400),
+			        new Attention.VibeProfile(1, 1),
+			        new Attention.VibeProfile(50, 200),
+			        new Attention.VibeProfile(1, 1),
+			        new Attention.VibeProfile(25, 200)
+			    ];
+			} 
+			if (eventType == 2) {
+				attentionTone = Attention.TONE_LAP;
+				vibeData = [
+			        new Attention.VibeProfile(100, 100),
+			        new Attention.VibeProfile(1, 100),
+			        new Attention.VibeProfile(100, 100)
+			    ];
+			} 
+			if (eventType == 3) { // on stop
+				toneProfile = [
+			        new Attention.ToneProfile( 262 , 250),
+			        new Attention.ToneProfile( 294 , 250),
+			        new Attention.ToneProfile( 330 , 250),
+			        new Attention.ToneProfile( 349 , 250),
+			        new Attention.ToneProfile( 392 , 500),
+			        new Attention.ToneProfile( 392 , 500),
+			        new Attention.ToneProfile( 440 , 250),
+			        new Attention.ToneProfile( 440 , 250),
+			        new Attention.ToneProfile( 440 , 250),
+			        new Attention.ToneProfile( 440 , 250),
+			        new Attention.ToneProfile( 392 , 1000),
+			        new Attention.ToneProfile( 440 , 250),
+			        new Attention.ToneProfile( 440 , 250),
+			        new Attention.ToneProfile( 440 , 250),
+			        new Attention.ToneProfile( 440 , 250),
+			        new Attention.ToneProfile( 392 , 1000),
+			        new Attention.ToneProfile( 349 , 250),
+			        new Attention.ToneProfile( 349 , 250),
+			        new Attention.ToneProfile( 349 , 250),
+			        new Attention.ToneProfile( 349 , 250),
+			        new Attention.ToneProfile( 330 , 500),
+			        new Attention.ToneProfile( 330 , 500),
+			        new Attention.ToneProfile( 294 , 250),
+			        new Attention.ToneProfile( 294 , 250),
+			        new Attention.ToneProfile( 294 , 250),
+			        new Attention.ToneProfile( 294 , 250),
+			        new Attention.ToneProfile( 262 , 1000),
+			        new Attention.ToneProfile( 494 , 250),
+			        new Attention.ToneProfile( 523 , 250)
+			    ];
+			    vibeData = [
+			        new Attention.VibeProfile(25, 2000),
+			        new Attention.VibeProfile(50, 2000),
+			        new Attention.VibeProfile(100, 2000)
+			    ];
+			}
+			if (Attention has :playTone && attentionTone != null) {
+			   Attention.playTone(attentionTone);
+			}
+			if (Attention has :ToneProfile && toneProfile != null) {
+			    Attention.playTone({:toneProfile=>toneProfile});
+		   	}
+	   		if (Attention has :vibrate && vibeData != null) {
+				Attention.vibrate(vibeData);
+			}
 		}
 	}
 	
