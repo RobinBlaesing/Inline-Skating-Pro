@@ -43,6 +43,7 @@
 	<string id="label_glide_time">glide time</string>
 	<string id="label_stride_length">stride length</string>
 	<string id="label_heart_rate">heart rate</string>
+	<string id="label_stopped">Stopped</string>
 	
 	<string id="device_type">base</string>
 </strings>

@@ -79,19 +79,13 @@ class FitManager {
 	function sessionStart () {
 		if (session == null) {
 	    	session = createSession(ActivityRecording.SPORT_INLINE_SKATING);
+	    	createFields();
+			stepsAtStart = ActivityMonitor.getInfo().steps;
 	    }
-	    createFields();
    		session.start();                                // call start session
-		stepsAtStart = ActivityMonitor.getInfo().steps;
 		System.println("Session started.");
         WatchUi.requestUpdate();
 	 }
-    
-    function sessionStop () {
-		System.println("onSessionStoped SkatingDelegate");
-        WatchUi.pushView(new Rez.Menus.MainMenu(), new SkatingMenuStopDelegate(), WatchUi.SLIDE_UP);
-        return true;
-	}
 	
 	function newSessionLap () {
 		session.addLap();
@@ -109,18 +103,24 @@ class FitManager {
 	}
 	
 	function pauseSession(){
-		session.stop();
+		if (hasSession() && isRecording()) {
+			System.println("Session paused.");
+			session.stop();
+		}
 	}
 	
 	function continueSession(){
-		session.start();
+		if (hasSession() && !isRecording()) {
+			System.println("Session continued.");
+			session.start();
+		}
 	}
 	
     
     function stopRecording(save) {
         //Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
         if( Toybox has :ActivityRecording ) {
-            if (session != null) {
+            if (hasSession()) {
 		       	                                     // stop the session
 		       	if (save) {
 			   		session.save();									// save the session

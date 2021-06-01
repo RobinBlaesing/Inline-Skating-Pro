@@ -8,6 +8,7 @@ import Toybox.Graphics;
 import Toybox.Position;
 import Toybox.System;
 import Toybox.WatchUi;
+import Toybox.Activity;
 
 //! This view shows a map with the current device location
 class SkatingMapView extends WatchUi.MapTrackView {
@@ -22,8 +23,10 @@ class SkatingMapView extends WatchUi.MapTrackView {
         // create the bounding box for the map area
         var posInfo = Position.getInfo();
         var pos = posInfo.position.toDegrees();
-        var top_left = new Position.Location({:latitude => pos[0]+100, :longitude =>pos[1]+100, :format => :degrees});
-        var bottom_right = new Position.Location({:latitude => pos[0]-100, :longitude =>pos[1]-100, :format => :degrees});
+        var speed = Activity.getActivityInfo().currentSpeed;
+        var viewDis = (speed > 2.5) ? 300 : 100; 
+        var top_left = new Position.Location({:latitude => pos[0]+viewDis, :longitude =>pos[1]+viewDis, :format => :degrees});
+        var bottom_right = new Position.Location({:latitude => pos[0]-viewDis, :longitude =>pos[1]-viewDis, :format => :degrees});
         MapView.setMapVisibleArea(top_left, bottom_right);
 
         // set the bound box for the screen area to focus the map on
@@ -44,6 +47,15 @@ class SkatingMapView extends WatchUi.MapTrackView {
     //! Update the view
     //! @param dc Device context
     public function onUpdate(dc) {
+    
+    	var posInfo = Position.getInfo();
+        var pos = posInfo.position.toDegrees();
+        var speed = Activity.getActivityInfo().currentSpeed;
+        var viewDis = (speed > 2.5) ? 400 : 200; 
+        var top_left = new Position.Location({:latitude => pos[0]+viewDis, :longitude =>pos[1]+viewDis, :format => :degrees});
+        var bottom_right = new Position.Location({:latitude => pos[0]-viewDis, :longitude =>pos[1]-viewDis, :format => :degrees});
+        MapView.setMapVisibleArea(top_left, bottom_right);
+    
         // call the parent onUpdate function to redraw the layout
         MapView.onUpdate(dc);
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);

@@ -63,15 +63,15 @@ class Controller {
     }
     
     function handleStartStop(){
-    	if ((_fitManager.hasSession() == null) || (_fitManager.isRecording() == false)) {
-    		_fitManager.sessionStart();
+    	if (_fitManager.hasSession() == false) { // Inital start
+			_fitManager.sessionStart();
 			status = STAT_STD;
     		_skatingView.manageStatus(status);
 	   		userFeedbackNotification(1);					// Give feedback that Session started
 	    }
-	    else {
-			_fitManager.sessionStop();
-	   		userFeedbackNotification(0);					// Give feedback that Session started
+	    else { // During activity
+			WatchUi.pushView(new Rez.Menus.MainMenu(), new SkatingMenuStopDelegate(), WatchUi.SLIDE_UP);
+	   		userFeedbackNotification(0);					// Give feedback that Session paused
 	    }
     }
     
@@ -87,6 +87,9 @@ class Controller {
 	    	_skatingView.manageStatus(status);
 	    	userFeedbackNotification(2);
 	    }
+	    else if (_fitManager.hasSession()){
+	    	WatchUi.pushView(new Rez.Menus.MainMenu(), new SkatingMenuStopDelegate(), WatchUi.SLIDE_UP);
+	    }
 	    else {
 	    	System.exit();
 	    }
@@ -94,13 +97,8 @@ class Controller {
     
     function handlePageSwitch(switchPage){
     	var posInfo = Position.getInfo();
-        if (device.equals("maps")) {
-        	if (posInfo.accuracy > 3){
-        		lastView = STAT_MAP;
-        	}
-        	else {
-        		lastView = STAT_TOTAL;
-        	}
+        if (device.equals("maps") && (posInfo.accuracy > 3)) {
+        	lastView = STAT_MAP;
         }
     	if (status != STAT_IDLE && status != STAT_INIT){
 	    	var initStatus = status;
@@ -154,17 +152,13 @@ class Controller {
 		var vibeData = null;
 		var attentionTone = null;
 		if (Attention has :playTone) {
-			if (eventType == 0) {
+			if (eventType == 0) { // Stop & pause
 				attentionTone = Attention.TONE_STOP;
 				vibeData = [
-			        new Attention.VibeProfile(25, 200),
-			        new Attention.VibeProfile(1, 1),
-			        new Attention.VibeProfile(50, 200),
-			        new Attention.VibeProfile(1, 1),
-			        new Attention.VibeProfile(100, 400)
+			        new Attention.VibeProfile(25, 200)
 			    ];
 			}
-			if (eventType == 1) {
+			if (eventType == 1) { // Start
 				attentionTone = Attention.TONE_START;
 				vibeData = [
 			        new Attention.VibeProfile(100, 400),
@@ -174,15 +168,43 @@ class Controller {
 			        new Attention.VibeProfile(25, 200)
 			    ];
 			} 
-			if (eventType == 2) {
+			if (eventType == 2) { // Lap
 				attentionTone = Attention.TONE_LAP;
 				vibeData = [
 			        new Attention.VibeProfile(100, 100),
-			        new Attention.VibeProfile(1, 100),
+			        new Attention.VibeProfile(1, 1),
 			        new Attention.VibeProfile(100, 100)
 			    ];
 			} 
-			if (eventType == 3) { // on stop
+			if (eventType == 3) { // Continue
+				toneProfile = [
+			        new Attention.ToneProfile(523 , 200)
+				];
+				vibeData = [
+			        new Attention.VibeProfile(20, 200)
+			    ];
+			} 
+			if (eventType == 4) { // Save
+				attentionTone = Attention.TONE_SUCCESS;
+				vibeData = [
+			        new Attention.VibeProfile(20, 100),
+			        new Attention.VibeProfile(5, 100),
+			        new Attention.VibeProfile(100, 100)
+			    ];
+			} 
+			if (eventType == 5) { // Discard
+				toneProfile = [
+			        new Attention.ToneProfile( 294 , 250),
+			        new Attention.ToneProfile( 1 , 10),
+			        new Attention.ToneProfile( 262 , 250)
+				];
+				vibeData = [
+			        new Attention.VibeProfile(50, 250),
+			        new Attention.VibeProfile(1, 10),
+			        new Attention.VibeProfile(20, 250)
+			    ];
+			} 
+			if (eventType == 6) { // on stop
 				toneProfile = [
 			        new Attention.ToneProfile( 262 , 250),
 			        new Attention.ToneProfile( 294 , 250),
@@ -220,6 +242,7 @@ class Controller {
 			        new Attention.VibeProfile(100, 2000)
 			    ];
 			}
+			// Play
 			if (Attention has :playTone && attentionTone != null) {
 			   Attention.playTone(attentionTone);
 			}

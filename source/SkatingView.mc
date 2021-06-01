@@ -954,10 +954,16 @@ class SkatingView extends Ui.View {
 	function updateTimerLayer(dc) {
 		var activityTimeSec = Activity.getActivityInfo().elapsedTime/1000;
 		if (activityTimeSec > 0 && status != Controller.STAT_INIT) {
-			drawTimerLayer(dc,activityTimeSec);
+			if (_fitManager.isRecording()){
+				drawTimerLayer(dc,activityTimeSec);
+	        }
+	        else {
+	        	dc.setColor(Gfx.COLOR_RED, backgroundColor);
+	        	drawValueUnit(dc, WatchUi.loadResource(Rez.Strings.label_stopped), " ");
+	        }
 		}
 		else {
-			drawValueUnitTitle(dc, "-", " ", timerTitle);
+			drawValueUnitTitle(dc, "  mm:ss ", " ", timerTitle);
 		}
 	}
 	
@@ -973,7 +979,13 @@ class SkatingView extends Ui.View {
 	}
 	
 		function drawTimerLayer (dc,time) {
-			dc.setColor(foregroundColor, backgroundColor);
+			
+			if (_fitManager.isRecording()){
+	        	dc.setColor(foregroundColor, backgroundColor);
+	        }
+	        else {
+	        	dc.setColor(Gfx.COLOR_RED, backgroundColor);
+	        }
 			dc.clear();
 			
 			var dcW = dc.getWidth();
@@ -1166,7 +1178,13 @@ class SkatingView extends Ui.View {
 	}
 		
 	function updateGrid(dc){
-        dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
+		if (_fitManager.isRecording()){
+        	dc.setColor(foregroundColor, Gfx.COLOR_TRANSPARENT);
+        }
+        else {
+        	dc.setColor(Gfx.COLOR_RED, Gfx.COLOR_TRANSPARENT);
+        }
+        	
 		dc.clear();
 		
 	    dc.setPenWidth(2);

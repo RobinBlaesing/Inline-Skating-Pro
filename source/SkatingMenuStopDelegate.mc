@@ -18,14 +18,14 @@ class SkatingMenuStopDelegate extends WatchUi.MenuInputDelegate {
 
     function onMenuItem(item) {
     	if (item == :item_1) {
+            _controller.userFeedbackNotification(3);
     		_fitManager.continueSession();
-            System.println("Continue");
         } else if (item == :item_2) {
+            _controller.userFeedbackNotification(4);
         	_controller.stopRecording(true);
-            System.println("Save and exit");
         } else if (item == :item_3) {
+            _controller.userFeedbackNotification(5);
         	_controller.stopRecording(false);
-            System.println("Discard and exit");
         }
     }
 
