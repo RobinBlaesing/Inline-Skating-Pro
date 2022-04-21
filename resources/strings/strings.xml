@@ -46,4 +46,9 @@
 	<string id="label_stopped">Stopped</string>
 	
 	<string id="device_type">base</string>
+
+	<string id="background_color_label">background color</string>
+	<string id="background_color_prompt">set background color</string>
+	<string id="black">black</string>
+	<string id="white">white</string>
 </strings>

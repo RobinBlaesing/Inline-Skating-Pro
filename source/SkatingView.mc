@@ -9,6 +9,7 @@ using Toybox.Application;
 using Toybox.System as Sys;
 using Toybox.UserProfile;
 using Toybox.Timer;
+using Toybox.Application.Properties;
 
 class SkatingView extends Ui.View {
 
@@ -103,6 +104,8 @@ class SkatingView extends Ui.View {
 	var stdFont; 							// Can be set in initialize()
 	var stdFontHeight; 						// Is adjusted in onLayout()
 
+	var bgProperty;							// Property value for background color
+
     function initialize() {
         System.println("initialize SkatingView");
         View.initialize();
@@ -119,9 +122,15 @@ class SkatingView extends Ui.View {
         lowBatteryThreshold = 10; // (unit: %) Values 1 - 99
         
         // Custom colors:
-        foregroundColor = Gfx.COLOR_BLACK;
-		backgroundColor = Gfx.COLOR_WHITE;
-		
+		bgProperty = Properties.getValue("backgroundColor");
+		if ( bgProperty ==  0) {
+			foregroundColor = Gfx.COLOR_BLACK;
+			backgroundColor = Gfx.COLOR_WHITE;
+		} else {
+			foregroundColor = Gfx.COLOR_WHITE;
+			backgroundColor = Gfx.COLOR_BLACK;
+		}
+
 		// Screen & font size:
 		stdScreenSize = 240.0;
 		stdFont = Gfx.FONT_MEDIUM;

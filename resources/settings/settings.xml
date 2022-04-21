@@ -1,0 +1,10 @@
+<settings>
+
+    <setting propertyKey="@Properties.backgroundColor" title="@Strings.background_color_label" prompt="@Strings.background_color_prompt">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.white</listEntry>
+            <listEntry value="1">@Strings.black</listEntry>
+        </settingConfig>
+    </setting>
+
+</settings>
