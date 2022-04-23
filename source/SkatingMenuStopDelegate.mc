@@ -2,11 +2,13 @@
 using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Application;
+using Toybox.Graphics as Gfx;
 
 class SkatingMenuStopDelegate extends WatchUi.MenuInputDelegate {
 
 	hidden var _fitManager;
 	hidden var _controller;
+    hidden var _view;
 
     function initialize() {
         System.println("initialize SkatingMenuDelegate");
@@ -14,6 +16,7 @@ class SkatingMenuStopDelegate extends WatchUi.MenuInputDelegate {
         _fitManager = Application.getApp().fitManager;
         _controller = Application.getApp().controller;
         _fitManager.pauseSession();
+        _view = Application.getApp().skatingView;
     }
 
     function onMenuItem(item) {
@@ -26,6 +29,15 @@ class SkatingMenuStopDelegate extends WatchUi.MenuInputDelegate {
         } else if (item == :item_3) {
             _controller.userFeedbackNotification(5);
         	_controller.stopRecording(false);
+        } else if (item == :item_4) {
+            if (_view.foregroundColor == Gfx.COLOR_BLACK) {
+                _view.foregroundColor = Gfx.COLOR_WHITE;
+                _view.backgroundColor = Gfx.COLOR_BLACK;
+            } else {
+                _view.foregroundColor = Gfx.COLOR_BLACK;
+                _view.backgroundColor = Gfx.COLOR_WHITE;
+            }
+            _fitManager.continueSession();
         }
     }
 

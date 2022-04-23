@@ -8,6 +8,7 @@
     <string id="menu_label_1">Continue</string>
     <string id="menu_label_2">Save</string>
     <string id="menu_label_3">Discard</string>
+    <string id="menu_label_4">Change Color</string>
     
 	<string id="chart_title_cadence">Cadence</string>
 	<string id="data_label_cadence">Cadence</string>
