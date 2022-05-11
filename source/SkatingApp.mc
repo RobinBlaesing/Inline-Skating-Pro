@@ -9,6 +9,8 @@ class SkatingApp extends Application.AppBase {
 	var controller;
 	var skatingView;
 	var fitManager;
+    var menu2;
+    var menu2Delegate;
 
     function initialize() {
         AppBase.initialize();
@@ -16,6 +18,8 @@ class SkatingApp extends Application.AppBase {
         fitManager = new $.FitManager(); 
         skatingView = new $.SkatingView();
         controller = new $.Controller();
+        menu2 = new Rez.Menus.Menu2();
+        menu2Delegate = new $.Menu2Delegate();
     }
 
     // onStart() is called on application start up

@@ -1,3 +1,4 @@
-<menu2 id="MyMenu2" title="@Strings.menu2_title">
+<menu2 id="Menu2" title="@Strings.menu2_title">
     <toggle-menu-item id="menu2_darkmode" label="Darkmode" subLabel="on" disabledSubLabel="off" />
+    <toggle-menu-item id="menu2_autolap" label="Autolap" subLabel="on" disabledSubLabel="off" />
 </menu2>

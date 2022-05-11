@@ -28,6 +28,11 @@ class Controller {
 	
 	var firstView = STAT_STD;
 	var lastView = STAT_TOTAL;
+
+	var autoLap;
+	var autoLapDistance = 50;
+	var startAutoLap;		//set by Menu2Delegate
+	var nextAutoLap;		//initially set by Menu2Delegate
 	
 
 	function initialize() {
@@ -48,6 +53,17 @@ class Controller {
 	
 		function updateEverySecond(){
 			_fitManager.updateFitData();
+			var dist = Activity.getActivityInfo().elapsedDistance;
+			if(autoLap == true){
+				if (_fitManager.isRecording() && dist != null) {
+					if (dist > nextAutoLap) {
+						handleLap();
+						nextAutoLap = nextAutoLap + autoLapDistance;
+					}
+				}	
+			}
+			
+			
 		    WatchUi.requestUpdate();
 		}
 	

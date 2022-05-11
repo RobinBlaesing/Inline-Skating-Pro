@@ -17,10 +17,8 @@ class SkatingDelegate  extends WatchUi.BehaviorDelegate {
 
 	function onMenu() {
 		System.println("onMenu SkatingDelegate");
-		if (_menu2 == null) {
-			_menu2 = new Rez.Menus.MyMenu2();
-			_menu2_delegate = new MyMenu2InputDelegate();
-		}
+		_menu2 = Application.getApp().menu2;
+		_menu2_delegate = Application.getApp().menu2Delegate;
 		WatchUi.pushView(_menu2, _menu2_delegate, WatchUi.SLIDE_IMMEDIATE);
 		return true;
 	}
