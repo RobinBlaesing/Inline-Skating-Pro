@@ -29,16 +29,7 @@ class SkatingMenuStopDelegate extends WatchUi.MenuInputDelegate {
         } else if (item == :item_3) {
             _controller.userFeedbackNotification(5);
         	_controller.stopRecording(false);
-        } else if (item == :item_4) {
-            if (_view.foregroundColor == Gfx.COLOR_BLACK) {
-                _view.foregroundColor = Gfx.COLOR_WHITE;
-                _view.backgroundColor = Gfx.COLOR_BLACK;
-            } else {
-                _view.foregroundColor = Gfx.COLOR_BLACK;
-                _view.backgroundColor = Gfx.COLOR_WHITE;
-            }
-            _fitManager.continueSession();
-        }
+        } 
     }
 
 }

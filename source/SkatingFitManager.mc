@@ -70,7 +70,7 @@ class FitManager {
 	function updateFitData(){
 		recordCadence();
 		recordStrideLength();
-        recordAvgSessionData();
+        recordAvgSessionData();  //also records avg Lap Data
         recordGlideTime();
         setStepsLast();
 	}
