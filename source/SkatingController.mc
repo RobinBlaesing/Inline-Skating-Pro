@@ -33,6 +33,10 @@ class Controller {
 	var autoLapDistance = 50;
 	var startAutoLap;		//set by Menu2Delegate
 	var nextAutoLap;		//initially set by Menu2Delegate
+
+	var lastSpeed = 5;
+	var thresholdSpeed = 1;
+	var autoPause = false;
 	
 
 	function initialize() {
@@ -62,6 +66,13 @@ class Controller {
 					}
 				}	
 			}
+
+			if(lastSpeed < thresholdSpeed && Activity.getActivityInfo().currentSpeed < thresholdSpeed){
+				_fitManager.pauseSession();
+			} else {
+				_fitManager.continueSession();
+			}
+
 			
 			
 		    WatchUi.requestUpdate();
@@ -78,6 +89,17 @@ class Controller {
     	//WatchUi.requestUpdate();
     }
     
+	function handleAutoPause(){
+		
+		if(autoPause == false){
+			_fitManager.continueSession();
+			autoPause = true;
+		} else{
+			_fitManager.pauseSession();
+			autoPause = false;
+		}
+	}
+
     function handleStartStop(){
     	if (_fitManager.hasSession() == false) { // Inital start
 			_fitManager.sessionStart();
