@@ -119,8 +119,14 @@ class SkatingView extends Ui.View {
         lowBatteryThreshold = 10; // (unit: %) Values 1 - 99
         
         // Custom colors:
+		System.println(Application.Properties.getValue("darkModeOn"));
+		if (Application.Properties.getValue("darkModeOn") == true) {
+			foregroundColor = Gfx.COLOR_WHITE;
+			backgroundColor = Gfx.COLOR_BLACK;
+		} else {
         foregroundColor = Gfx.COLOR_BLACK;
 		backgroundColor = Gfx.COLOR_WHITE;
+		}
 		
 		// Screen & font size:
 		stdScreenSize = 240.0;

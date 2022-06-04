@@ -1,0 +1,3 @@
+<menu2 id="Menu2unlock" title="@Strings.menu2unlock_title">
+    <toggle-menu-item id="unlock" label="Unlock" checked="false"/>
+</menu2>

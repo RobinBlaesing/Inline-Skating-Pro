@@ -11,6 +11,10 @@ class SkatingApp extends Application.AppBase {
 	var fitManager;
     var menu2;
     var menu2Delegate;
+    var menu2unlock;
+    var menu2unlockDelegate;
+    var menu2genkey;
+    var menu2genkeyDelegate;
 
     function initialize() {
         AppBase.initialize();
@@ -20,6 +24,10 @@ class SkatingApp extends Application.AppBase {
         controller = new $.Controller();
         menu2 = new Rez.Menus.Menu2();
         menu2Delegate = new $.Menu2Delegate();
+        menu2unlock = new Rez.Menus.Menu2unlock();
+        menu2unlockDelegate = new $.Menu2unlockDelegate();
+        menu2genkey = new Rez.Menus.Menu2genkey();
+        menu2genkeyDelegate = new $.Menu2genkeyDelegate();
     }
 
     // onStart() is called on application start up

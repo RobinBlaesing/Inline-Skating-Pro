@@ -63,6 +63,7 @@ class FitManager {
 	
 	
 	function initialize (){
+		System.println("initialize Fit Manager");
 		timeInit = System.getTimer();
 	}
 	

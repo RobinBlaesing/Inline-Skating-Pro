@@ -1,0 +1,16 @@
+    <settings>
+    
+    <setting propertyKey="@Properties.autoLapDistance" title="@Strings.autoLapSetting">
+        <settingConfig type="numeric" errorMessage="@Strings.MyNumberError" />
+    </setting>
+
+    <setting propertyKey="@Properties.qWatch" title="@Strings.qWatch">
+        <settingConfig type="alphaNumeric" readonly="true"/>
+    </setting>
+
+    <setting propertyKey="@Properties.Code" title="@Strings.Code">
+        <settingConfig type="alphaNumeric"/>
+    </setting>
+
+
+    </settings>

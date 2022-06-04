@@ -1,0 +1,3 @@
+<menu2 id="Menu2genkey" title="@Strings.menu2genkey_title">
+    <toggle-menu-item id="createKey" label="create Key" checked="false"/>
+</menu2>

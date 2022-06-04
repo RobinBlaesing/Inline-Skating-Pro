@@ -29,23 +29,38 @@ class Controller {
 	var firstView = STAT_STD;
 	var lastView = STAT_TOTAL;
 
-	var autoLap;
-	var autoLapDistance = 50;
-	var startAutoLap;		//set by Menu2Delegate
-	var nextAutoLap;		//initially set by Menu2Delegate
+	// Autopause and AutoLap Settings:
+	var autoLapSetting;
+	var autoLapDistance = Toybox.Application.Properties.getValue("autoLapDistance");
+	var startAutoLap;		
+	var nextAutoLap;		
 
+	var autoPauseSetting;
 	var lastSpeed = 5;
 	var thresholdSpeed = 1;
 	var autoPause = false;
 	
 
 	function initialize() {
+		System.println("initialize controller");
 		_fitManager = Application.getApp().fitManager;
 		_skatingView = Application.getApp().skatingView;
 		status = STAT_IDLE;
         Position.enableLocationEvents(Position.LOCATION_CONTINUOUS, method(:onPosition));
         setupTimer();
         device = WatchUi.loadResource(Rez.Strings.device_type);
+
+		//autoLap settings:
+		if (Application.Properties.getValue("autoLapOn") == true) {
+			startAutoLap = 0;
+			nextAutoLap = autoLapDistance;
+		}
+
+		//autoPause settings.:
+		if (Application.Properties.getValue("autoPauseOn") == true) {
+			autoPauseSetting = true;
+		}
+
     }
     
     // Timer:
@@ -57,23 +72,40 @@ class Controller {
 	
 		function updateEverySecond(){
 			_fitManager.updateFitData();
-			var dist = Activity.getActivityInfo().elapsedDistance;
-			if(autoLap == true){
+
+			// auto lap:
+			if(autoLapSetting == true){
+				var dist = Activity.getActivityInfo().elapsedDistance;
 				if (_fitManager.isRecording() && dist != null) {
-					if (dist > nextAutoLap) {
+					if (dist >= nextAutoLap) {
 						handleLap();
 						nextAutoLap = nextAutoLap + autoLapDistance;
 					}
 				}	
 			}
 
-			if(lastSpeed < thresholdSpeed && Activity.getActivityInfo().currentSpeed < thresholdSpeed){
-				_fitManager.pauseSession();
-			} else {
-				_fitManager.continueSession();
+			// auto pause:
+			if(autoPauseSetting == true){	
+				var currentSpeed = Activity.getActivityInfo().currentSpeed;
+				if(lastSpeed <= thresholdSpeed && currentSpeed <= thresholdSpeed){
+					// handleAutoPause(true);
+					if(autoPause == false){
+						// _fitManager.pauseSession();
+						WatchUi.pushView(new Rez.Menus.MainMenu(), new SkatingMenuStopDelegate(), WatchUi.SLIDE_UP);
+	   					userFeedbackNotification(0);
+						autoPause = true;
+					}
+				} else if(lastSpeed >= thresholdSpeed && currentSpeed >= thresholdSpeed){
+					// handleAutoPause(false);
+					if(autoPause == true){
+						_fitManager.continueSession();
+						userFeedbackNotification(3);
+						autoPause = false;
+					}
+				}
+				lastSpeed = currentSpeed;
 			}
 
-			
 			
 		    WatchUi.requestUpdate();
 		}
@@ -89,16 +121,16 @@ class Controller {
     	//WatchUi.requestUpdate();
     }
     
-	function handleAutoPause(){
-		
-		if(autoPause == false){
-			_fitManager.continueSession();
-			autoPause = true;
-		} else{
-			_fitManager.pauseSession();
-			autoPause = false;
-		}
-	}
+	// function handleAutoPause(state){
+	// 	// var sessionRunning = _fitManager.isRecording();
+	// 	if(state == true && autoPause == false){
+	// 		_fitManager.pauseSession();
+	// 		autoPause = true;
+	// 	} else if(state == false && autoPause == true){
+	// 		_fitManager.continueSession();
+	// 		autoPause = false;
+	// 	}
+	// }
 
     function handleStartStop(){
     	if (_fitManager.hasSession() == false) { // Inital start

@@ -1,0 +1,15 @@
+<properties>
+
+    <property id="autoLapDistance" type="number">500</property>
+    <property id="autoLapOn" type="boolean">false</property>
+    <property id="autoPauseOn" type="boolean">false</property>
+    <property id="darkModeOn" type="boolean">false</property>
+    <!-- <property id="unlocked" type="boolean">false</property>
+    <property id="genkey" type="boolean">false</property> -->
+    <property id="qOwn" type="string"></property>
+    <property id="qWatch" type="string"></property>
+    <property id="Code" type="string"></property>
+
+
+
+</properties>

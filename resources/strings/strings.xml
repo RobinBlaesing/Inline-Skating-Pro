@@ -48,5 +48,13 @@
 	<string id="device_type">base</string>
 
 	<string id="menu2_title">Options</string>
+	<string id="menu2unlock_title">Unlock</string>
+	<string id="menu2genkey_title">Unlock</string>
+
+	<string id="autoLapSetting">Auto Lap Distance</string>
+	<string id="MyNumberError">Please Enter a Number!</string>
+
+	<string id="qWatch">Copy and send to auth@inlineskatingpro.com</string>
+	<string id="Code">Enter the code we sent to unlock the premium version</string>
 
 </strings>
